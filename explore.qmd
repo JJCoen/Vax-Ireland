@@ -95,7 +95,7 @@ ggplot(data=irl_mort_xs, aes(x=age_cat, y=mort_xs,
   theme(legend.position='top', 
         legend.justification='left',
         legend.direction='horizontal') 
-ggsave("./figures/method1-diff-avg.jpeg")
+# ggsave("./figures/method1-diff-avg.jpeg")
 ```
 
 #### Output as Excel Table
@@ -478,10 +478,10 @@ ggplot(data=irl_lin, aes(x=age_cat, y=xs_lin,
   x = "age category",
   y = "death rate difference from linear fit") +
         annotate(geom = "text", x = "5-14", y = 100, 
-#              label = "Method 2C") +
+             label = "Method 2C") +
   theme_minimal() +
   theme(legend.position='top', 
         legend.justification='left',
         legend.direction='horizontal') 
-ggsave("./figures/method2c-diff-lin-fit.jpeg")
+# ggsave("./figures/method2c-diff-lin-fit.jpeg")
 ```

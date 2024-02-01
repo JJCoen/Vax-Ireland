@@ -19,7 +19,7 @@ get_mort_qtr <- function(mort){
     
     # Remove unused columns
     mort[, c("statistic", "unit") := NULL]
-    setnames(mort, "value", "count")
+    #setnames(mort, "value", "count")
     
     # Convert "count" column from char to integer
     # First, remove commas
