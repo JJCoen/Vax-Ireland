@@ -1,0 +1,811 @@
+STATISTIC,Quarter,Age at Death,Unit,Value
+Deaths Registered Provisional,2023Q2,Under 1 Year,Number,44
+Deaths Registered Provisional,2023Q2,4 Weeks to 1 Year,Number,6
+Deaths Registered Provisional,2023Q2,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2023Q2,Under 7 Days,Number,29
+Deaths Registered Provisional,2023Q2,1 to 7 Days,Number,14
+Deaths Registered Provisional,2023Q2,Under 1 Day,Number,15
+Deaths Registered Provisional,2023Q2,1 to 4 Years,Number,5
+Deaths Registered Provisional,2023Q2,5 to 14 Years,Number,11
+Deaths Registered Provisional,2023Q2,15 to 24 Years,Number,36
+Deaths Registered Provisional,2023Q2,25 to 34 Years,Number,78
+Deaths Registered Provisional,2023Q2,35 to 44 Years,Number,162
+Deaths Registered Provisional,2023Q2,45 to 54 Years,Number,382
+Deaths Registered Provisional,2023Q2,55 to 64 Years,Number,761
+Deaths Registered Provisional,2023Q2,65 to 74 Years,Number,"1,494"
+Deaths Registered Provisional,2023Q2,75 Years and Over,Number,"5,776"
+Deaths Registered Provisional,2023Q1,Under 1 Year,Number,43
+Deaths Registered Provisional,2023Q1,4 Weeks to 1 Year,Number,12
+Deaths Registered Provisional,2023Q1,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2023Q1,Under 7 Days,Number,24
+Deaths Registered Provisional,2023Q1,1 to 7 Days,Number,9
+Deaths Registered Provisional,2023Q1,Under 1 Day,Number,15
+Deaths Registered Provisional,2023Q1,1 to 4 Years,Number,5
+Deaths Registered Provisional,2023Q1,5 to 14 Years,Number,18
+Deaths Registered Provisional,2023Q1,15 to 24 Years,Number,42
+Deaths Registered Provisional,2023Q1,25 to 34 Years,Number,45
+Deaths Registered Provisional,2023Q1,35 to 44 Years,Number,137
+Deaths Registered Provisional,2023Q1,45 to 54 Years,Number,360
+Deaths Registered Provisional,2023Q1,55 to 64 Years,Number,771
+Deaths Registered Provisional,2023Q1,65 to 74 Years,Number,"1,657"
+Deaths Registered Provisional,2023Q1,75 Years and Over,Number,"7,127"
+Deaths Registered Provisional,2022Q4,Under 1 Year,Number,41
+Deaths Registered Provisional,2022Q4,4 Weeks to 1 Year,Number,12
+Deaths Registered Provisional,2022Q4,1 Week to 4 Weeks,Number,8
+Deaths Registered Provisional,2022Q4,Under 7 Days,Number,21
+Deaths Registered Provisional,2022Q4,1 to 7 Days,Number,8
+Deaths Registered Provisional,2022Q4,Under 1 Day,Number,13
+Deaths Registered Provisional,2022Q4,1 to 4 Years,Number,3
+Deaths Registered Provisional,2022Q4,5 to 14 Years,Number,9
+Deaths Registered Provisional,2022Q4,15 to 24 Years,Number,53
+Deaths Registered Provisional,2022Q4,25 to 34 Years,Number,94
+Deaths Registered Provisional,2022Q4,35 to 44 Years,Number,167
+Deaths Registered Provisional,2022Q4,45 to 54 Years,Number,361
+Deaths Registered Provisional,2022Q4,55 to 64 Years,Number,716
+Deaths Registered Provisional,2022Q4,65 to 74 Years,Number,"1,384"
+Deaths Registered Provisional,2022Q4,75 Years and Over,Number,"5,321"
+Deaths Registered Provisional,2022Q3,Under 1 Year,Number,56
+Deaths Registered Provisional,2022Q3,4 Weeks to 1 Year,Number,12
+Deaths Registered Provisional,2022Q3,1 Week to 4 Weeks,Number,4
+Deaths Registered Provisional,2022Q3,Under 7 Days,Number,40
+Deaths Registered Provisional,2022Q3,1 to 7 Days,Number,12
+Deaths Registered Provisional,2022Q3,Under 1 Day,Number,28
+Deaths Registered Provisional,2022Q3,1 to 4 Years,Number,5
+Deaths Registered Provisional,2022Q3,5 to 14 Years,Number,12
+Deaths Registered Provisional,2022Q3,15 to 24 Years,Number,48
+Deaths Registered Provisional,2022Q3,25 to 34 Years,Number,83
+Deaths Registered Provisional,2022Q3,35 to 44 Years,Number,167
+Deaths Registered Provisional,2022Q3,45 to 54 Years,Number,370
+Deaths Registered Provisional,2022Q3,55 to 64 Years,Number,777
+Deaths Registered Provisional,2022Q3,65 to 74 Years,Number,"1,531"
+Deaths Registered Provisional,2022Q3,75 Years and Over,Number,"5,418"
+Deaths Registered Provisional,2022Q2,Under 1 Year,Number,51
+Deaths Registered Provisional,2022Q2,4 Weeks to 1 Year,Number,18
+Deaths Registered Provisional,2022Q2,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2022Q2,Under 7 Days,Number,26
+Deaths Registered Provisional,2022Q2,1 to 7 Days,Number,8
+Deaths Registered Provisional,2022Q2,Under 1 Day,Number,18
+Deaths Registered Provisional,2022Q2,1 to 4 Years,Number,6
+Deaths Registered Provisional,2022Q2,5 to 14 Years,Number,11
+Deaths Registered Provisional,2022Q2,15 to 24 Years,Number,41
+Deaths Registered Provisional,2022Q2,25 to 34 Years,Number,97
+Deaths Registered Provisional,2022Q2,35 to 44 Years,Number,179
+Deaths Registered Provisional,2022Q2,45 to 54 Years,Number,377
+Deaths Registered Provisional,2022Q2,55 to 64 Years,Number,792
+Deaths Registered Provisional,2022Q2,65 to 74 Years,Number,"1,617"
+Deaths Registered Provisional,2022Q2,75 Years and Over,Number,"6,155"
+Deaths Registered Provisional,2022Q1,Under 1 Year,Number,43
+Deaths Registered Provisional,2022Q1,4 Weeks to 1 Year,Number,9
+Deaths Registered Provisional,2022Q1,1 Week to 4 Weeks,Number,11
+Deaths Registered Provisional,2022Q1,Under 7 Days,Number,23
+Deaths Registered Provisional,2022Q1,1 to 7 Days,Number,11
+Deaths Registered Provisional,2022Q1,Under 1 Day,Number,12
+Deaths Registered Provisional,2022Q1,1 to 4 Years,Number,5
+Deaths Registered Provisional,2022Q1,5 to 14 Years,Number,10
+Deaths Registered Provisional,2022Q1,15 to 24 Years,Number,33
+Deaths Registered Provisional,2022Q1,25 to 34 Years,Number,66
+Deaths Registered Provisional,2022Q1,35 to 44 Years,Number,146
+Deaths Registered Provisional,2022Q1,45 to 54 Years,Number,382
+Deaths Registered Provisional,2022Q1,55 to 64 Years,Number,837
+Deaths Registered Provisional,2022Q1,65 to 74 Years,Number,"1,585"
+Deaths Registered Provisional,2022Q1,75 Years and Over,Number,"6,428"
+Deaths Registered Provisional,2021Q4,Under 1 Year,Number,62
+Deaths Registered Provisional,2021Q4,4 Weeks to 1 Year,Number,16
+Deaths Registered Provisional,2021Q4,1 Week to 4 Weeks,Number,11
+Deaths Registered Provisional,2021Q4,Under 7 Days,Number,35
+Deaths Registered Provisional,2021Q4,1 to 7 Days,Number,18
+Deaths Registered Provisional,2021Q4,Under 1 Day,Number,17
+Deaths Registered Provisional,2021Q4,1 to 4 Years,Number,1
+Deaths Registered Provisional,2021Q4,5 to 14 Years,Number,10
+Deaths Registered Provisional,2021Q4,15 to 24 Years,Number,52
+Deaths Registered Provisional,2021Q4,25 to 34 Years,Number,78
+Deaths Registered Provisional,2021Q4,35 to 44 Years,Number,192
+Deaths Registered Provisional,2021Q4,45 to 54 Years,Number,428
+Deaths Registered Provisional,2021Q4,55 to 64 Years,Number,811
+Deaths Registered Provisional,2021Q4,65 to 74 Years,Number,"1,518"
+Deaths Registered Provisional,2021Q4,75 Years and Over,Number,"5,474"
+Deaths Registered Provisional,2021Q3,Under 1 Year,Number,52
+Deaths Registered Provisional,2021Q3,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2021Q3,1 Week to 4 Weeks,Number,11
+Deaths Registered Provisional,2021Q3,Under 7 Days,Number,30
+Deaths Registered Provisional,2021Q3,1 to 7 Days,Number,13
+Deaths Registered Provisional,2021Q3,Under 1 Day,Number,17
+Deaths Registered Provisional,2021Q3,1 to 4 Years,Number,5
+Deaths Registered Provisional,2021Q3,5 to 14 Years,Number,9
+Deaths Registered Provisional,2021Q3,15 to 24 Years,Number,41
+Deaths Registered Provisional,2021Q3,25 to 34 Years,Number,93
+Deaths Registered Provisional,2021Q3,35 to 44 Years,Number,205
+Deaths Registered Provisional,2021Q3,45 to 54 Years,Number,390
+Deaths Registered Provisional,2021Q3,55 to 64 Years,Number,783
+Deaths Registered Provisional,2021Q3,65 to 74 Years,Number,"1,475"
+Deaths Registered Provisional,2021Q3,75 Years and Over,Number,"5,112"
+Deaths Registered Provisional,2021Q2,Under 1 Year,Number,29
+Deaths Registered Provisional,2021Q2,4 Weeks to 1 Year,Number,6
+Deaths Registered Provisional,2021Q2,1 Week to 4 Weeks,Number,6
+Deaths Registered Provisional,2021Q2,Under 7 Days,Number,17
+Deaths Registered Provisional,2021Q2,1 to 7 Days,Number,5
+Deaths Registered Provisional,2021Q2,Under 1 Day,Number,12
+Deaths Registered Provisional,2021Q2,1 to 4 Years,Number,5
+Deaths Registered Provisional,2021Q2,5 to 14 Years,Number,7
+Deaths Registered Provisional,2021Q2,15 to 24 Years,Number,33
+Deaths Registered Provisional,2021Q2,25 to 34 Years,Number,39
+Deaths Registered Provisional,2021Q2,35 to 44 Years,Number,126
+Deaths Registered Provisional,2021Q2,45 to 54 Years,Number,284
+Deaths Registered Provisional,2021Q2,55 to 64 Years,Number,619
+Deaths Registered Provisional,2021Q2,65 to 74 Years,Number,"1,219"
+Deaths Registered Provisional,2021Q2,75 Years and Over,Number,"4,339"
+Deaths Registered Provisional,2021Q1,Under 1 Year,Number,37
+Deaths Registered Provisional,2021Q1,4 Weeks to 1 Year,Number,7
+Deaths Registered Provisional,2021Q1,1 Week to 4 Weeks,Number,12
+Deaths Registered Provisional,2021Q1,Under 7 Days,Number,18
+Deaths Registered Provisional,2021Q1,1 to 7 Days,Number,7
+Deaths Registered Provisional,2021Q1,Under 1 Day,Number,..
+Deaths Registered Provisional,2021Q1,1 to 4 Years,Number,3
+Deaths Registered Provisional,2021Q1,5 to 14 Years,Number,9
+Deaths Registered Provisional,2021Q1,15 to 24 Years,Number,20
+Deaths Registered Provisional,2021Q1,25 to 34 Years,Number,52
+Deaths Registered Provisional,2021Q1,35 to 44 Years,Number,151
+Deaths Registered Provisional,2021Q1,45 to 54 Years,Number,345
+Deaths Registered Provisional,2021Q1,55 to 64 Years,Number,762
+Deaths Registered Provisional,2021Q1,65 to 74 Years,Number,"1,635"
+Deaths Registered Provisional,2021Q1,75 Years and Over,Number,"6,550"
+Deaths Registered Provisional,2020Q4,Under 1 Year,Number,39
+Deaths Registered Provisional,2020Q4,4 Weeks to 1 Year,Number,9
+Deaths Registered Provisional,2020Q4,1 Week to 4 Weeks,Number,5
+Deaths Registered Provisional,2020Q4,Under 7 Days,Number,25
+Deaths Registered Provisional,2020Q4,1 to 7 Days,Number,7
+Deaths Registered Provisional,2020Q4,Under 1 Day,Number,1
+Deaths Registered Provisional,2020Q4,1 to 4 Years,Number,7
+Deaths Registered Provisional,2020Q4,5 to 14 Years,Number,18
+Deaths Registered Provisional,2020Q4,15 to 24 Years,Number,60
+Deaths Registered Provisional,2020Q4,25 to 34 Years,Number,82
+Deaths Registered Provisional,2020Q4,35 to 44 Years,Number,197
+Deaths Registered Provisional,2020Q4,45 to 54 Years,Number,345
+Deaths Registered Provisional,2020Q4,55 to 64 Years,Number,673
+Deaths Registered Provisional,2020Q4,65 to 74 Years,Number,"1,335"
+Deaths Registered Provisional,2020Q4,75 Years and Over,Number,"4,642"
+Deaths Registered Provisional,2020Q3,Under 1 Year,Number,36
+Deaths Registered Provisional,2020Q3,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2020Q3,1 Week to 4 Weeks,Number,8
+Deaths Registered Provisional,2020Q3,Under 7 Days,Number,17
+Deaths Registered Provisional,2020Q3,1 to 7 Days,Number,6
+Deaths Registered Provisional,2020Q3,Under 1 Day,Number,11
+Deaths Registered Provisional,2020Q3,1 to 4 Years,Number,8
+Deaths Registered Provisional,2020Q3,5 to 14 Years,Number,12
+Deaths Registered Provisional,2020Q3,15 to 24 Years,Number,22
+Deaths Registered Provisional,2020Q3,25 to 34 Years,Number,65
+Deaths Registered Provisional,2020Q3,35 to 44 Years,Number,147
+Deaths Registered Provisional,2020Q3,45 to 54 Years,Number,319
+Deaths Registered Provisional,2020Q3,55 to 64 Years,Number,680
+Deaths Registered Provisional,2020Q3,65 to 74 Years,Number,"1,318"
+Deaths Registered Provisional,2020Q3,75 Years and Over,Number,"4,504"
+Deaths Registered Provisional,2020Q2,Under 1 Year,Number,36
+Deaths Registered Provisional,2020Q2,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2020Q2,1 Week to 4 Weeks,Number,4
+Deaths Registered Provisional,2020Q2,Under 7 Days,Number,21
+Deaths Registered Provisional,2020Q2,1 to 7 Days,Number,8
+Deaths Registered Provisional,2020Q2,Under 1 Day,Number,2
+Deaths Registered Provisional,2020Q2,1 to 4 Years,Number,4
+Deaths Registered Provisional,2020Q2,5 to 14 Years,Number,5
+Deaths Registered Provisional,2020Q2,15 to 24 Years,Number,19
+Deaths Registered Provisional,2020Q2,25 to 34 Years,Number,51
+Deaths Registered Provisional,2020Q2,35 to 44 Years,Number,150
+Deaths Registered Provisional,2020Q2,45 to 54 Years,Number,308
+Deaths Registered Provisional,2020Q2,55 to 64 Years,Number,714
+Deaths Registered Provisional,2020Q2,65 to 74 Years,Number,"1,590"
+Deaths Registered Provisional,2020Q2,75 Years and Over,Number,"5,705"
+Deaths Registered Provisional,2020Q1,Under 1 Year,Number,42
+Deaths Registered Provisional,2020Q1,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2020Q1,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2020Q1,Under 7 Days,Number,24
+Deaths Registered Provisional,2020Q1,1 to 7 Days,Number,12
+Deaths Registered Provisional,2020Q1,Under 1 Day,Number,14
+Deaths Registered Provisional,2020Q1,1 to 4 Years,Number,8
+Deaths Registered Provisional,2020Q1,5 to 14 Years,Number,12
+Deaths Registered Provisional,2020Q1,15 to 24 Years,Number,35
+Deaths Registered Provisional,2020Q1,25 to 34 Years,Number,58
+Deaths Registered Provisional,2020Q1,35 to 44 Years,Number,148
+Deaths Registered Provisional,2020Q1,45 to 54 Years,Number,327
+Deaths Registered Provisional,2020Q1,55 to 64 Years,Number,698
+Deaths Registered Provisional,2020Q1,65 to 74 Years,Number,"1,579"
+Deaths Registered Provisional,2020Q1,75 Years and Over,Number,"5,767"
+Deaths Registered Provisional,2019Q4,Under 1 Year,Number,44
+Deaths Registered Provisional,2019Q4,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2019Q4,1 Week to 4 Weeks,Number,11
+Deaths Registered Provisional,2019Q4,Under 7 Days,Number,22
+Deaths Registered Provisional,2019Q4,1 to 7 Days,Number,8
+Deaths Registered Provisional,2019Q4,Under 1 Day,Number,16
+Deaths Registered Provisional,2019Q4,1 to 4 Years,Number,10
+Deaths Registered Provisional,2019Q4,5 to 14 Years,Number,13
+Deaths Registered Provisional,2019Q4,15 to 24 Years,Number,51
+Deaths Registered Provisional,2019Q4,25 to 34 Years,Number,115
+Deaths Registered Provisional,2019Q4,35 to 44 Years,Number,205
+Deaths Registered Provisional,2019Q4,45 to 54 Years,Number,355
+Deaths Registered Provisional,2019Q4,55 to 64 Years,Number,702
+Deaths Registered Provisional,2019Q4,65 to 74 Years,Number,"1,366"
+Deaths Registered Provisional,2019Q4,75 Years and Over,Number,"4,778"
+Deaths Registered Provisional,2019Q3,Under 1 Year,Number,46
+Deaths Registered Provisional,2019Q3,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2019Q3,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2019Q3,Under 7 Days,Number,27
+Deaths Registered Provisional,2019Q3,1 to 7 Days,Number,4
+Deaths Registered Provisional,2019Q3,Under 1 Day,Number,23
+Deaths Registered Provisional,2019Q3,1 to 4 Years,Number,4
+Deaths Registered Provisional,2019Q3,5 to 14 Years,Number,10
+Deaths Registered Provisional,2019Q3,15 to 24 Years,Number,31
+Deaths Registered Provisional,2019Q3,25 to 34 Years,Number,73
+Deaths Registered Provisional,2019Q3,35 to 44 Years,Number,162
+Deaths Registered Provisional,2019Q3,45 to 54 Years,Number,331
+Deaths Registered Provisional,2019Q3,55 to 64 Years,Number,739
+Deaths Registered Provisional,2019Q3,65 to 74 Years,Number,"1,390"
+Deaths Registered Provisional,2019Q3,75 Years and Over,Number,"4,572"
+Deaths Registered Provisional,2019Q2,Under 1 Year,Number,48
+Deaths Registered Provisional,2019Q2,4 Weeks to 1 Year,Number,14
+Deaths Registered Provisional,2019Q2,1 Week to 4 Weeks,Number,8
+Deaths Registered Provisional,2019Q2,Under 7 Days,Number,26
+Deaths Registered Provisional,2019Q2,1 to 7 Days,Number,10
+Deaths Registered Provisional,2019Q2,Under 1 Day,Number,16
+Deaths Registered Provisional,2019Q2,1 to 4 Years,Number,8
+Deaths Registered Provisional,2019Q2,5 to 14 Years,Number,5
+Deaths Registered Provisional,2019Q2,15 to 24 Years,Number,38
+Deaths Registered Provisional,2019Q2,25 to 34 Years,Number,62
+Deaths Registered Provisional,2019Q2,35 to 44 Years,Number,171
+Deaths Registered Provisional,2019Q2,45 to 54 Years,Number,321
+Deaths Registered Provisional,2019Q2,55 to 64 Years,Number,731
+Deaths Registered Provisional,2019Q2,65 to 74 Years,Number,"1,334"
+Deaths Registered Provisional,2019Q2,75 Years and Over,Number,"4,801"
+Deaths Registered Provisional,2019Q1,Under 1 Year,Number,52
+Deaths Registered Provisional,2019Q1,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2019Q1,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2019Q1,Under 7 Days,Number,34
+Deaths Registered Provisional,2019Q1,1 to 7 Days,Number,11
+Deaths Registered Provisional,2019Q1,Under 1 Day,Number,23
+Deaths Registered Provisional,2019Q1,1 to 4 Years,Number,7
+Deaths Registered Provisional,2019Q1,5 to 14 Years,Number,17
+Deaths Registered Provisional,2019Q1,15 to 24 Years,Number,33
+Deaths Registered Provisional,2019Q1,25 to 34 Years,Number,55
+Deaths Registered Provisional,2019Q1,35 to 44 Years,Number,135
+Deaths Registered Provisional,2019Q1,45 to 54 Years,Number,367
+Deaths Registered Provisional,2019Q1,55 to 64 Years,Number,755
+Deaths Registered Provisional,2019Q1,65 to 74 Years,Number,"1,525"
+Deaths Registered Provisional,2019Q1,75 Years and Over,Number,"5,672"
+Deaths Registered Provisional,2018Q4,Under 1 Year,Number,40
+Deaths Registered Provisional,2018Q4,4 Weeks to 1 Year,Number,10
+Deaths Registered Provisional,2018Q4,1 Week to 4 Weeks,Number,12
+Deaths Registered Provisional,2018Q4,Under 7 Days,Number,18
+Deaths Registered Provisional,2018Q4,1 to 7 Days,Number,7
+Deaths Registered Provisional,2018Q4,Under 1 Day,Number,11
+Deaths Registered Provisional,2018Q4,1 to 4 Years,Number,9
+Deaths Registered Provisional,2018Q4,5 to 14 Years,Number,18
+Deaths Registered Provisional,2018Q4,15 to 24 Years,Number,54
+Deaths Registered Provisional,2018Q4,25 to 34 Years,Number,89
+Deaths Registered Provisional,2018Q4,35 to 44 Years,Number,185
+Deaths Registered Provisional,2018Q4,45 to 54 Years,Number,324
+Deaths Registered Provisional,2018Q4,55 to 64 Years,Number,687
+Deaths Registered Provisional,2018Q4,65 to 74 Years,Number,"1,322"
+Deaths Registered Provisional,2018Q4,75 Years and Over,Number,"4,375"
+Deaths Registered Provisional,2018Q3,Under 1 Year,Number,45
+Deaths Registered Provisional,2018Q3,4 Weeks to 1 Year,Number,14
+Deaths Registered Provisional,2018Q3,1 Week to 4 Weeks,Number,4
+Deaths Registered Provisional,2018Q3,Under 7 Days,Number,27
+Deaths Registered Provisional,2018Q3,1 to 7 Days,Number,6
+Deaths Registered Provisional,2018Q3,Under 1 Day,Number,21
+Deaths Registered Provisional,2018Q3,1 to 4 Years,Number,8
+Deaths Registered Provisional,2018Q3,5 to 14 Years,Number,11
+Deaths Registered Provisional,2018Q3,15 to 24 Years,Number,30
+Deaths Registered Provisional,2018Q3,25 to 34 Years,Number,92
+Deaths Registered Provisional,2018Q3,35 to 44 Years,Number,165
+Deaths Registered Provisional,2018Q3,45 to 54 Years,Number,344
+Deaths Registered Provisional,2018Q3,55 to 64 Years,Number,677
+Deaths Registered Provisional,2018Q3,65 to 74 Years,Number,"1,349"
+Deaths Registered Provisional,2018Q3,75 Years and Over,Number,"4,422"
+Deaths Registered Provisional,2018Q2,Under 1 Year,Number,47
+Deaths Registered Provisional,2018Q2,4 Weeks to 1 Year,Number,13
+Deaths Registered Provisional,2018Q2,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2018Q2,Under 7 Days,Number,27
+Deaths Registered Provisional,2018Q2,1 to 7 Days,Number,9
+Deaths Registered Provisional,2018Q2,Under 1 Day,Number,18
+Deaths Registered Provisional,2018Q2,1 to 4 Years,Number,5
+Deaths Registered Provisional,2018Q2,5 to 14 Years,Number,14
+Deaths Registered Provisional,2018Q2,15 to 24 Years,Number,37
+Deaths Registered Provisional,2018Q2,25 to 34 Years,Number,72
+Deaths Registered Provisional,2018Q2,35 to 44 Years,Number,110
+Deaths Registered Provisional,2018Q2,45 to 54 Years,Number,329
+Deaths Registered Provisional,2018Q2,55 to 64 Years,Number,682
+Deaths Registered Provisional,2018Q2,65 to 74 Years,Number,"1,391"
+Deaths Registered Provisional,2018Q2,75 Years and Over,Number,"4,905"
+Deaths Registered Provisional,2018Q1,Under 1 Year,Number,55
+Deaths Registered Provisional,2018Q1,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2018Q1,1 Week to 4 Weeks,Number,12
+Deaths Registered Provisional,2018Q1,Under 7 Days,Number,32
+Deaths Registered Provisional,2018Q1,1 to 7 Days,Number,14
+Deaths Registered Provisional,2018Q1,Under 1 Day,Number,18
+Deaths Registered Provisional,2018Q1,1 to 4 Years,Number,5
+Deaths Registered Provisional,2018Q1,5 to 14 Years,Number,11
+Deaths Registered Provisional,2018Q1,15 to 24 Years,Number,36
+Deaths Registered Provisional,2018Q1,25 to 34 Years,Number,78
+Deaths Registered Provisional,2018Q1,35 to 44 Years,Number,159
+Deaths Registered Provisional,2018Q1,45 to 54 Years,Number,349
+Deaths Registered Provisional,2018Q1,55 to 64 Years,Number,716
+Deaths Registered Provisional,2018Q1,65 to 74 Years,Number,"1,527"
+Deaths Registered Provisional,2018Q1,75 Years and Over,Number,"6,342"
+Deaths Registered Provisional,2017Q4,Under 1 Year,Number,39
+Deaths Registered Provisional,2017Q4,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2017Q4,1 Week to 4 Weeks,Number,5
+Deaths Registered Provisional,2017Q4,Under 7 Days,Number,23
+Deaths Registered Provisional,2017Q4,1 to 7 Days,Number,11
+Deaths Registered Provisional,2017Q4,Under 1 Day,Number,12
+Deaths Registered Provisional,2017Q4,1 to 4 Years,Number,7
+Deaths Registered Provisional,2017Q4,5 to 14 Years,Number,14
+Deaths Registered Provisional,2017Q4,15 to 24 Years,Number,49
+Deaths Registered Provisional,2017Q4,25 to 34 Years,Number,94
+Deaths Registered Provisional,2017Q4,35 to 44 Years,Number,192
+Deaths Registered Provisional,2017Q4,45 to 54 Years,Number,329
+Deaths Registered Provisional,2017Q4,55 to 64 Years,Number,652
+Deaths Registered Provisional,2017Q4,65 to 74 Years,Number,"1,210"
+Deaths Registered Provisional,2017Q4,75 Years and Over,Number,"4,529"
+Deaths Registered Provisional,2017Q3,Under 1 Year,Number,49
+Deaths Registered Provisional,2017Q3,4 Weeks to 1 Year,Number,8
+Deaths Registered Provisional,2017Q3,1 Week to 4 Weeks,Number,13
+Deaths Registered Provisional,2017Q3,Under 7 Days,Number,28
+Deaths Registered Provisional,2017Q3,1 to 7 Days,Number,14
+Deaths Registered Provisional,2017Q3,Under 1 Day,Number,14
+Deaths Registered Provisional,2017Q3,1 to 4 Years,Number,12
+Deaths Registered Provisional,2017Q3,5 to 14 Years,Number,9
+Deaths Registered Provisional,2017Q3,15 to 24 Years,Number,35
+Deaths Registered Provisional,2017Q3,25 to 34 Years,Number,68
+Deaths Registered Provisional,2017Q3,35 to 44 Years,Number,166
+Deaths Registered Provisional,2017Q3,45 to 54 Years,Number,320
+Deaths Registered Provisional,2017Q3,55 to 64 Years,Number,688
+Deaths Registered Provisional,2017Q3,65 to 74 Years,Number,"1,335"
+Deaths Registered Provisional,2017Q3,75 Years and Over,Number,"4,305"
+Deaths Registered Provisional,2017Q2,Under 1 Year,Number,46
+Deaths Registered Provisional,2017Q2,4 Weeks to 1 Year,Number,9
+Deaths Registered Provisional,2017Q2,1 Week to 4 Weeks,Number,8
+Deaths Registered Provisional,2017Q2,Under 7 Days,Number,29
+Deaths Registered Provisional,2017Q2,1 to 7 Days,Number,11
+Deaths Registered Provisional,2017Q2,Under 1 Day,Number,18
+Deaths Registered Provisional,2017Q2,1 to 4 Years,Number,4
+Deaths Registered Provisional,2017Q2,5 to 14 Years,Number,14
+Deaths Registered Provisional,2017Q2,15 to 24 Years,Number,45
+Deaths Registered Provisional,2017Q2,25 to 34 Years,Number,89
+Deaths Registered Provisional,2017Q2,35 to 44 Years,Number,159
+Deaths Registered Provisional,2017Q2,45 to 54 Years,Number,355
+Deaths Registered Provisional,2017Q2,55 to 64 Years,Number,672
+Deaths Registered Provisional,2017Q2,65 to 74 Years,Number,"1,317"
+Deaths Registered Provisional,2017Q2,75 Years and Over,Number,"4,614"
+Deaths Registered Provisional,2017Q1,Under 1 Year,Number,40
+Deaths Registered Provisional,2017Q1,4 Weeks to 1 Year,Number,8
+Deaths Registered Provisional,2017Q1,1 Week to 4 Weeks,Number,10
+Deaths Registered Provisional,2017Q1,Under 7 Days,Number,22
+Deaths Registered Provisional,2017Q1,1 to 7 Days,Number,6
+Deaths Registered Provisional,2017Q1,Under 1 Day,Number,16
+Deaths Registered Provisional,2017Q1,1 to 4 Years,Number,5
+Deaths Registered Provisional,2017Q1,5 to 14 Years,Number,8
+Deaths Registered Provisional,2017Q1,15 to 24 Years,Number,46
+Deaths Registered Provisional,2017Q1,25 to 34 Years,Number,55
+Deaths Registered Provisional,2017Q1,35 to 44 Years,Number,162
+Deaths Registered Provisional,2017Q1,45 to 54 Years,Number,308
+Deaths Registered Provisional,2017Q1,55 to 64 Years,Number,727
+Deaths Registered Provisional,2017Q1,65 to 74 Years,Number,"1,502"
+Deaths Registered Provisional,2017Q1,75 Years and Over,Number,"6,214"
+Deaths Registered Provisional,2016Q4,Under 1 Year,Number,..
+Deaths Registered Provisional,2016Q4,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2016Q4,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2016Q4,Under 7 Days,Number,30
+Deaths Registered Provisional,2016Q4,1 to 7 Days,Number,11
+Deaths Registered Provisional,2016Q4,Under 1 Day,Number,19
+Deaths Registered Provisional,2016Q4,1 to 4 Years,Number,6
+Deaths Registered Provisional,2016Q4,5 to 14 Years,Number,9
+Deaths Registered Provisional,2016Q4,15 to 24 Years,Number,43
+Deaths Registered Provisional,2016Q4,25 to 34 Years,Number,104
+Deaths Registered Provisional,2016Q4,35 to 44 Years,Number,151
+Deaths Registered Provisional,2016Q4,45 to 54 Years,Number,350
+Deaths Registered Provisional,2016Q4,55 to 64 Years,Number,602
+Deaths Registered Provisional,2016Q4,65 to 74 Years,Number,"1,266"
+Deaths Registered Provisional,2016Q4,75 Years and Over,Number,"4,376"
+Deaths Registered Provisional,2016Q3,Under 1 Year,Number,49
+Deaths Registered Provisional,2016Q3,4 Weeks to 1 Year,Number,11
+Deaths Registered Provisional,2016Q3,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2016Q3,Under 7 Days,Number,29
+Deaths Registered Provisional,2016Q3,1 to 7 Days,Number,11
+Deaths Registered Provisional,2016Q3,Under 1 Day,Number,18
+Deaths Registered Provisional,2016Q3,1 to 4 Years,Number,8
+Deaths Registered Provisional,2016Q3,5 to 14 Years,Number,9
+Deaths Registered Provisional,2016Q3,15 to 24 Years,Number,38
+Deaths Registered Provisional,2016Q3,25 to 34 Years,Number,78
+Deaths Registered Provisional,2016Q3,35 to 44 Years,Number,181
+Deaths Registered Provisional,2016Q3,45 to 54 Years,Number,334
+Deaths Registered Provisional,2016Q3,55 to 64 Years,Number,715
+Deaths Registered Provisional,2016Q3,65 to 74 Years,Number,"1,348"
+Deaths Registered Provisional,2016Q3,75 Years and Over,Number,"4,369"
+Deaths Registered Provisional,2016Q2,Under 1 Year,Number,48
+Deaths Registered Provisional,2016Q2,4 Weeks to 1 Year,Number,12
+Deaths Registered Provisional,2016Q2,1 Week to 4 Weeks,Number,10
+Deaths Registered Provisional,2016Q2,Under 7 Days,Number,26
+Deaths Registered Provisional,2016Q2,1 to 7 Days,Number,10
+Deaths Registered Provisional,2016Q2,Under 1 Day,Number,16
+Deaths Registered Provisional,2016Q2,1 to 4 Years,Number,9
+Deaths Registered Provisional,2016Q2,5 to 14 Years,Number,12
+Deaths Registered Provisional,2016Q2,15 to 24 Years,Number,41
+Deaths Registered Provisional,2016Q2,25 to 34 Years,Number,76
+Deaths Registered Provisional,2016Q2,35 to 44 Years,Number,157
+Deaths Registered Provisional,2016Q2,45 to 54 Years,Number,334
+Deaths Registered Provisional,2016Q2,55 to 64 Years,Number,724
+Deaths Registered Provisional,2016Q2,65 to 74 Years,Number,"1,360"
+Deaths Registered Provisional,2016Q2,75 Years and Over,Number,"4,783"
+Deaths Registered Provisional,2016Q1,Under 1 Year,Number,63
+Deaths Registered Provisional,2016Q1,4 Weeks to 1 Year,Number,18
+Deaths Registered Provisional,2016Q1,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2016Q1,Under 7 Days,Number,38
+Deaths Registered Provisional,2016Q1,1 to 7 Days,Number,17
+Deaths Registered Provisional,2016Q1,Under 1 Day,Number,21
+Deaths Registered Provisional,2016Q1,1 to 4 Years,Number,6
+Deaths Registered Provisional,2016Q1,5 to 14 Years,Number,4
+Deaths Registered Provisional,2016Q1,15 to 24 Years,Number,45
+Deaths Registered Provisional,2016Q1,25 to 34 Years,Number,78
+Deaths Registered Provisional,2016Q1,35 to 44 Years,Number,127
+Deaths Registered Provisional,2016Q1,45 to 54 Years,Number,347
+Deaths Registered Provisional,2016Q1,55 to 64 Years,Number,798
+Deaths Registered Provisional,2016Q1,65 to 74 Years,Number,"1,532"
+Deaths Registered Provisional,2016Q1,75 Years and Over,Number,"5,609"
+Deaths Registered Provisional,2015Q4,Under 1 Year,Number,64
+Deaths Registered Provisional,2015Q4,4 Weeks to 1 Year,Number,16
+Deaths Registered Provisional,2015Q4,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2015Q4,Under 7 Days,Number,41
+Deaths Registered Provisional,2015Q4,1 to 7 Days,Number,19
+Deaths Registered Provisional,2015Q4,Under 1 Day,Number,22
+Deaths Registered Provisional,2015Q4,1 to 4 Years,Number,6
+Deaths Registered Provisional,2015Q4,5 to 14 Years,Number,15
+Deaths Registered Provisional,2015Q4,15 to 24 Years,Number,54
+Deaths Registered Provisional,2015Q4,25 to 34 Years,Number,94
+Deaths Registered Provisional,2015Q4,35 to 44 Years,Number,163
+Deaths Registered Provisional,2015Q4,45 to 54 Years,Number,342
+Deaths Registered Provisional,2015Q4,55 to 64 Years,Number,690
+Deaths Registered Provisional,2015Q4,65 to 74 Years,Number,"1,189"
+Deaths Registered Provisional,2015Q4,75 Years and Over,Number,"4,315"
+Deaths Registered Provisional,2015Q3,Under 1 Year,Number,52
+Deaths Registered Provisional,2015Q3,4 Weeks to 1 Year,Number,..
+Deaths Registered Provisional,2015Q3,1 Week to 4 Weeks,Number,..
+Deaths Registered Provisional,2015Q3,Under 7 Days,Number,..
+Deaths Registered Provisional,2015Q3,1 to 7 Days,Number,..
+Deaths Registered Provisional,2015Q3,Under 1 Day,Number,..
+Deaths Registered Provisional,2015Q3,1 to 4 Years,Number,8
+Deaths Registered Provisional,2015Q3,5 to 14 Years,Number,16
+Deaths Registered Provisional,2015Q3,15 to 24 Years,Number,52
+Deaths Registered Provisional,2015Q3,25 to 34 Years,Number,107
+Deaths Registered Provisional,2015Q3,35 to 44 Years,Number,174
+Deaths Registered Provisional,2015Q3,45 to 54 Years,Number,335
+Deaths Registered Provisional,2015Q3,55 to 64 Years,Number,624
+Deaths Registered Provisional,2015Q3,65 to 74 Years,Number,"1,263"
+Deaths Registered Provisional,2015Q3,75 Years and Over,Number,"4,220"
+Deaths Registered Provisional,2015Q2,Under 1 Year,Number,34
+Deaths Registered Provisional,2015Q2,4 Weeks to 1 Year,Number,..
+Deaths Registered Provisional,2015Q2,1 Week to 4 Weeks,Number,..
+Deaths Registered Provisional,2015Q2,Under 7 Days,Number,..
+Deaths Registered Provisional,2015Q2,1 to 7 Days,Number,..
+Deaths Registered Provisional,2015Q2,Under 1 Day,Number,..
+Deaths Registered Provisional,2015Q2,1 to 4 Years,Number,12
+Deaths Registered Provisional,2015Q2,5 to 14 Years,Number,13
+Deaths Registered Provisional,2015Q2,15 to 24 Years,Number,47
+Deaths Registered Provisional,2015Q2,25 to 34 Years,Number,106
+Deaths Registered Provisional,2015Q2,35 to 44 Years,Number,161
+Deaths Registered Provisional,2015Q2,45 to 54 Years,Number,337
+Deaths Registered Provisional,2015Q2,55 to 64 Years,Number,687
+Deaths Registered Provisional,2015Q2,65 to 74 Years,Number,"1,335"
+Deaths Registered Provisional,2015Q2,75 Years and Over,Number,"4,833"
+Deaths Registered Provisional,2015Q1,Under 1 Year,Number,55
+Deaths Registered Provisional,2015Q1,4 Weeks to 1 Year,Number,24
+Deaths Registered Provisional,2015Q1,1 Week to 4 Weeks,Number,11
+Deaths Registered Provisional,2015Q1,Under 7 Days,Number,20
+Deaths Registered Provisional,2015Q1,1 to 7 Days,Number,7
+Deaths Registered Provisional,2015Q1,Under 1 Day,Number,13
+Deaths Registered Provisional,2015Q1,1 to 4 Years,Number,12
+Deaths Registered Provisional,2015Q1,5 to 14 Years,Number,8
+Deaths Registered Provisional,2015Q1,15 to 24 Years,Number,45
+Deaths Registered Provisional,2015Q1,25 to 34 Years,Number,80
+Deaths Registered Provisional,2015Q1,35 to 44 Years,Number,139
+Deaths Registered Provisional,2015Q1,45 to 54 Years,Number,327
+Deaths Registered Provisional,2015Q1,55 to 64 Years,Number,763
+Deaths Registered Provisional,2015Q1,65 to 74 Years,Number,"1,408"
+Deaths Registered Provisional,2015Q1,75 Years and Over,Number,"5,767"
+Deaths Registered Provisional,2014Q4,Under 1 Year,Number,55
+Deaths Registered Provisional,2014Q4,4 Weeks to 1 Year,Number,14
+Deaths Registered Provisional,2014Q4,1 Week to 4 Weeks,Number,8
+Deaths Registered Provisional,2014Q4,Under 7 Days,Number,33
+Deaths Registered Provisional,2014Q4,1 to 7 Days,Number,10
+Deaths Registered Provisional,2014Q4,Under 1 Day,Number,23
+Deaths Registered Provisional,2014Q4,1 to 4 Years,Number,10
+Deaths Registered Provisional,2014Q4,5 to 14 Years,Number,14
+Deaths Registered Provisional,2014Q4,15 to 24 Years,Number,64
+Deaths Registered Provisional,2014Q4,25 to 34 Years,Number,106
+Deaths Registered Provisional,2014Q4,35 to 44 Years,Number,188
+Deaths Registered Provisional,2014Q4,45 to 54 Years,Number,332
+Deaths Registered Provisional,2014Q4,55 to 64 Years,Number,657
+Deaths Registered Provisional,2014Q4,65 to 74 Years,Number,"1,288"
+Deaths Registered Provisional,2014Q4,75 Years and Over,Number,"4,073"
+Deaths Registered Provisional,2014Q3,Under 1 Year,Number,74
+Deaths Registered Provisional,2014Q3,4 Weeks to 1 Year,Number,28
+Deaths Registered Provisional,2014Q3,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2014Q3,Under 7 Days,Number,37
+Deaths Registered Provisional,2014Q3,1 to 7 Days,Number,12
+Deaths Registered Provisional,2014Q3,Under 1 Day,Number,25
+Deaths Registered Provisional,2014Q3,1 to 4 Years,Number,7
+Deaths Registered Provisional,2014Q3,5 to 14 Years,Number,16
+Deaths Registered Provisional,2014Q3,15 to 24 Years,Number,53
+Deaths Registered Provisional,2014Q3,25 to 34 Years,Number,120
+Deaths Registered Provisional,2014Q3,35 to 44 Years,Number,168
+Deaths Registered Provisional,2014Q3,45 to 54 Years,Number,354
+Deaths Registered Provisional,2014Q3,55 to 64 Years,Number,683
+Deaths Registered Provisional,2014Q3,65 to 74 Years,Number,"1,305"
+Deaths Registered Provisional,2014Q3,75 Years and Over,Number,"4,221"
+Deaths Registered Provisional,2014Q2,Under 1 Year,Number,55
+Deaths Registered Provisional,2014Q2,4 Weeks to 1 Year,Number,14
+Deaths Registered Provisional,2014Q2,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2014Q2,Under 7 Days,Number,32
+Deaths Registered Provisional,2014Q2,1 to 7 Days,Number,14
+Deaths Registered Provisional,2014Q2,Under 1 Day,Number,18
+Deaths Registered Provisional,2014Q2,1 to 4 Years,Number,17
+Deaths Registered Provisional,2014Q2,5 to 14 Years,Number,15
+Deaths Registered Provisional,2014Q2,15 to 24 Years,Number,38
+Deaths Registered Provisional,2014Q2,25 to 34 Years,Number,100
+Deaths Registered Provisional,2014Q2,35 to 44 Years,Number,159
+Deaths Registered Provisional,2014Q2,45 to 54 Years,Number,354
+Deaths Registered Provisional,2014Q2,55 to 64 Years,Number,717
+Deaths Registered Provisional,2014Q2,65 to 74 Years,Number,"1,271"
+Deaths Registered Provisional,2014Q2,75 Years and Over,Number,"4,471"
+Deaths Registered Provisional,2014Q1,Under 1 Year,Number,65
+Deaths Registered Provisional,2014Q1,4 Weeks to 1 Year,Number,9
+Deaths Registered Provisional,2014Q1,1 Week to 4 Weeks,Number,11
+Deaths Registered Provisional,2014Q1,Under 7 Days,Number,45
+Deaths Registered Provisional,2014Q1,1 to 7 Days,Number,22
+Deaths Registered Provisional,2014Q1,Under 1 Day,Number,23
+Deaths Registered Provisional,2014Q1,1 to 4 Years,Number,4
+Deaths Registered Provisional,2014Q1,5 to 14 Years,Number,11
+Deaths Registered Provisional,2014Q1,15 to 24 Years,Number,47
+Deaths Registered Provisional,2014Q1,25 to 34 Years,Number,93
+Deaths Registered Provisional,2014Q1,35 to 44 Years,Number,148
+Deaths Registered Provisional,2014Q1,45 to 54 Years,Number,343
+Deaths Registered Provisional,2014Q1,55 to 64 Years,Number,759
+Deaths Registered Provisional,2014Q1,65 to 74 Years,Number,"1,353"
+Deaths Registered Provisional,2014Q1,75 Years and Over,Number,"5,287"
+Deaths Registered Provisional,2013Q4,Under 1 Year,Number,56
+Deaths Registered Provisional,2013Q4,4 Weeks to 1 Year,Number,12
+Deaths Registered Provisional,2013Q4,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2013Q4,Under 7 Days,Number,37
+Deaths Registered Provisional,2013Q4,1 to 7 Days,Number,15
+Deaths Registered Provisional,2013Q4,Under 1 Day,Number,22
+Deaths Registered Provisional,2013Q4,1 to 4 Years,Number,16
+Deaths Registered Provisional,2013Q4,5 to 14 Years,Number,25
+Deaths Registered Provisional,2013Q4,15 to 24 Years,Number,63
+Deaths Registered Provisional,2013Q4,25 to 34 Years,Number,133
+Deaths Registered Provisional,2013Q4,35 to 44 Years,Number,170
+Deaths Registered Provisional,2013Q4,45 to 54 Years,Number,386
+Deaths Registered Provisional,2013Q4,55 to 64 Years,Number,725
+Deaths Registered Provisional,2013Q4,65 to 74 Years,Number,"1,207"
+Deaths Registered Provisional,2013Q4,75 Years and Over,Number,"4,263"
+Deaths Registered Provisional,2013Q3,Under 1 Year,Number,59
+Deaths Registered Provisional,2013Q3,4 Weeks to 1 Year,Number,13
+Deaths Registered Provisional,2013Q3,1 Week to 4 Weeks,Number,10
+Deaths Registered Provisional,2013Q3,Under 7 Days,Number,36
+Deaths Registered Provisional,2013Q3,1 to 7 Days,Number,13
+Deaths Registered Provisional,2013Q3,Under 1 Day,Number,23
+Deaths Registered Provisional,2013Q3,1 to 4 Years,Number,11
+Deaths Registered Provisional,2013Q3,5 to 14 Years,Number,13
+Deaths Registered Provisional,2013Q3,15 to 24 Years,Number,53
+Deaths Registered Provisional,2013Q3,25 to 34 Years,Number,97
+Deaths Registered Provisional,2013Q3,35 to 44 Years,Number,143
+Deaths Registered Provisional,2013Q3,45 to 54 Years,Number,376
+Deaths Registered Provisional,2013Q3,55 to 64 Years,Number,709
+Deaths Registered Provisional,2013Q3,65 to 74 Years,Number,"1,266"
+Deaths Registered Provisional,2013Q3,75 Years and Over,Number,"4,256"
+Deaths Registered Provisional,2013Q2,Under 1 Year,Number,58
+Deaths Registered Provisional,2013Q2,4 Weeks to 1 Year,Number,20
+Deaths Registered Provisional,2013Q2,1 Week to 4 Weeks,Number,5
+Deaths Registered Provisional,2013Q2,Under 7 Days,Number,33
+Deaths Registered Provisional,2013Q2,1 to 7 Days,Number,12
+Deaths Registered Provisional,2013Q2,Under 1 Day,Number,21
+Deaths Registered Provisional,2013Q2,1 to 4 Years,Number,8
+Deaths Registered Provisional,2013Q2,5 to 14 Years,Number,11
+Deaths Registered Provisional,2013Q2,15 to 24 Years,Number,53
+Deaths Registered Provisional,2013Q2,25 to 34 Years,Number,84
+Deaths Registered Provisional,2013Q2,35 to 44 Years,Number,153
+Deaths Registered Provisional,2013Q2,45 to 54 Years,Number,343
+Deaths Registered Provisional,2013Q2,55 to 64 Years,Number,728
+Deaths Registered Provisional,2013Q2,65 to 74 Years,Number,"1,308"
+Deaths Registered Provisional,2013Q2,75 Years and Over,Number,"4,898"
+Deaths Registered Provisional,2013Q1,Under 1 Year,Number,55
+Deaths Registered Provisional,2013Q1,4 Weeks to 1 Year,Number,19
+Deaths Registered Provisional,2013Q1,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2013Q1,Under 7 Days,Number,27
+Deaths Registered Provisional,2013Q1,1 to 7 Days,Number,10
+Deaths Registered Provisional,2013Q1,Under 1 Day,Number,17
+Deaths Registered Provisional,2013Q1,1 to 4 Years,Number,12
+Deaths Registered Provisional,2013Q1,5 to 14 Years,Number,9
+Deaths Registered Provisional,2013Q1,15 to 24 Years,Number,46
+Deaths Registered Provisional,2013Q1,25 to 34 Years,Number,97
+Deaths Registered Provisional,2013Q1,35 to 44 Years,Number,168
+Deaths Registered Provisional,2013Q1,45 to 54 Years,Number,393
+Deaths Registered Provisional,2013Q1,55 to 64 Years,Number,785
+Deaths Registered Provisional,2013Q1,65 to 74 Years,Number,"1,405"
+Deaths Registered Provisional,2013Q1,75 Years and Over,Number,"5,377"
+Deaths Registered Provisional,2012Q4,Under 1 Year,Number,63
+Deaths Registered Provisional,2012Q4,4 Weeks to 1 Year,Number,16
+Deaths Registered Provisional,2012Q4,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2012Q4,Under 7 Days,Number,38
+Deaths Registered Provisional,2012Q4,1 to 7 Days,Number,16
+Deaths Registered Provisional,2012Q4,Under 1 Day,Number,22
+Deaths Registered Provisional,2012Q4,1 to 4 Years,Number,8
+Deaths Registered Provisional,2012Q4,5 to 14 Years,Number,16
+Deaths Registered Provisional,2012Q4,15 to 24 Years,Number,56
+Deaths Registered Provisional,2012Q4,25 to 34 Years,Number,125
+Deaths Registered Provisional,2012Q4,35 to 44 Years,Number,208
+Deaths Registered Provisional,2012Q4,45 to 54 Years,Number,360
+Deaths Registered Provisional,2012Q4,55 to 64 Years,Number,691
+Deaths Registered Provisional,2012Q4,65 to 74 Years,Number,"1,200"
+Deaths Registered Provisional,2012Q4,75 Years and Over,Number,"4,237"
+Deaths Registered Provisional,2012Q3,Under 1 Year,Number,79
+Deaths Registered Provisional,2012Q3,4 Weeks to 1 Year,Number,18
+Deaths Registered Provisional,2012Q3,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2012Q3,Under 7 Days,Number,52
+Deaths Registered Provisional,2012Q3,1 to 7 Days,Number,27
+Deaths Registered Provisional,2012Q3,Under 1 Day,Number,25
+Deaths Registered Provisional,2012Q3,1 to 4 Years,Number,9
+Deaths Registered Provisional,2012Q3,5 to 14 Years,Number,13
+Deaths Registered Provisional,2012Q3,15 to 24 Years,Number,82
+Deaths Registered Provisional,2012Q3,25 to 34 Years,Number,104
+Deaths Registered Provisional,2012Q3,35 to 44 Years,Number,185
+Deaths Registered Provisional,2012Q3,45 to 54 Years,Number,390
+Deaths Registered Provisional,2012Q3,55 to 64 Years,Number,706
+Deaths Registered Provisional,2012Q3,65 to 74 Years,Number,"1,203"
+Deaths Registered Provisional,2012Q3,75 Years and Over,Number,"4,054"
+Deaths Registered Provisional,2012Q2,Under 1 Year,Number,47
+Deaths Registered Provisional,2012Q2,4 Weeks to 1 Year,Number,6
+Deaths Registered Provisional,2012Q2,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2012Q2,Under 7 Days,Number,34
+Deaths Registered Provisional,2012Q2,1 to 7 Days,Number,10
+Deaths Registered Provisional,2012Q2,Under 1 Day,Number,24
+Deaths Registered Provisional,2012Q2,1 to 4 Years,Number,16
+Deaths Registered Provisional,2012Q2,5 to 14 Years,Number,16
+Deaths Registered Provisional,2012Q2,15 to 24 Years,Number,53
+Deaths Registered Provisional,2012Q2,25 to 34 Years,Number,95
+Deaths Registered Provisional,2012Q2,35 to 44 Years,Number,195
+Deaths Registered Provisional,2012Q2,45 to 54 Years,Number,322
+Deaths Registered Provisional,2012Q2,55 to 64 Years,Number,707
+Deaths Registered Provisional,2012Q2,65 to 74 Years,Number,"1,187"
+Deaths Registered Provisional,2012Q2,75 Years and Over,Number,"4,442"
+Deaths Registered Provisional,2012Q1,Under 1 Year,Number,61
+Deaths Registered Provisional,2012Q1,4 Weeks to 1 Year,Number,16
+Deaths Registered Provisional,2012Q1,1 Week to 4 Weeks,Number,9
+Deaths Registered Provisional,2012Q1,Under 7 Days,Number,36
+Deaths Registered Provisional,2012Q1,1 to 7 Days,Number,16
+Deaths Registered Provisional,2012Q1,Under 1 Day,Number,20
+Deaths Registered Provisional,2012Q1,1 to 4 Years,Number,12
+Deaths Registered Provisional,2012Q1,5 to 14 Years,Number,15
+Deaths Registered Provisional,2012Q1,15 to 24 Years,Number,60
+Deaths Registered Provisional,2012Q1,25 to 34 Years,Number,125
+Deaths Registered Provisional,2012Q1,35 to 44 Years,Number,176
+Deaths Registered Provisional,2012Q1,45 to 54 Years,Number,362
+Deaths Registered Provisional,2012Q1,55 to 64 Years,Number,723
+Deaths Registered Provisional,2012Q1,65 to 74 Years,Number,"1,281"
+Deaths Registered Provisional,2012Q1,75 Years and Over,Number,"5,164"
+Deaths Registered Provisional,2011Q4,Under 1 Year,Number,60
+Deaths Registered Provisional,2011Q4,4 Weeks to 1 Year,Number,12
+Deaths Registered Provisional,2011Q4,1 Week to 4 Weeks,Number,11
+Deaths Registered Provisional,2011Q4,Under 7 Days,Number,37
+Deaths Registered Provisional,2011Q4,1 to 7 Days,Number,14
+Deaths Registered Provisional,2011Q4,Under 1 Day,Number,23
+Deaths Registered Provisional,2011Q4,1 to 4 Years,Number,9
+Deaths Registered Provisional,2011Q4,5 to 14 Years,Number,10
+Deaths Registered Provisional,2011Q4,15 to 24 Years,Number,68
+Deaths Registered Provisional,2011Q4,25 to 34 Years,Number,105
+Deaths Registered Provisional,2011Q4,35 to 44 Years,Number,221
+Deaths Registered Provisional,2011Q4,45 to 54 Years,Number,317
+Deaths Registered Provisional,2011Q4,55 to 64 Years,Number,669
+Deaths Registered Provisional,2011Q4,65 to 74 Years,Number,"1,139"
+Deaths Registered Provisional,2011Q4,75 Years and Over,Number,"4,116"
+Deaths Registered Provisional,2011Q3,Under 1 Year,Number,65
+Deaths Registered Provisional,2011Q3,4 Weeks to 1 Year,Number,24
+Deaths Registered Provisional,2011Q3,1 Week to 4 Weeks,Number,13
+Deaths Registered Provisional,2011Q3,Under 7 Days,Number,28
+Deaths Registered Provisional,2011Q3,1 to 7 Days,Number,11
+Deaths Registered Provisional,2011Q3,Under 1 Day,Number,17
+Deaths Registered Provisional,2011Q3,1 to 4 Years,Number,8
+Deaths Registered Provisional,2011Q3,5 to 14 Years,Number,12
+Deaths Registered Provisional,2011Q3,15 to 24 Years,Number,87
+Deaths Registered Provisional,2011Q3,25 to 34 Years,Number,110
+Deaths Registered Provisional,2011Q3,35 to 44 Years,Number,171
+Deaths Registered Provisional,2011Q3,45 to 54 Years,Number,399
+Deaths Registered Provisional,2011Q3,55 to 64 Years,Number,756
+Deaths Registered Provisional,2011Q3,65 to 74 Years,Number,"1,228"
+Deaths Registered Provisional,2011Q3,75 Years and Over,Number,"4,075"
+Deaths Registered Provisional,2011Q2,Under 1 Year,Number,61
+Deaths Registered Provisional,2011Q2,4 Weeks to 1 Year,Number,20
+Deaths Registered Provisional,2011Q2,1 Week to 4 Weeks,Number,8
+Deaths Registered Provisional,2011Q2,Under 7 Days,Number,33
+Deaths Registered Provisional,2011Q2,1 to 7 Days,Number,14
+Deaths Registered Provisional,2011Q2,Under 1 Day,Number,19
+Deaths Registered Provisional,2011Q2,1 to 4 Years,Number,9
+Deaths Registered Provisional,2011Q2,5 to 14 Years,Number,7
+Deaths Registered Provisional,2011Q2,15 to 24 Years,Number,77
+Deaths Registered Provisional,2011Q2,25 to 34 Years,Number,114
+Deaths Registered Provisional,2011Q2,35 to 44 Years,Number,218
+Deaths Registered Provisional,2011Q2,45 to 54 Years,Number,377
+Deaths Registered Provisional,2011Q2,55 to 64 Years,Number,796
+Deaths Registered Provisional,2011Q2,65 to 74 Years,Number,"1,308"
+Deaths Registered Provisional,2011Q2,75 Years and Over,Number,"4,310"
+Deaths Registered Provisional,2011Q1,Under 1 Year,Number,72
+Deaths Registered Provisional,2011Q1,4 Weeks to 1 Year,Number,12
+Deaths Registered Provisional,2011Q1,1 Week to 4 Weeks,Number,13
+Deaths Registered Provisional,2011Q1,Under 7 Days,Number,47
+Deaths Registered Provisional,2011Q1,1 to 7 Days,Number,17
+Deaths Registered Provisional,2011Q1,Under 1 Day,Number,30
+Deaths Registered Provisional,2011Q1,1 to 4 Years,Number,8
+Deaths Registered Provisional,2011Q1,5 to 14 Years,Number,19
+Deaths Registered Provisional,2011Q1,15 to 24 Years,Number,64
+Deaths Registered Provisional,2011Q1,25 to 34 Years,Number,118
+Deaths Registered Provisional,2011Q1,35 to 44 Years,Number,180
+Deaths Registered Provisional,2011Q1,45 to 54 Years,Number,372
+Deaths Registered Provisional,2011Q1,55 to 64 Years,Number,805
+Deaths Registered Provisional,2011Q1,65 to 74 Years,Number,"1,363"
+Deaths Registered Provisional,2011Q1,75 Years and Over,Number,"5,092"
+Deaths Registered Provisional,2010Q4,Under 1 Year,Number,65
+Deaths Registered Provisional,2010Q4,4 Weeks to 1 Year,Number,16
+Deaths Registered Provisional,2010Q4,1 Week to 4 Weeks,Number,10
+Deaths Registered Provisional,2010Q4,Under 7 Days,Number,39
+Deaths Registered Provisional,2010Q4,1 to 7 Days,Number,12
+Deaths Registered Provisional,2010Q4,Under 1 Day,Number,27
+Deaths Registered Provisional,2010Q4,1 to 4 Years,Number,10
+Deaths Registered Provisional,2010Q4,5 to 14 Years,Number,9
+Deaths Registered Provisional,2010Q4,15 to 24 Years,Number,63
+Deaths Registered Provisional,2010Q4,25 to 34 Years,Number,119
+Deaths Registered Provisional,2010Q4,35 to 44 Years,Number,169
+Deaths Registered Provisional,2010Q4,45 to 54 Years,Number,330
+Deaths Registered Provisional,2010Q4,55 to 64 Years,Number,585
+Deaths Registered Provisional,2010Q4,65 to 74 Years,Number,"1,065"
+Deaths Registered Provisional,2010Q4,75 Years and Over,Number,"3,698"
+Deaths Registered Provisional,2010Q3,Under 1 Year,Number,71
+Deaths Registered Provisional,2010Q3,4 Weeks to 1 Year,Number,23
+Deaths Registered Provisional,2010Q3,1 Week to 4 Weeks,Number,7
+Deaths Registered Provisional,2010Q3,Under 7 Days,Number,41
+Deaths Registered Provisional,2010Q3,1 to 7 Days,Number,13
+Deaths Registered Provisional,2010Q3,Under 1 Day,Number,28
+Deaths Registered Provisional,2010Q3,1 to 4 Years,Number,6
+Deaths Registered Provisional,2010Q3,5 to 14 Years,Number,19
+Deaths Registered Provisional,2010Q3,15 to 24 Years,Number,69
+Deaths Registered Provisional,2010Q3,25 to 34 Years,Number,110
+Deaths Registered Provisional,2010Q3,35 to 44 Years,Number,178
+Deaths Registered Provisional,2010Q3,45 to 54 Years,Number,350
+Deaths Registered Provisional,2010Q3,55 to 64 Years,Number,704
+Deaths Registered Provisional,2010Q3,65 to 74 Years,Number,"1,174"
+Deaths Registered Provisional,2010Q3,75 Years and Over,Number,"3,836"
+Deaths Registered Provisional,2010Q2,Under 1 Year,Number,84
+Deaths Registered Provisional,2010Q2,4 Weeks to 1 Year,Number,30
+Deaths Registered Provisional,2010Q2,1 Week to 4 Weeks,Number,10
+Deaths Registered Provisional,2010Q2,Under 7 Days,Number,44
+Deaths Registered Provisional,2010Q2,1 to 7 Days,Number,14
+Deaths Registered Provisional,2010Q2,Under 1 Day,Number,30
+Deaths Registered Provisional,2010Q2,1 to 4 Years,Number,16
+Deaths Registered Provisional,2010Q2,5 to 14 Years,Number,12
+Deaths Registered Provisional,2010Q2,15 to 24 Years,Number,75
+Deaths Registered Provisional,2010Q2,25 to 34 Years,Number,108
+Deaths Registered Provisional,2010Q2,35 to 44 Years,Number,181
+Deaths Registered Provisional,2010Q2,45 to 54 Years,Number,372
+Deaths Registered Provisional,2010Q2,55 to 64 Years,Number,737
+Deaths Registered Provisional,2010Q2,65 to 74 Years,Number,"1,221"
+Deaths Registered Provisional,2010Q2,75 Years and Over,Number,"4,123"
+Deaths Registered Provisional,2010Q1,Under 1 Year,Number,62
+Deaths Registered Provisional,2010Q1,4 Weeks to 1 Year,Number,23
+Deaths Registered Provisional,2010Q1,1 Week to 4 Weeks,Number,6
+Deaths Registered Provisional,2010Q1,Under 7 Days,Number,33
+Deaths Registered Provisional,2010Q1,1 to 7 Days,Number,11
+Deaths Registered Provisional,2010Q1,Under 1 Day,Number,22
+Deaths Registered Provisional,2010Q1,1 to 4 Years,Number,13
+Deaths Registered Provisional,2010Q1,5 to 14 Years,Number,15
+Deaths Registered Provisional,2010Q1,15 to 24 Years,Number,54
+Deaths Registered Provisional,2010Q1,25 to 34 Years,Number,112
+Deaths Registered Provisional,2010Q1,35 to 44 Years,Number,175
+Deaths Registered Provisional,2010Q1,45 to 54 Years,Number,373
+Deaths Registered Provisional,2010Q1,55 to 64 Years,Number,783
+Deaths Registered Provisional,2010Q1,65 to 74 Years,Number,"1,343"
+Deaths Registered Provisional,2010Q1,75 Years and Over,Number,"5,076"

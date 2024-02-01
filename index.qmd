@@ -1,0 +1,26 @@
+---
+title: "Change in Mortality Rates for Ireland"
+subtitle: "for the years 2010 to 2022"
+editor_options: 
+  chunk_output_type: inline
+---
+
+## Number of Deaths above Average
+
+![Figure 1. Deaths above average (2010-2019)](./figures/method1-diff-avg.jpeg)
+
+## Death Rate Difference from 2019 Baseline
+
+### Central Statistics Office data
+
+![Figure 2. Death Rate from Baseline, CSO](figures/method2a-base-diff-cso.jpeg)
+
+### EuroStat Mortality Data
+
+CSO population numbers and EuroStat mortality records.
+
+![Figure 3. Death Rate from Baseline, EuroStat](figures/method2a-base-diff-estat.jpeg)
+
+## Death Rate difference from Linear Fit
+
+![Figure 4. Death Rate, Linear Fit](figures/method2c-diff-lin-fit.jpeg)

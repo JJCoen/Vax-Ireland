@@ -5,11 +5,34 @@ format: html
 editor: visual
 ---
 
+```{r}
+#| label: load libraries
+#| include: false
+
+library(data.table)
+library(readxl)
+library(janitor)
+library(tidyr)
+library(gt)
+```
+
 ## Population
 
-### **Ireland Census -** Central Statistics Office
+### **2011 Ireland Census -** Central Statistics Office
 
-#### Include external html document
+External html script: [CSO - Population by year of age, 2011](https://data.cso.ie/table/CD205)
+
+Run the R chunk below and select "Download CSV" to the *raw-data* folder. Enter the file name: *CD205-Pop-2016* The file type is csv.
+
+```{r}
+#| echo: false
+#| eval: false
+
+library(htmltools)
+htmltools::includeHTML("./scripts/CD205-Pop-2011.html")
+```
+
+### **2016 Ireland Census -** Central Statistics Office
 
 [CSO - Population by year of age, 2016](https://data.cso.ie/table/CNA20)
 
@@ -23,6 +46,8 @@ library(htmltools)
 htmltools::includeHTML("./scripts/CNA20-Pop-2016.html")
 ```
 
+### **2022 Ireland Census -** Central Statistics Office
+
 [CSO - Population by year of age, 2022](https://data.cso.ie/table/FY006B)
 
 Run the R chunk below and select "Download CSV" to the *raw-data* folder. Enter the file name: *FY006B-Pop-2022* The file type is csv.
@@ -35,49 +60,65 @@ library(htmltools)
 htmltools::includeHTML("./scripts/FY006B-Pop-2022.html")
 ```
 
+### Population Estimates, 2023
 
+Run the html script below and download file to *./raw-data/PEA01-Pop-Est-2023.csv*
 
-### **National Records of Scotland:**
+```{r}
+#| echo: false
+#| eval: false
 
-[Mid-Year Population Estimates 2021, 2020](https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/population/population-estimates/mid-year-population-estimates#lmye)
+library(htmltools)
+htmltools::includeHTML("./scripts/PEA01-Pop-Est-2023.html")
+```
 
-[Mid-Year Population Estimates, Archive 2019-2012](https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/population/population-estimates/mid-year-population-estimates/archive)
+### Population Estimates, 2015-2021
 
-[Mid-2002 to Mid-2010 Revision](https://webarchive.nrscotland.gov.uk/20210313160229/https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/population/population-estimates/mid-year-population-estimates/mid-2002-to-mid-2010-revision/additional-detailed-tables-for-population-estimates)
+[CSO Table PEA01 Population Estimates](https://data.cso.ie/table/PEA01)
+
+To download data file, click link below
+
+[Estimated Population classified by Sex and Age Group, 2015 - 2021](https://www.cso.ie/en/media/csoie/releasespublications/documents/ep/populationandmigrationestimates/2021/P-PME2021TBL1.8.xlsx)
+
+and save the file to the *raw-data* folder. Enter the file name: *PEA01-Pop-Est*\
+The file type is xlsx.
+
+### Population Estimates, 2010-2014
+
+Run the html script below and download file to *./raw-data/PEA01-Pop-Est-2010-2014.csv*
+
+```{r}
+#| echo: false
+#| eval: false
+
+library(htmltools)
+htmltools::includeHTML("./scripts/PEA01-Pop-Est-2010-2014.html")
+```
 
 ## Mortality
 
-[National Records of Scotland, Vital Events 2022](https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/vital-events/general-publications/vital-events-reference-tables/2022/list-of-data-tables#section5)\
-Section 5 contains mortality by age
+[CSO - Mortality by Age Group and Quarter Year](https://data.cso.ie/table/VSAQ2)
 
-[Vital Events Reference Tables 2021](https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/vital-events/general-publications/vital-events-reference-tables/2021)
+Run the R chunk below and select "Download CSV" to the *raw-data* folder. Enter the file name: *VSAQ2-Mort-Age-2010-2023* The file type is automatically set to csv.
 
-[Vital Events Archive - Historical data back to 2001](https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/vital-events/general-publications/vital-events-reference-tables/archive)
+```{r}
+#| echo: false
+#| eval: false
+
+library(htmltools)
+htmltools::includeHTML("./scripts/VSAQ2-Mort-Age-2010-2023.html")
+```
+
+Go to [EuroStat demo_magec dataset](https://ec.europa.eu/eurostat/databrowser/view/demo_magec__custom_9481166/default/table?lang=en "custom query to EuroStat")
+
+Select `Download` \>\
+\> `Data on this page only`\
+\> `Spreadsheet (.xlsx)`
+
+and save file in `raw-data` folder
+
+\
 
 ## Vaccinations
 
-### Daily Vaccinations by age group, Jan 2021 - Sept 2022
-
-[Data Dictionary](https://www.opendata.nhs.scot/dataset/covid-19-vaccination-in-scotland/resource/9b99e278-b8d8-47df-8d7a-a8cf98519ac1)
-
-```{r}
-#| eval: false
-
-
-daily_url <- "https://www.opendata.nhs.scot/dataset/6dbdd466-45e3-4348-9ee3-1eac72b5a592/resource/9b99e278-b8d8-47df-8d7a-a8cf98519ac1/download/daily_vacc_age_sex_20220914.csv"
-download.file(url = daily_url, 
-              destfile = "./raw-data/daily_vacc_age_sex_sept_2022.csv")
-```
-
-### Weekly Vaccinations by dose and priority group
-
-[Viral respiratory diseases (including influenza and COVID-19) in Scotland surveillance report](https://www.publichealthscotland.scot/publications/viral-respiratory-diseases-including-influenza-and-covid-19-in-scotland-surveillance-report/viral-respiratory-diseases-including-influenza-and-covid-19-in-scotland-surveillance-report-21-december-2023/ "Report")
-
-```{r}
-#| eval: false
-
-weekly_url <- "https://www.opendata.nhs.scot/dataset/086c153d-0fdc-4f7c-ad51-1e856c094a0e/resource/6978457e-f619-491c-885d-f60e90e81cbd/download/weekly_covid_vacc_scot_20231221.csv"
-
-download.file(url = weekly_url, 
-              destfile = "./raw-data/weekly_covid_vacc_scot_20231221")
-```
+### 

@@ -1,0 +1,395 @@
+---
+title: "Transform Population and Mortality Counts"
+subtitle: "to comply with CSO age categories"
+author: "JJC"
+format: 
+    html:
+        toc: true
+        toc-depth: 2
+        toc-title: Table of contents
+        # number-sections: true
+        code-fold: true
+        highlight-style: github
+editor: visual
+---
+
+```{r}
+#| include: false
+#| label: load_libraries
+
+library(data.table)
+library(gt)
+library(kableExtra)
+library(tidyverse)
+library(plotly)
+library(janitor)
+library(tidyr)
+library(docstring)
+library(assertr)    # verify function
+library(Hmisc)      # cut2 function
+library(readxl)
+library(writexl)
+```
+
+## Population by age category
+
+Ten age categories in use by CSO in mortality data:\
+"0-4" "5-14" "15-24" "25-34" "35-44" "45-54" "55-64" "65-74" "75+" "Total"
+
+### Ireland Census
+
+#### **2022**
+
+```{r}
+#| code-summary: "Import csv file giving numbers of persons by year of age for 2022. /n Transform to 5-year age categories"
+
+source("./scripts/get-census-IE.R")
+source("./scripts/transform-pop.R")
+
+# The Census 2022 file, "FY0068-Pop-2022.csv", records population 
+# by year of age.  All fields are character type.
+pop22 <- fread("./raw-data/FY006B-Pop-2022.csv")
+# Convert to 5-year age categories
+census22 <- get_census(pop22)
+
+# Convert 5-year categories to CSO groupings
+# Input data contains 17 five-year categories
+pop22 <- transform_pop(census22)
+
+# cleanup
+rm(census22)
+```
+
+#### **2016**
+
+```{r}
+#| message: false    
+#| code-summary: "Obtain source data for year 2016 population counts by single year of age. /n Transform to 5-year age categories"
+
+# The Census 2016 file, "CNA20-Pop-2016.csv", records population 
+# by year of age.  All fields are character type.
+
+pop16 <- fread("./raw-data/CNA20-Pop-2016.csv")
+
+census16 <- get_census(pop16)
+
+# Population counts are by 5-year categories
+# Convert age categories to HP grouping
+# Source data contains 17 categories
+pop16 <- transform_pop(census16)
+
+# cleanup
+rm(census16)
+```
+
+#### 2011
+
+```{r}
+#| message: false    
+#| code-summary: "Obtain source data for year 2011 population counts by single year of age. /n Transform to 5-year age categories"
+
+# The Census 2011 file, "CD205-Pop-2016.csv", records 
+# population by year of age.  All fields are character type.
+
+pop11 <- fread("./raw-data/CD205-Pop-2011.csv")
+
+census11 <- get_census(pop11)
+
+# Population counts are by 5-year categories
+# Convert age categories to HP grouping
+# Source data contains 17 categories
+pop11 <- transform_pop(census11)
+
+# cleanup
+rm(census11)
+```
+
+### Population Estimates
+
+#### 2023
+
+```{r}
+
+source("./scripts/transform-pop-csv.R")
+
+pop_est_23 <- fread("./raw-data/PEA01-Pop-Est-2023.csv")|> 
+    clean_names() |> 
+    as.data.table()
+
+# Remove unused columns
+pop_est_23[, c("statistic", "sex", "unit") := NULL]
+setnames(pop_est_23, "value", "count")
+
+# Convert count column to integer 
+# First, remove commas
+pop_est_23[, count := str_remove_all(count, ",")]
+pop_est_23[, count := as.numeric(count)][, count := count * 1000]
+
+# Convert year to numeric
+pop_est_23[, year := as.numeric(year)]
+
+pop23 <- pop_est_23[, .(age_group, count)] |> 
+    transform_pop_csv()
+```
+
+#### 2015-2021
+
+```{r}
+#| message: false    
+#| code-summary: "Obtain source data for population estimates by age category for years 2015 to 2021. /n Record estimates in separate numeric vectors for each year"
+
+source("./scripts/transform-pop-est.R")
+
+# The population estimates file, "PEA01-Pop-Est-2015-2021.xlsx", 
+# records population by age category up to 85+.  
+
+pop_est_15_21 <- read_excel("./raw-data/PEA01-Pop-Est-2015-2021.xlsx",
+                            range = "A3:H24") |> 
+    clean_names() |> 
+    as.data.table()
+
+# First two rows are empty
+pop_est_15_21 <- pop_est_15_21[3:21,][, age_cat := x1][, x1 := NULL]
+
+# "x2015" records counts in character form.
+# Convert to numeric
+# First remove comma
+pop_est_15_21[, x2015 := str_remove_all(x2015, ",")]
+pop_est_15_21[, x2015 := as.numeric(x2015)]
+
+pop15 <- pop_est_15_21[, .(age_cat, x2015) ] |> 
+    setnames("x2015", "count") |> 
+    transform_pop_est()
+
+# 2017
+pop17 <- pop_est_15_21[, .(age_cat, x2017_2) ] |> 
+    setnames("x2017_2", "count") |> 
+    transform_pop_est()
+
+# 2018
+pop18 <- pop_est_15_21[, .(age_cat, x2018_2) ] |> 
+    setnames("x2018_2", "count") |> 
+    transform_pop_est()
+
+# 2019
+pop19 <- pop_est_15_21[, .(age_cat, x2019_2) ] |> 
+    setnames("x2019_2", "count") |> 
+    transform_pop_est()
+
+# 2020
+pop20 <- pop_est_15_21[, .(age_cat, x2020_2) ] |> 
+    setnames("x2020_2", "count") |> 
+    transform_pop_est()
+
+# 2021
+pop21 <- pop_est_15_21[, .(age_cat, x2021_2) ] |> 
+    setnames("x2021_2", "count") |> 
+    transform_pop_est()
+```
+
+#### 2010-2014
+
+Excludes census taken in 2011
+
+```{r}
+
+source("./scripts/transform-pop-csv.R")
+
+pop_est_10_14 <- fread("./raw-data/PEA01-Pop-Est-2010-2014.csv")|> 
+    clean_names() |> 
+    as.data.table()
+
+# Remove unused columns
+pop_est_10_14[, c("statistic", "sex", "unit") := NULL]
+setnames(pop_est_10_14, "value", "count")
+
+# Convert count column to integer 
+# First, remove commas
+pop_est_10_14[, count := str_remove_all(count, ",")]
+pop_est_10_14[, count := as.numeric(count)][, count := count * 1000]
+
+# Convert year to numeric
+pop_est_10_14[, year := as.numeric(year)]
+
+# 2014
+# filter out observations for male and female by extracting 
+# rows 1:27
+pop14 <- pop_est_10_14[year == 2014, 
+                       .(age_group, count)][1:27, ] |> 
+    transform_pop_csv()
+# 2013
+pop13 <- pop_est_10_14[year == 2013, 
+                       .(age_group, count)][1:27, ] |> 
+    transform_pop_csv()
+# 2012
+pop12 <- pop_est_10_14[year == 2012, 
+                       .(age_group, count)][1:27, ] |> 
+    transform_pop_csv()
+# 2010
+pop10 <- pop_est_10_14[year == 2010, 
+                       .(age_group, count)][1:27, ] |> 
+    transform_pop_csv()
+```
+
+### Estimating Population between Two Census Periods
+
+[Measure Evaluation](https://www.measureevaluation.org/resources/training/online-courses-and-resources/non-certificate-courses-and-mini-tutorials/population-analysis-for-planners/lesson-5/lesson-5-estimating-population-size)
+
+![](images/clipboard-1109212828.png){width="539"}
+
+### Construct Excel Table for Population
+
+The table required by Humanity Projects has the age categories as column names (not tidy data format). The first column contains the years from 2010 to 2022.
+
+```{r}
+CSO_cat <- pop11[, age_cat]
+pop_mx <- matrix(c(
+    2010, pop10[, count],
+    2011, pop11[, count],
+    2012, pop12[, count],
+    2013, pop13[, count],
+    2014, pop14[, count],
+    2015, pop15[, count],
+    2016, pop16[, count],
+    2017, pop17[, count],
+    2018, pop18[, count],
+    2019, pop19[, count],
+    2020, pop20[, count],
+    2021, pop21[, count],
+    2022, pop22[, count],
+    2023, pop23[, count]
+    ),
+    byrow = TRUE,
+    nrow = 14,
+    dimnames = list(1:14, c("Year", CSO_cat)))
+
+pop_table <- as.data.frame(pop_mx)
+write_xlsx(pop_table, path = "./processed-data/Table_4_yearly_pop_counts.xlsx")
+```
+
+Save population counts
+
+```{r}
+
+# In the "pop_table" dataframe, age categories are spread across 
+# columns.  The cells contain population counts.  
+# The "pivot_longer()" function transposes the age categories into
+# a single column.
+irl_pop <- pop_table |> pivot_longer(cols = !Year, 
+                       # reshape every column apart from Years
+                       names_to = "age_cat", 
+                       values_to = "pop_count"
+)
+
+saveRDS(irl_pop, file = "./processed-data/irl_pop.rds")
+# 
+# # Cleanup the environment
+pop_all <- ls()[sapply(ls(), function(x) is.data.frame(get(x)))]
+# # keep 'age_5yr' vector containing age categories
+remove(list = pop_all)
+rm(get_census, transform_pop, transform_pop_est, transform_pop_csv, pop_all, pop_mx)
+```
+
+## Mortality by Age Category
+
+### 2010 - 2023
+
+```{r}
+#| message: false    
+#| code-summary: "Obtain source data for mortality counts by  age group for 2010 to 2023. /n Transform to 5-year age categories"
+
+source("./scripts/get-mort-yr.R")
+
+# The CSO table is in the file "VSAQ2-Mort-Age-2010-2023.csv"
+# All fields are character type.
+
+mort <- fread("./raw-data/VSAQ2-Mort-Age-2010-2023.csv") |> 
+    clean_names()
+
+mort_yr <- get_mort(mort)
+mort_yr <- mort_yr[order(mort_yr$year)]
+```
+
+#### Construct Excel Table
+
+-   *year* has a distinct column
+-   *age_groups* are spread along columns
+-   cells contain counts
+
+```{r}
+
+mort_table <- pivot_wider(mort_yr, 
+            names_from = age_cat, 
+            values_from = count) |> 
+    as.data.table()
+
+mort_table <- mort_table[order(mort_table$year), ]
+write_xlsx(mort_table, path = "./processed-data/Table_2_yearly_deaths.xlsx")
+
+mort_table |> 
+    gt()
+```
+
+Save mortality data
+
+```{r}
+
+saveRDS(mort_yr, file = "./processed-data/irl_mort.rds")
+```
+
+#### Quarterly Totals
+
+```{r}
+
+source("./scripts/get-mort-qtr.R")
+mort_qtr <- get_mort_qtr(mort)
+mort_qtr |> 
+    gt()
+# extract for years 2020 to 2023
+mort_20_23 <- mort_qtr[1:14,]
+```
+
+#### RIP Data Table
+
+The CSO maintains the [RIP05](https://data.cso.ie/table/RIP05) data table which records RIP and registered deaths by quarter for years 2020 - 2023.
+
+```{r}
+
+rip <- read_excel("./raw-data/RIP05-Reg-Deaths-Qtr.xlsx", 
+                  sheet = "Unpivoted") |> 
+    clean_names() |> 
+    setDT()
+rip[, c("statistic_label", "sex", "unit") := NULL]
+setnames(rip, "value", "total_rip")
+
+setorder(rip, -quarter)
+
+# join tables
+setkey(mort_20_23, quarter)
+setkey(rip, quarter)
+# left outer join
+mort_rip <- mort_20_23[rip]
+mort_rip
+```
+
+## EuroStat Mortality Data
+
+This data is stored in a "wide" format with years (2020-2021) spread across the first row and age (0-99 and over) on the second row.
+
+```{r}
+#| message: false
+
+source("./scripts/get-mort-EStat.R")
+
+EStat <- read_xlsx(path = "./raw-data/demo_magec_2010_2021.xlsx",
+                   sheet = "Sheet 1", range = "B9:AUO12") |>
+    clean_names() |> 
+    setDT() 
+# row 2 is empty 
+EStat <- EStat[c(1,3), ]
+
+EStat_cat <- get_mort_EStat(EStat)
+
+# Save EuroStat mortality data
+saveRDS(EStat_cat, file = "./processed-data/EStat_mort.rds")
+```
