@@ -5,9 +5,11 @@ editor_options:
   chunk_output_type: inline
 ---
 
-## Number of Deaths above Average
+## Method 1: Number of Deaths above Average
 
-![Figure 1. Deaths above average (2010-2019)](./figures/method1-diff-avg.jpeg)
+![Figure 1. Deaths above average (2015-2019)](./figures/method1-diff-avg.jpeg)
+
+![Figure 2: Humanity Project deaths above average](figures/HP-deaths-above-5yr-avg.png)
 
 ## Death Rate Difference from 2019 Baseline
 

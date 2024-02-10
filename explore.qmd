@@ -39,7 +39,7 @@ Calculate mortality rates per 100,000 persons for each age category
 
 ```{r}
 #| include: false
-#| 
+#| label: "mortality rate"
 
 irl_mort <- readRDS(file = "./processed-data/irl_mort.rds") |> 
     setDT()
@@ -64,6 +64,8 @@ irl_dt |>
 Compute the average number of deaths from 2015 to 2019.
 
 ```{r}
+#| label: "excess above average"
+#| 
 avg_vec <- irl_mort[year %in% 2015:2019, 
                         floor(mean(mort_count)), 
          by = age_cat ][, V1]
@@ -77,6 +79,7 @@ irl_mort_xs[, mort_xs := mort_count - avg_vec, by = year] |>
 
 ```{r}
 #| message: false
+#| label: "plot excess above average"
 #| 
 irl_mort_xs[, year := as.factor(year)]
 ggplot(data=irl_mort_xs, aes(x=age_cat, y=mort_xs, 
@@ -101,12 +104,18 @@ ggplot(data=irl_mort_xs, aes(x=age_cat, y=mort_xs,
 #### Output as Excel Table
 
 ```{r}
+#| label: "output xs above age to excel"
+
 excess_table <- pivot_wider(irl_mort_xs[, .(year, age_cat, mort_xs)], 
             names_from = year, 
             values_from = mort_xs)
 
 write_xlsx(excess_table, path = "./processed-data/Table_10_excess_avg.xlsx")
 ```
+
+## Method 2A: Difference from 2019 baseline
+
+Subtract death rate from 2019 rate
 
 ### Death rate relative to 2019 baseline
 
@@ -145,11 +154,7 @@ excess_table <- pivot_wider(excess_base, names_from = year,
 write_xlsx(excess_table, path = "./processed-data/Table_11_excess_base.xlsx")
 ```
 
-## Method 2A: Difference from 2019 baseline
-
-Subtract death rate from 2019 rate
-
-![](images/clipboard-660369647.png){width="439"}
+## 
 
 ```{r}
 #| message: false  
