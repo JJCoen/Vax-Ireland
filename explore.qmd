@@ -25,7 +25,6 @@ library(tidyverse)
 library(ggpubr)
 library(grid)     # textGrob
 library(gridExtra)
-library(plotly)
 library(janitor)
 library(tidyr)
 library(writexl)
@@ -44,9 +43,14 @@ Calculate mortality rates per 100,000 persons for each age category
 irl_mort <- readRDS(file = "./processed-data/irl_mort.rds") |> 
     setDT()
 irl_mort[, mort_count := count][, count := NULL]
+
 irl_pop <- readRDS(file = "./processed-data/irl_pop.rds") |> 
     setDT()
- 
+# filter out "Total" age category
+age_vec <- c("0-4", "5-14", "15-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75+")
+irl_pop <- irl_pop[age_cat %in% age_vec,]
+irl_mort <- irl_mort[age_cat %in% age_vec, ]
+
 irl_dt <- irl_mort[, pop_count := irl_pop$pop_count]
 
 irl_dt[, rate := mort_count/pop_count * 100000][, rate := floor(rate)]
@@ -61,7 +65,7 @@ irl_dt |>
 
 ![](images/clipboard-2384137005.png){width="391"}
 
-Compute the average number of deaths from 2015 to 2019.
+Compute the average number of deaths from 2015 to 2019, by age category. Calculate difference from average, expressed as a percentage.
 
 ```{r}
 #| label: "excess above average"
@@ -72,7 +76,7 @@ avg_vec <- irl_mort[year %in% 2015:2019,
 # extract years 2020 to 2022
 irl_mort_xs <- irl_mort[year %in% 2020:2022, .(year, age_cat, mort_count)]
 
-irl_mort_xs[, mort_xs := mort_count - avg_vec, by = year] |> 
+irl_mort_xs[, mort_xs := (mort_count/avg_vec - 1)*100, by = year] |> 
     head() |> 
     gt()
 ```
@@ -86,13 +90,14 @@ ggplot(data=irl_mort_xs, aes(x=age_cat, y=mort_xs,
                         fill= year)) +
   geom_bar(stat="identity", position=position_dodge())+
   scale_fill_brewer(palette="Paired") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   labs(
-  title ="75+ only group with excess mortality",
-  subtitle = waiver(),
-  caption = "CSO census, popln estimates, and \nVSAQ2 mortality by age",
-  x = "age category",
-  y = "death rate above average") +
-    annotate(geom = "text", x = "5-14", y = 4500, 
+      title ="younger are lower than average",
+      subtitle = waiver(),
+      caption = "CSO census, popln estimates, and \nVSAQ2 mortality by age",
+      x = "age category",
+      y = "death rate above average") +
+  annotate(geom = "text", x = "0-4", y = 15,
              label = "Method 1") +
   theme_minimal() +
   theme(legend.position='top', 
@@ -106,22 +111,16 @@ ggplot(data=irl_mort_xs, aes(x=age_cat, y=mort_xs,
 ```{r}
 #| label: "output xs above age to excel"
 
-excess_table <- pivot_wider(irl_mort_xs[, .(year, age_cat, mort_xs)], 
-            names_from = year, 
-            values_from = mort_xs)
-
-write_xlsx(excess_table, path = "./processed-data/Table_10_excess_avg.xlsx")
+# excess_table <- pivot_wider(irl_mort_xs[, .(year, age_cat, mort_xs)], 
+#             names_from = year, 
+#             values_from = mort_xs)
+# 
+# write_xlsx(excess_table, path = "./processed-data/Table_10_excess_avg.xlsx")
 ```
 
 ## Method 2A: Difference from 2019 baseline
 
-Subtract death rate from 2019 rate
-
-### Death rate relative to 2019 baseline
-
-The baseline level is the 2019 numbers for each age group. Adjust mortality rates relative to 2019 baseline.
-
-Give the percent change in death rate relative to 2019 baseline.
+The baseline level is the 2019 numbers for each age group. Calculate the difference from the baseline, expressed as a percentage.
 
 ```{r}
 #| message: false
@@ -133,7 +132,7 @@ base <- rep(base, 3)
 
 # Calculate percent change relative to death rate for 2019
 irl_dt[year %in% 2020:2022, 
-                       xs_base := round(rate/base - 1, 5)]
+                       xs_base := round((rate/base-1)*100, 5)]
 
 irl_dt[year %in% 2020:2023,] |> 
     head() |> 
@@ -146,12 +145,12 @@ Extract years 2020 to 2022
 
 ```{r}
 
-excess_base <- irl_dt[year %in% 2020:2022, .(year, age_cat, xs_base)]
-
-excess_table <- pivot_wider(excess_base, names_from = year, 
-            values_from = xs_base)
-
-write_xlsx(excess_table, path = "./processed-data/Table_11_excess_base.xlsx")
+# excess_base <- irl_dt[year %in% 2020:2022, .(year, age_cat, xs_base)]
+# 
+# excess_table <- pivot_wider(excess_base, names_from = year, 
+#             values_from = xs_base)
+# 
+# write_xlsx(excess_table, path = "./processed-data/Table_11_excess_base.xlsx")
 ```
 
 ## 
@@ -174,10 +173,10 @@ irl_dt[year %in% 2020:2022,] |>
 Extract years 2020 to 2022
 
 ```{r}
-excess_diff <- irl_dt[year %in% 2020:2022, .(year, age_cat, xs_diff)]  
-
-diff_table <- pivot_wider(excess_diff, names_from = year,              values_from = xs_diff)  
-write_xlsx(diff_table, path = "./processed-data/Table_12_excess_diff.xlsx")
+# excess_diff <- irl_dt[year %in% 2020:2022, .(year, age_cat, xs_diff)]  
+# 
+# diff_table <- pivot_wider(excess_diff, names_from = year,              values_from = xs_diff)  
+# write_xlsx(diff_table, path = "./processed-data/Table_12_excess_diff.xlsx")
 ```
 
 ## Compare mortality rates by age category
@@ -187,23 +186,24 @@ write_xlsx(diff_table, path = "./processed-data/Table_12_excess_diff.xlsx")
 
 irl_20_22 <- irl_dt[year %in% 2020:2022,]
 irl_20_22[, year := as.factor(year)]
-ggplot(data=irl_20_22, aes(x=age_cat, y=xs_diff, 
+ggplot(data=irl_20_22, aes(x=age_cat, y=xs_base, 
                         fill= year)) +
   geom_bar(stat="identity", position=position_dodge())+
   scale_fill_brewer(palette="Paired") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   labs(
   title ="75+ in 2022: only group with excess mortality",
   subtitle = waiver(),
   caption = "CSO census, popln estimates, and \nVSAQ2 mortality by age",
   x = "age category",
   y = "death rate above baseline") +
-    annotate(geom = "text", x = "5-14", y = 150, 
+    annotate(geom = "text", x = "5-14", y = 10, 
              label = "Method 2A") +
   theme_minimal() +
   theme(legend.position='top', 
         legend.justification='left',
         legend.direction='horizontal') 
-# ggsave("./figures/method2a-base-diff-cso.jpeg")
+ggsave("./figures/method2a-xs_base.jpeg")
 ```
 
 ## EuroStat Mortality Data
@@ -218,8 +218,8 @@ EStat_dt <- irl_pop[1:120, mort_count := EStat_mort$mort_count]
 EStat_dt[, age_cat := as.factor(age_cat)][, Year := as.factor(Year)]
 
 EStat_dt[, rate := mort_count/pop_count * 100000][, rate := floor(rate)]
-head(EStat_dt) |> 
-    head() |> 
+EStat_dt |> 
+#    head() |> 
     gt()
 ```
 
@@ -236,7 +236,7 @@ base <- rep(base, 2)
 
 # Calculate difference between yearly death rate and  
 # death rate for 2019 
-EStat_dt[Year %in% 2020:2021, xs_diff := round(rate - base, 5)]  
+EStat_dt[Year %in% 2020:2021, xs_base := round((rate-base)*100, 5)]  
 
 EStat_dt[Year %in% 2020:2021,] |>   
     head() |> 
@@ -368,20 +368,8 @@ g75 <- ggplot(irl_lin_fit[age_cat == "75+", ],
   scale_x_continuous(breaks = 2010:2019) +
     ggtitle("75 years and over")
 
-gT <- ggplot(irl_lin_fit[age_cat == "Total", ], 
-                aes(x = year, y = rate)) + 
-  geom_point(size = 3, shape=10)+
-    geom_smooth(method = lm, se=FALSE) +
-    stat_regline_equation(label.x = 2017, label.y = 650,
-        aes(label =  paste(after_stat(rr.label), sep = "~~~~"))) +
-  # x-axis breaks for year from 2010 to 2022
-  scale_x_continuous(breaks = 2010:2019) +
-    ggtitle("All age groups")
-
 # Remove axis titles from all plots
-g_young <- list(g0,g5, g15, g25, g35, g45) %>% 
-    map(~.x + labs(x=NULL, y=NULL))
-g_old <- list(g55, g65, g75, gT) %>% 
+g_all <- list(g0,g5, g15, g25, g35, g45, g55, g65, g75) %>% 
     map(~.x + labs(x=NULL, y=NULL))
 ```
 
@@ -399,18 +387,11 @@ yleft <- textGrob(expression(paste("deaths per 100,000")),
 bottom <- textGrob("years", gp = gpar(fontsize = 20))
 
 # Lay out plots
-uni <- grid.arrange(grobs=g_young, ncol = 2, nrow = 3, 
+uni <- grid.arrange(grobs=g_all, ncol = 3, nrow = 3, 
                     left = yleft, bottom = bottom)
-```
-
-```{r}
-#| fig-height: 10
-#| fig-width: 10
-#| message: false
-
-# Lay out plots
-uni <- grid.arrange(grobs=g_old, ncol = 2, nrow = 2, 
-                    left = yleft, bottom = bottom)
+#save
+g <- arrangeGrob(g0,g5, g15, g25, g35, g45, g55, g65, g75, nrow=3) #generates g
+ggsave(file="./figures/linear_fit.jpeg", g) #saves g
 ```
 
 ```{r}
@@ -462,11 +443,14 @@ predict75 <- predict(mod75, newdata = data.frame(year = newx))
 irl_20_22[age_cat=="75+", lm := predict75]
 ```
 
-Remove *Total* age category due to low \$r\^2\$ value
+Remove *"0-4", "5-14", "15-24", "25-34", "35-44"*, and *Total* age category due to low $r^2$ value.
+
+Calculate difference between death rate and value predicted by linear models, as a percentage
 
 ```{r}
-irl_lin <- irl_20_22[ age_cat != "Total",]
-irl_lin[, xs_lin := rate - lm]
+irl_lin <- irl_20_22[ !(age_cat %in% c("0-4", "5-14", "15-24", "25-34", "35-44","Total") ), ]
+
+irl_lin[,  xs_lin := (rate/lm-1)*100]
 ```
 
 Difference between death rate and linear model prediction:
@@ -476,17 +460,18 @@ ggplot(data=irl_lin, aes(x=age_cat, y=xs_lin,
                         fill= year)) +
   geom_bar(stat="identity", position=position_dodge())+
   scale_fill_brewer(palette="Paired") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   labs(
   title ="Disparity in 75+ group",
   subtitle = waiver(),
   caption = "CSO census, popln estimates, and \nVSAQ2 mortality by age",
   x = "age category",
   y = "death rate difference from linear fit") +
-        annotate(geom = "text", x = "5-14", y = 100, 
+        annotate(geom = "text", x = "75+", y = 15, 
              label = "Method 2C") +
   theme_minimal() +
   theme(legend.position='top', 
         legend.justification='left',
         legend.direction='horizontal') 
-# ggsave("./figures/method2c-diff-lin-fit.jpeg")
+ggsave("./figures/method2c-diff-lin-fit.jpeg")
 ```
