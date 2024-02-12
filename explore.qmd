@@ -192,7 +192,7 @@ ggplot(data=irl_20_22, aes(x=age_cat, y=xs_base,
   scale_fill_brewer(palette="Paired") +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   labs(
-  title ="75+ in 2022: only group with excess mortality",
+  title ="Younger groups have reduced mortality",
   subtitle = waiver(),
   caption = "CSO census, popln estimates, and \nVSAQ2 mortality by age",
   x = "age category",
@@ -203,7 +203,7 @@ ggplot(data=irl_20_22, aes(x=age_cat, y=xs_base,
   theme(legend.position='top', 
         legend.justification='left',
         legend.direction='horizontal') 
-ggsave("./figures/method2a-xs_base.jpeg")
+# ggsave("./figures/method2a-xs_base.jpeg")
 ```
 
 ## EuroStat Mortality Data
@@ -443,12 +443,12 @@ predict75 <- predict(mod75, newdata = data.frame(year = newx))
 irl_20_22[age_cat=="75+", lm := predict75]
 ```
 
-Remove *"0-4", "5-14", "15-24", "25-34", "35-44"*, and *Total* age category due to low $r^2$ value.
+Remove *"0-4", "5-14", "25-34", "35-44"*, *"75+"* and *Total* age category due to low $r^2$ value.
 
 Calculate difference between death rate and value predicted by linear models, as a percentage
 
 ```{r}
-irl_lin <- irl_20_22[ !(age_cat %in% c("0-4", "5-14", "15-24", "25-34", "35-44","Total") ), ]
+irl_lin <- irl_20_22[ !(age_cat %in% c("0-4", "5-14", "25-34", "35-44", "75+", "Total") ), ]
 
 irl_lin[,  xs_lin := (rate/lm-1)*100]
 ```
@@ -462,16 +462,16 @@ ggplot(data=irl_lin, aes(x=age_cat, y=xs_lin,
   scale_fill_brewer(palette="Paired") +
   scale_y_continuous(labels = scales::percent_format(scale = 1)) +
   labs(
-  title ="Disparity in 75+ group",
+  title ="Young Adults ~80% above trend",
   subtitle = waiver(),
   caption = "CSO census, popln estimates, and \nVSAQ2 mortality by age",
   x = "age category",
   y = "death rate difference from linear fit") +
-        annotate(geom = "text", x = "75+", y = 15, 
+        annotate(geom = "text", x = "65-74", y = 20, 
              label = "Method 2C") +
   theme_minimal() +
   theme(legend.position='top', 
         legend.justification='left',
         legend.direction='horizontal') 
-ggsave("./figures/method2c-diff-lin-fit.jpeg")
+# ggsave("./figures/method2c-diff-lin-fit.jpeg")
 ```

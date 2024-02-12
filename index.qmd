@@ -11,18 +11,20 @@ editor_options:
 
 ![Figure 2: Humanity Project deaths above average](figures/HP-deaths-above-5yr-avg.png)
 
-## Death Rate Difference from 2019 Baseline
+## Method 2A: Death Rate Percent Change from 2019 Baseline
 
 ### Central Statistics Office data
 
-![Figure 2. Death Rate from Baseline, CSO](figures/method2a-base-diff-cso.jpeg)
+![Figure 3. Death Rate change from Baseline 2019](figures/method2a-xs_base.jpeg)
 
-### EuroStat Mortality Data
-
-CSO population numbers and EuroStat mortality records.
-
-![Figure 3. Death Rate from Baseline, EuroStat](figures/method2a-base-diff-estat.jpeg)
+![Figure 4: HP Death Rate from Baseline](figures/HP-mort-rate-from-base-2019.png)
 
 ## Death Rate difference from Linear Fit
 
-![Figure 4. Death Rate, Linear Fit](figures/method2c-diff-lin-fit.jpeg)
+### Linear Model Evaluation
+
+![Figure 5. Scatter Plot and Linear Model Fit](figures/linear_fit.jpeg)
+
+![Figure 6. Death Rate, Linear Fit](figures/method2c-diff-lin-fit.jpeg)
+
+![Figure 7. HP Death Rate from Linear Fit](figures/HP-mort-rate-from-lin-fit.png)
