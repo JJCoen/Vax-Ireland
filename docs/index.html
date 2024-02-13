@@ -138,13 +138,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#number-of-deaths-above-average" id="toc-number-of-deaths-above-average" class="nav-link active" data-scroll-target="#number-of-deaths-above-average">Number of Deaths above Average</a></li>
-  <li><a href="#death-rate-difference-from-2019-baseline" id="toc-death-rate-difference-from-2019-baseline" class="nav-link" data-scroll-target="#death-rate-difference-from-2019-baseline">Death Rate Difference from 2019 Baseline</a>
+  <li><a href="#method-1-number-of-deaths-above-average" id="toc-method-1-number-of-deaths-above-average" class="nav-link active" data-scroll-target="#method-1-number-of-deaths-above-average">Method 1: Number of Deaths above Average</a></li>
+  <li><a href="#method-2a-death-rate-percent-change-from-2019-baseline" id="toc-method-2a-death-rate-percent-change-from-2019-baseline" class="nav-link" data-scroll-target="#method-2a-death-rate-percent-change-from-2019-baseline">Method 2A: Death Rate Percent Change from 2019 Baseline</a>
   <ul class="collapse">
   <li><a href="#central-statistics-office-data" id="toc-central-statistics-office-data" class="nav-link" data-scroll-target="#central-statistics-office-data">Central Statistics Office data</a></li>
-  <li><a href="#eurostat-mortality-data" id="toc-eurostat-mortality-data" class="nav-link" data-scroll-target="#eurostat-mortality-data">EuroStat Mortality Data</a></li>
   </ul></li>
-  <li><a href="#death-rate-difference-from-linear-fit" id="toc-death-rate-difference-from-linear-fit" class="nav-link" data-scroll-target="#death-rate-difference-from-linear-fit">Death Rate difference from Linear Fit</a></li>
+  <li><a href="#death-rate-difference-from-linear-fit" id="toc-death-rate-difference-from-linear-fit" class="nav-link" data-scroll-target="#death-rate-difference-from-linear-fit">Death Rate difference from Linear Fit</a>
+  <ul class="collapse">
+  <li><a href="#linear-model-evaluation" id="toc-linear-model-evaluation" class="nav-link" data-scroll-target="#linear-model-evaluation">Linear Model Evaluation</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jjcoen/vax-ireland/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jjcoen/vax-ireland/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -169,47 +171,64 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="number-of-deaths-above-average" class="level2">
-<h2 class="anchored" data-anchor-id="number-of-deaths-above-average">Number of Deaths above Average</h2>
+<section id="method-1-number-of-deaths-above-average" class="level2">
+<h2 class="anchored" data-anchor-id="method-1-number-of-deaths-above-average">Method 1: Number of Deaths above Average</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./figures/method1-diff-avg.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 1. Deaths above average (2010-2019)</figcaption>
+<figcaption class="figure-caption">Figure 1. Deaths above average (2015-2019)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/HP-deaths-above-5yr-avg.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 2: Humanity Project deaths above average</figcaption>
 </figure>
 </div>
 </section>
-<section id="death-rate-difference-from-2019-baseline" class="level2">
-<h2 class="anchored" data-anchor-id="death-rate-difference-from-2019-baseline">Death Rate Difference from 2019 Baseline</h2>
+<section id="method-2a-death-rate-percent-change-from-2019-baseline" class="level2">
+<h2 class="anchored" data-anchor-id="method-2a-death-rate-percent-change-from-2019-baseline">Method 2A: Death Rate Percent Change from 2019 Baseline</h2>
 <section id="central-statistics-office-data" class="level3">
 <h3 class="anchored" data-anchor-id="central-statistics-office-data">Central Statistics Office data</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/method2a-base-diff-cso.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 2. Death Rate from Baseline, CSO</figcaption>
+<p><img src="figures/method2a-xs_base.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 3. Death Rate change from Baseline 2019</figcaption>
 </figure>
 </div>
-</section>
-<section id="eurostat-mortality-data" class="level3">
-<h3 class="anchored" data-anchor-id="eurostat-mortality-data">EuroStat Mortality Data</h3>
-<p>CSO population numbers and EuroStat mortality records.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/method2a-base-diff-estat.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 3. Death Rate from Baseline, EuroStat</figcaption>
+<p><img src="figures/HP-mort-rate-from-base-2019.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 4: HP Death Rate from Baseline</figcaption>
 </figure>
 </div>
 </section>
 </section>
 <section id="death-rate-difference-from-linear-fit" class="level2">
 <h2 class="anchored" data-anchor-id="death-rate-difference-from-linear-fit">Death Rate difference from Linear Fit</h2>
+<section id="linear-model-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="linear-model-evaluation">Linear Model Evaluation</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/linear_fit.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 5. Scatter Plot and Linear Model Fit</figcaption>
+</figure>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/method2c-diff-lin-fit.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 4. Death Rate, Linear Fit</figcaption>
+<figcaption class="figure-caption">Figure 6. Death Rate, Linear Fit</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/HP-mort-rate-from-lin-fit.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 7. HP Death Rate from Linear Fit</figcaption>
 </figure>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
