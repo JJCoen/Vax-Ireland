@@ -116,6 +116,13 @@
     "href": "index.html#method-2a-death-rate-percent-change-from-2019-baseline",
     "title": "Change in Mortality Rates for Ireland",
     "section": "Method 2A: Death Rate Percent Change from 2019 Baseline",
-    "text": "Method 2A: Death Rate Percent Change from 2019 Baseline\n\nCentral Statistics Office data\n\n\n\nFigure 3. Death Rate change from Baseline 2019\n\n\n\n\n\nFigure 4: HP Death Rate from Baseline"
+    "text": "Method 2A: Death Rate Percent Change from 2019 Baseline\n\n\n\n\nFigure 3. Death Rate change from Baseline 2019\n\n\n\n\n\nFigure 4: HP Death Rate from Baseline"
+  },
+  {
+    "objectID": "index.html#method-2c-death-rate-difference-from-linear-fit",
+    "href": "index.html#method-2c-death-rate-difference-from-linear-fit",
+    "title": "Change in Mortality Rates for Ireland",
+    "section": "Method 2C: Death Rate difference from Linear Fit",
+    "text": "Method 2C: Death Rate difference from Linear Fit\n\n\nLinear Model Evaluation\n\n\n\nFigure 5. Scatter Plot and Linear Model Fit\n\n\n\n\n\nFigure 6. Death Rate, Linear Fit\n\n\n\n\n\nFigure 7. HP Death Rate from Linear Fit"
   }
 ]

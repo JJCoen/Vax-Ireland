@@ -7,19 +7,23 @@ editor_options:
 
 ## Method 1: Number of Deaths above Average
 
+![](images/method_1.png)
+
 ![Figure 1. Deaths above average (2015-2019)](./figures/method1-diff-avg.jpeg)
 
 ![Figure 2: Humanity Project deaths above average](figures/HP-deaths-above-5yr-avg.png)
 
 ## Method 2A: Death Rate Percent Change from 2019 Baseline
 
-### Central Statistics Office data
+![](images/method_2A.png)
 
 ![Figure 3. Death Rate change from Baseline 2019](figures/method2a-xs_base.jpeg)
 
 ![Figure 4: HP Death Rate from Baseline](figures/HP-mort-rate-from-base-2019.png)
 
-## Death Rate difference from Linear Fit
+## Method 2C: Death Rate difference from Linear Fit
+
+![](images/method_2C.png)
 
 ### Linear Model Evaluation
 
