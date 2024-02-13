@@ -5,11 +5,6 @@
   dir.create(paste0(getwd(), "/scripts"), showWarnings = F)
   dir.create(paste0(getwd(), "/analysis"), showWarnings = F)
   
-  if (!("renv" %in% list.files())) {
-    renv::init()
-  } else {
-    source("renv/activate.R")
-  }
-  
-  cat("\nWelcome to your R-Project:", basename(getwd()), "\n")
+
+ 
 }

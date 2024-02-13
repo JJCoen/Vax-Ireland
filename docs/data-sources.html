@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -188,20 +222,36 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="ireland-census---central-statistics-office"><strong>2011 Ireland Census -</strong> Central Statistics Office</h3>
 <p>External html script: <a href="https://data.cso.ie/table/CD205">CSO - Population by year of age, 2011</a></p>
 <p>Run the R chunk below and select “Download CSV” to the <em>raw-data</em> folder. Enter the file name: <em>CD205-Pop-2016</em> The file type is csv.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/CD205-Pop-2011.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="ireland-census---central-statistics-office-1" class="level3">
 <h3 class="anchored" data-anchor-id="ireland-census---central-statistics-office-1"><strong>2016 Ireland Census -</strong> Central Statistics Office</h3>
 <p><a href="https://data.cso.ie/table/CNA20">CSO - Population by year of age, 2016</a></p>
 <p>Run the R chunk below and select “Download CSV” to the <em>raw-data</em> folder. Enter the file name: <em>CNA20-Pop-2016</em> The file type is csv.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/CNA20-Pop-2016.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="ireland-census---central-statistics-office-2" class="level3">
 <h3 class="anchored" data-anchor-id="ireland-census---central-statistics-office-2"><strong>2022 Ireland Census -</strong> Central Statistics Office</h3>
 <p><a href="https://data.cso.ie/table/FY006B">CSO - Population by year of age, 2022</a></p>
 <p>Run the R chunk below and select “Download CSV” to the <em>raw-data</em> folder. Enter the file name: <em>FY006B-Pop-2022</em> The file type is csv.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/FY006B-Pop-2022.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="population-estimates-2023" class="level3">
 <h3 class="anchored" data-anchor-id="population-estimates-2023">Population Estimates, 2023</h3>
 <p>Run the html script below and download file to <em>./raw-data/PEA01-Pop-Est-2023.csv</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/PEA01-Pop-Est-2023.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="population-estimates-2015-2021" class="level3">
 <h3 class="anchored" data-anchor-id="population-estimates-2015-2021">Population Estimates, 2015-2021</h3>
@@ -214,12 +264,20 @@ The file type is xlsx.</p>
 <section id="population-estimates-2010-2014" class="level3">
 <h3 class="anchored" data-anchor-id="population-estimates-2010-2014">Population Estimates, 2010-2014</h3>
 <p>Run the html script below and download file to <em>./raw-data/PEA01-Pop-Est-2010-2014.csv</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/PEA01-Pop-Est-2010-2014.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="mortality" class="level2">
 <h2 class="anchored" data-anchor-id="mortality">Mortality</h2>
 <p><a href="https://data.cso.ie/table/VSAQ2">CSO - Mortality by Age Group and Quarter Year</a></p>
 <p>Run the R chunk below and select “Download CSV” to the <em>raw-data</em> folder. Enter the file name: <em>VSAQ2-Mort-Age-2010-2023</em> The file type is automatically set to csv.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/VSAQ2-Mort-Age-2010-2023.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Go to <a href="https://ec.europa.eu/eurostat/databrowser/view/demo_magec__custom_9481166/default/table?lang=en" title="custom query to EuroStat">EuroStat demo_magec dataset</a></p>
 <p>Select <code>Download</code> &gt;<br>
 &gt; <code>Data on this page only</code><br>

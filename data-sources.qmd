@@ -25,7 +25,6 @@ External html script: [CSO - Population by year of age, 2011](https://data.cso.i
 Run the R chunk below and select "Download CSV" to the *raw-data* folder. Enter the file name: *CD205-Pop-2016* The file type is csv.
 
 ```{r}
-#| echo: false
 #| eval: false
 
 library(htmltools)
@@ -39,7 +38,6 @@ htmltools::includeHTML("./scripts/CD205-Pop-2011.html")
 Run the R chunk below and select "Download CSV" to the *raw-data* folder. Enter the file name: *CNA20-Pop-2016* The file type is csv.
 
 ```{r}
-#| echo: false
 #| eval: false
 
 library(htmltools)
@@ -53,7 +51,6 @@ htmltools::includeHTML("./scripts/CNA20-Pop-2016.html")
 Run the R chunk below and select "Download CSV" to the *raw-data* folder. Enter the file name: *FY006B-Pop-2022* The file type is csv.
 
 ```{r}
-#| echo: false
 #| eval: false
 
 library(htmltools)
@@ -65,7 +62,6 @@ htmltools::includeHTML("./scripts/FY006B-Pop-2022.html")
 Run the html script below and download file to *./raw-data/PEA01-Pop-Est-2023.csv*
 
 ```{r}
-#| echo: false
 #| eval: false
 
 library(htmltools)
@@ -88,7 +84,6 @@ The file type is xlsx.
 Run the html script below and download file to *./raw-data/PEA01-Pop-Est-2010-2014.csv*
 
 ```{r}
-#| echo: false
 #| eval: false
 
 library(htmltools)
@@ -102,7 +97,6 @@ htmltools::includeHTML("./scripts/PEA01-Pop-Est-2010-2014.html")
 Run the R chunk below and select "Download CSV" to the *raw-data* folder. Enter the file name: *VSAQ2-Mort-Age-2010-2023* The file type is automatically set to csv.
 
 ```{r}
-#| echo: false
 #| eval: false
 
 library(htmltools)
