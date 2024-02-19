@@ -29,6 +29,8 @@ editor_options:
 
 ![Figure 5. Scatter Plot and Linear Model Fit](figures/linear_fit.jpeg)
 
+Only age categories 15-24, 45-54, 55-64, and 65-74 have adequate \$\$r\^2\$\$ value.
+
 ![Figure 6. Death Rate, Linear Fit](figures/method2c-diff-lin-fit.jpeg)
 
 ![Figure 7. HP Death Rate from Linear Fit](figures/HP-mort-rate-from-lin-fit.png)
