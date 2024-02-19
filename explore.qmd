@@ -153,7 +153,7 @@ Extract years 2020 to 2022
 # write_xlsx(excess_table, path = "./processed-data/Table_11_excess_base.xlsx")
 ```
 
-## Compare mortality rates by age category
+Visualise
 
 ```{r}
 #| message: false
