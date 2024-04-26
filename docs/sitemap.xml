@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jjcoen.github.io/vax-ireland/index.html</loc>
-    <lastmod>2024-02-13T15:25:02.957Z</lastmod>
+    <lastmod>2024-03-06T10:23:23.407Z</lastmod>
   </url>
   <url>
     <loc>https://jjcoen.github.io/vax-ireland/transform.html</loc>
@@ -10,10 +10,18 @@
   </url>
   <url>
     <loc>https://jjcoen.github.io/vax-ireland/explore.html</loc>
-    <lastmod>2024-02-13T15:24:30.181Z</lastmod>
+    <lastmod>2024-03-06T10:23:19.898Z</lastmod>
   </url>
   <url>
     <loc>https://jjcoen.github.io/vax-ireland/data-sources.html</loc>
     <lastmod>2024-02-13T15:21:37.692Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jjcoen.github.io/vax-ireland/html-test.html</loc>
+    <lastmod>2024-02-27T17:07:42.075Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jjcoen.github.io/vax-ireland/report/html-test.html</loc>
+    <lastmod>2024-02-27T17:11:04.345Z</lastmod>
   </url>
 </urlset>
