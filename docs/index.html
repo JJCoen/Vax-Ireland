@@ -140,7 +140,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#method-1-number-of-deaths-above-average" id="toc-method-1-number-of-deaths-above-average" class="nav-link active" data-scroll-target="#method-1-number-of-deaths-above-average">Method 1: Number of Deaths above Average</a></li>
   <li><a href="#method-2a-death-rate-percent-change-from-2019-baseline" id="toc-method-2a-death-rate-percent-change-from-2019-baseline" class="nav-link" data-scroll-target="#method-2a-death-rate-percent-change-from-2019-baseline">Method 2A: Death Rate Percent Change from 2019 Baseline</a></li>
-  <li><a href="#method-2c-death-rate-difference-from-linear-fit" id="toc-method-2c-death-rate-difference-from-linear-fit" class="nav-link" data-scroll-target="#method-2c-death-rate-difference-from-linear-fit">Method 2C: Death Rate difference from Linear Fit</a>
+  <li><a href="#method-2c-death-rate-divergence-from-linear-trend" id="toc-method-2c-death-rate-divergence-from-linear-trend" class="nav-link" data-scroll-target="#method-2c-death-rate-divergence-from-linear-trend">Method 2C: Death Rate divergence from Linear Trend</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
   <ul class="collapse">
   <li><a href="#linear-model-evaluation" id="toc-linear-model-evaluation" class="nav-link" data-scroll-target="#linear-model-evaluation">Linear Model Evaluation</a></li>
   </ul></li>
@@ -177,12 +178,6 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption">Figure 1. Deaths above average (2015-2019)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/HP-deaths-above-5yr-avg.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 2: Humanity Project deaths above average</figcaption>
-</figure>
-</div>
 </section>
 <section id="method-2a-death-rate-percent-change-from-2019-baseline" class="level2">
 <h2 class="anchored" data-anchor-id="method-2a-death-rate-percent-change-from-2019-baseline">Method 2A: Death Rate Percent Change from 2019 Baseline</h2>
@@ -190,19 +185,22 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/method2a-xs_base.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 3. Death Rate change from Baseline 2019</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/HP-mort-rate-from-base-2019.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 4: HP Death Rate from Baseline</figcaption>
+<figcaption class="figure-caption">Figure 2. Death Rate change from Baseline 2019</figcaption>
 </figure>
 </div>
 </section>
-<section id="method-2c-death-rate-difference-from-linear-fit" class="level2">
-<h2 class="anchored" data-anchor-id="method-2c-death-rate-difference-from-linear-fit">Method 2C: Death Rate difference from Linear Fit</h2>
+<section id="method-2c-death-rate-divergence-from-linear-trend" class="level2">
+<h2 class="anchored" data-anchor-id="method-2c-death-rate-divergence-from-linear-trend">Method 2C: Death Rate divergence from Linear Trend</h2>
 <p><img src="images/method_2C.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/method2c-diff-lin-fit.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 6. Death Rate, Linear Fit</figcaption>
+</figure>
+</div>
+</section>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
 <section id="linear-model-evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="linear-model-evaluation">Linear Model Evaluation</h3>
 <div class="quarto-figure quarto-figure-center">
@@ -212,18 +210,6 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Only age categories 15-24, 45-54, 55-64, and 65-74 have adequate $$r^2$$ value.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/method2c-diff-lin-fit.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 6. Death Rate, Linear Fit</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/HP-mort-rate-from-lin-fit.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure 7. HP Death Rate from Linear Fit</figcaption>
-</figure>
-</div>
 
 
 </section>

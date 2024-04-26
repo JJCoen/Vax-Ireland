@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Change in Mortality Rates for Ireland",
     "section": "",
-    "text": "Figure 1. Deaths above average (2015-2019)\n\n\n\n\n\nFigure 2: Humanity Project deaths above average"
+    "text": "Figure 1. Deaths above average (2015-2019)"
   },
   {
     "objectID": "index.html#number-of-deaths-above-average",
@@ -109,14 +109,14 @@
     "href": "index.html#method-1-number-of-deaths-above-average",
     "title": "Change in Mortality Rates for Ireland",
     "section": "",
-    "text": "Figure 1. Deaths above average (2015-2019)\n\n\n\n\n\nFigure 2: Humanity Project deaths above average"
+    "text": "Figure 1. Deaths above average (2015-2019)"
   },
   {
     "objectID": "index.html#method-2a-death-rate-percent-change-from-2019-baseline",
     "href": "index.html#method-2a-death-rate-percent-change-from-2019-baseline",
     "title": "Change in Mortality Rates for Ireland",
     "section": "Method 2A: Death Rate Percent Change from 2019 Baseline",
-    "text": "Method 2A: Death Rate Percent Change from 2019 Baseline\n\n\n\n\nFigure 3. Death Rate change from Baseline 2019\n\n\n\n\n\nFigure 4: HP Death Rate from Baseline"
+    "text": "Method 2A: Death Rate Percent Change from 2019 Baseline\n\n\n\n\nFigure 2. Death Rate change from Baseline 2019"
   },
   {
     "objectID": "index.html#method-2c-death-rate-difference-from-linear-fit",
@@ -208,5 +208,19 @@
     "title": "Exploratory Data Analysis",
     "section": "Appendix",
     "text": "Appendix\n\nLinear Fit of Death Rate for years 2010 to 2019\nPlot Function"
+  },
+  {
+    "objectID": "index.html#method-2c-death-rate-divergence-from-linear-trend",
+    "href": "index.html#method-2c-death-rate-divergence-from-linear-trend",
+    "title": "Change in Mortality Rates for Ireland",
+    "section": "Method 2C: Death Rate divergence from Linear Trend",
+    "text": "Method 2C: Death Rate divergence from Linear Trend\n\n\n\n\nFigure 6. Death Rate, Linear Fit"
+  },
+  {
+    "objectID": "index.html#appendix",
+    "href": "index.html#appendix",
+    "title": "Change in Mortality Rates for Ireland",
+    "section": "Appendix",
+    "text": "Appendix\n\nLinear Model Evaluation\n\n\n\nFigure 5. Scatter Plot and Linear Model Fit\n\n\nOnly age categories 15-24, 45-54, 55-64, and 65-74 have adequate $$r^2$$ value."
   }
 ]
