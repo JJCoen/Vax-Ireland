@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Excess Mortality in Ireland – ireland-report</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/covid19_variant.jpeg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://phinancetechnologies.com/HumanityProjects/Humanity%20projects.asp" rel="" title="Humanity Projects" class="quarto-navigation-tool px-1" aria-label="Humanity Projects"><i class="bi bi-globe"></i></a>
+    <a href="https://github.com/jjcoen/vax-scotland" rel="" title="Data and Analysis" class="quarto-navigation-tool px-1" aria-label="Data and Analysis"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Load and Transform Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./explore.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory Data Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Sources</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-page-right" id="quarto-document-content">
+
+
+
+
+<!-- -------------------------------------- HEAD ---------------------------------------------- -->
+<title>IE - Yearly Excess Death Rate Analysis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <style>
+        body {font-family: "Lato", sans-serif}
+        .mySlides {display: none}
+        h3 {text-align: center; font-family: "Lato", sans-serif}
+        p {text-align: left;}
+        div {text-align: center;}
+    </style>
+<!-- End HEAD -->
+
+
+<!-- -------------------------------------- BODY ----- -->
+    
+<!-- top menus--------------------------------- -->
+
+    <br>
+    <div class="w3-top">
+        <div class="w3-bar w3-highway-green">
+            
+            <!-- phinance technologies logo - home button --------------------- -->
+
+            <!-- humanity projects button ------------------------------------- -->
+
+            <!-- Projects button --------------------------- -->
+
+            <!-- Resources button --------------------------------------------- -->
+            
+            <!-- About button --------------------------------------------- -->
+            
+            <!-- FAQ button --------------------------------------------- -->
+                        
+            <!-- YEARLY EXCESS DEATH RATE ANALYSIS button --------------------------- -->
+            
+        </div>
+    </div>
+
+ <!-- Page content  -->
+    <br>
+    <div class="w3-container w3-content w3-padding-64" style="max-width:2000px;margin-top:60px">
+       
+        <!-- Title Section ---------------------------------------------------- -->
+<div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1000px" id="Nav_title">
+            <h1 class="w3-wide"><b>Yearly Excess Death Rate Analysis</b></h1>
+            <h3 class="w3-text-gray anchored">Ireland</h3>
+            <h6 class="w3-text-gray anchored">Data Sources: Central Statistics Office, Ireland </h6>
+            <p></p><center>May 2024</center><p></p>
+            <br>
+            <br>
+        </div>
+        <br><br>
+</div>    
+
+ <!-- HP Section --->
+<div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1000px" id="Nav_Data">
+        <h3 class="w3-wide w3-center anchored"><b> Humanity Projects </b> </h3>
+        <h6 class="w3-container w3-justify anchored"> 
+            <p>
+                This analysis is an adjunct to the main report from Humanity Projects.  Please refer to that website for analysis methodology and country reports, including Ireland.                            </p><p>
+                <a href="https://phinancetechnologies.com/HumanityProjects/Humanity%20projects.asp" target="_blank">Humanity Projects - Objectives, Principles, and Projects.</a></p>
+<p>The analysis presented here incorporates the latest mortality counts from the CSO.  Another reason for this complimentary report is reproducibility.  On this website, the researcher can identify the source data files used, access code for transforming that data and for performing exploratory analysis.
+</p>                
+<p>In addition, the format of the report presented here is adapted from the Humanity Projects report on Ireland: 
+<a href="https://phinancetechnologies.com/HumanityProjects/yearly%20Excess%20Death%20Rate%20Analysis%20-%20IE.htm" target="_blank">Yearly Excess Death Rate Analysis, Ireland. </a></p>
+                
+</h6></div>
+<br><br>
+
+ <!-- Data Section --->
+<div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1000px" id="Nav_Data">
+        <h3 class="w3-wide w3-center anchored"><b> Data: </b> </h3>
+        <h6 class="w3-container w3-justify anchored"> 
+            <p>
+                Data for this analysis are quarterly deaths data from the Irish Central Statistics Office, spanning from 2010 to Q4-2023 (as of May, 2024). </p>
+            <p>Countries: IE (Ireland)</p>
+            <p>Source for Quarterly Deaths (Ireland - <a href="https://data.cso.ie" target="_blank">Central Statistics Office</a>): 
+            <a href="https://data.cso.ie/table/VSAQ2" target="_blank">Data file: Quarterly deaths, sex and age group.</a></p>
+    <p>Source for Population Census and Estimates (CSO): 
+                <a href="https://data.cso.ie/table/CD205">CSO Census 2011.</a>
+     <a href="https://data.cso.ie/table/CNA20">Census 2016.</a>
+     <a href="https://data.cso.ie/table/FY006B">Census 2022.</a>
+     <a href="https://data.cso.ie/table/PEA01">Yearly Population Estimates.</a>
+     </p>    
+            <br>
+     <p><b>Comment on the available data and its limitations.</b></p>
+    <p>Deaths registered in Ireland are recorded on a quarterly basis by the CSO. There is a variable time lag between when a person dies and when that death is registered. In addition, population counts are on a yearly basis. Census, carried out in 2011, 2016, and 2022 give actual numbers while estimates, based on demographic factors, are given for the other years.</p>
+
+    <p>There is a mismatch between population and mortality for the lowest age group. Population data records counts for years 0 to 4 while there are separate age groups for under 1 year and for 1 to 4 years in the mortality data. These two groups are combined for compatibility between population and mortality.</p>
+    <p>Number of persons vaccinated comes from the European Centre for Disease Prevention and Control.  Age groups in this data are not compatible with the population / mortality data from the CSO.  The CSO age group and comparible ECDPC group are given below: </p>
+    
+<table class="w3-table-all w3-card table" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CSO Age Group</td>
+<td data-quarto-table-cell-role="th">EDCPC Vaccination Age Group</td>
+</tr>
+<tr class="even">
+<td>Under 1 plus 1-4</td>
+<td>0-4</td>
+</tr>
+<tr class="odd">
+<td>5-14</td>
+<td>5-9 plus 10-14</td>
+</tr>
+<tr class="even">
+<td>15-24</td>
+<td>15-17 plus 18-24</td>
+</tr>
+<tr class="odd">
+<td>25-34</td>
+<td>25-49</td>
+</tr>
+<tr class="even">
+<td>35-44</td>
+<td>25-49</td>
+</tr>
+<tr class="odd">
+<td>45-54</td>
+<td>50-59</td>
+</tr>
+<tr class="even">
+<td>55-64</td>
+<td>60-69</td>
+</tr>
+<tr class="odd">
+<td>65-74</td>
+<td>60 plus</td>
+</tr>
+<tr class="even">
+<td>75+</td>
+<td>60 plus</td>
+</tr>
+</tbody>
+</table>
+
+    <p> The analysis uses data from the COVID-19 Vaccine Tracker.  This covers all weeks from w53 2020 up to w39 2023.  It records the median cumulative uptake (%) of the primary course by age group.  The main "Data on COVID-19 vaccination in the EU/EEA" data-set only covers doses administered during the most recent weeks. </p>
+    <p> This report records the "FirstDose" variable which is the "Number of first dose vaccine administered to individuals 
+during the reporting week" (Data Dictionary for the COVID-19 vaccination data).  Once an person receives a single dose, mRMA particles circulate throughout the body</p>.
+</h6></div>
+<br><br>
+        
+<!-- Yearly plots Section 1 ------------------------------------- -->
+        <div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1280px" id="Nav_ExcessMortality">
+            <br>                                    
+            <div class="w3-container w3-content" style="width:90%">
+                <h4 class="w3-wide w3-center anchored"><b>Methodology</b></h4>
+                <h6 class="w3-text-gray w3-justify anchored">
+                    <p>For details on methods for calculating excess mortality, please refer to the Humanity Projects <a href="Resources.htm#ExcessDeathsMethodology" target="_blank">methodology papers.</a> These papers illustrate the pitfalls and advantages of using the different calculation methods for excess mortality.</p>
+                </h6>
+            </div>
+            <h5 class="w3-blue-gray anchored">   Yearly Excess Deaths using methods 1, 2A and 2C</h5>
+            <div class="w3-row">
+                <div class="w3-half w3-padding">
+                    <h6 class="w3-text-gray w3-justify anchored">
+                        <p>The chart below shows the actual deaths (or death rate) versus the projected estimates when using the different methodologies described in our <a href="Resources.htm#ExcessDeathsMethodology">methodology papers.</a></p>
+                        <p>The user can select the calculation method and age group. 2023 deaths or deaths rates are annualised estimates using a linear model.</p>
+                    </h6>
+                </div>
+                <div class="w3-half w3-padding">
+                    <h6 class="w3-text-gray w3-justify anchored">
+                        <p>The chart below shows the excess mortality for 2020, 2021, 2022 and 2023 (either excess deaths or excess death rates) for a given age group. Please be aware that we matched the age groups as described in the <a href="#Nav_Data">data section</a> above.</p>
+                        <p>The plot allows the user to select the desired methodology and age group. 2023 deaths or deaths rates are annualised estimates using a linear model. Note that for older age groups this could lead to higher yearly estimates due to winter-months seasonality.</p>
+                    </h6>
+                </div>
+            </div>
+            
+        </div>
+        <br><br>
+
+    <style>
+        body {font-family: "Lato", sans-serif}
+        .mySlides {display: none}
+        h3 {text-align: center; font-family: "Lato", sans-serif}
+        p {text-align: left;}
+        div {text-align: center;}
+    </style>
+<h3 class="w3-wide w3-center anchored"><b> Method 1 - Difference from Average </b> </h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-ce5e479e9c85aa72b7db" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ce5e479e9c85aa72b7db">{"x":{"data":[{"x":[2010,2010,2010,2010,2010,2010,2010,2010,2010,2011,2011,2011,2011,2011,2011,2011,2011,2011,2012,2012,2012,2012,2012,2012,2012,2012,2012,2013,2013,2013,2013,2013,2013,2013,2013,2013,2014,2014,2014,2014,2014,2014,2014,2014,2014,2015,2015,2015,2015,2015,2015,2015,2015,2015,2016,2016,2016,2016,2016,2016,2016,2016,2016,2017,2017,2017,2017,2017,2017,2017,2017,2017,2018,2018,2018,2018,2018,2018,2018,2018,2018,2019,2019,2019,2019,2019,2019,2019,2019,2019,2020,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022,2022,2022,2023,2023,2023,2023,2023,2023,2023,2023,2023],"y":[327,55,261,449,703,1425,2809,4803,16733,292,48,296,447,790,1465,3026,5038,17593,295,60,251,449,764,1434,2827,4871,17897,275,58,215,411,634,1498,2947,5186,18794,287,56,202,419,663,1383,2816,5217,18052,243,52,198,387,637,1341,2764,5195,19135,189,34,167,336,616,1365,2839,5506,19137,202,45,175,306,679,1312,2739,5364,19662,214,54,157,331,619,1346,2762,5589,20044,219,45,153,305,673,1374,2927,5615,19823,180,47,136,256,642,1299,2765,5822,20618,194,35,146,262,674,1447,2975,5847,21475,210,42,175,340,659,1490,3122,6117,23322,97,29,78,123,299,742,1532,3151,12903],"mode":"lines+markers","line":{"color":"rgba(50,140,194,1)","width":3},"marker":{"color":"rgba(50,140,194,1)","size":9,"symbol":"circle","line":{"color":"rgba(50,140,194,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Deaths:  <br> Year:  2010 <br> Deaths, Number:  327","Deaths:  <br> Year:  2010 <br> Deaths, Number:  55","Deaths:  <br> Year:  2010 <br> Deaths, Number:  261","Deaths:  <br> Year:  2010 <br> Deaths, Number:  449","Deaths:  <br> Year:  2010 <br> Deaths, Number:  703","Deaths:  <br> Year:  2010 <br> Deaths, Number:  1425","Deaths:  <br> Year:  2010 <br> Deaths, Number:  2809","Deaths:  <br> Year:  2010 <br> Deaths, Number:  4803","Deaths:  <br> Year:  2010 <br> Deaths, Number:  16733","Deaths:  <br> Year:  2011 <br> Deaths, Number:  292","Deaths:  <br> Year:  2011 <br> Deaths, Number:  48","Deaths:  <br> Year:  2011 <br> Deaths, Number:  296","Deaths:  <br> Year:  2011 <br> Deaths, Number:  447","Deaths:  <br> Year:  2011 <br> Deaths, Number:  790","Deaths:  <br> Year:  2011 <br> Deaths, Number:  1465","Deaths:  <br> Year:  2011 <br> Deaths, Number:  3026","Deaths:  <br> Year:  2011 <br> Deaths, Number:  5038","Deaths:  <br> Year:  2011 <br> Deaths, Number:  17593","Deaths:  <br> Year:  2012 <br> Deaths, Number:  295","Deaths:  <br> Year:  2012 <br> Deaths, Number:  60","Deaths:  <br> Year:  2012 <br> Deaths, Number:  251","Deaths:  <br> Year:  2012 <br> Deaths, Number:  449","Deaths:  <br> Year:  2012 <br> Deaths, Number:  764","Deaths:  <br> Year:  2012 <br> Deaths, Number:  1434","Deaths:  <br> Year:  2012 <br> Deaths, Number:  2827","Deaths:  <br> Year:  2012 <br> Deaths, Number:  4871","Deaths:  <br> Year:  2012 <br> Deaths, Number:  17897","Deaths:  <br> Year:  2013 <br> Deaths, Number:  275","Deaths:  <br> Year:  2013 <br> Deaths, Number:  58","Deaths:  <br> Year:  2013 <br> Deaths, Number:  215","Deaths:  <br> Year:  2013 <br> Deaths, Number:  411","Deaths:  <br> Year:  2013 <br> Deaths, Number:  634","Deaths:  <br> Year:  2013 <br> Deaths, Number:  1498","Deaths:  <br> Year:  2013 <br> Deaths, Number:  2947","Deaths:  <br> Year:  2013 <br> Deaths, Number:  5186","Deaths:  <br> Year:  2013 <br> Deaths, Number:  18794","Deaths:  <br> Year:  2014 <br> Deaths, Number:  287","Deaths:  <br> Year:  2014 <br> Deaths, Number:  56","Deaths:  <br> Year:  2014 <br> Deaths, Number:  202","Deaths:  <br> Year:  2014 <br> Deaths, Number:  419","Deaths:  <br> Year:  2014 <br> Deaths, Number:  663","Deaths:  <br> Year:  2014 <br> Deaths, Number:  1383","Deaths:  <br> Year:  2014 <br> Deaths, Number:  2816","Deaths:  <br> Year:  2014 <br> Deaths, Number:  5217","Deaths:  <br> Year:  2014 <br> Deaths, Number:  18052","Deaths:  <br> Year:  2015 <br> Deaths, Number:  243","Deaths:  <br> Year:  2015 <br> Deaths, Number:  52","Deaths:  <br> Year:  2015 <br> Deaths, Number:  198","Deaths:  <br> Year:  2015 <br> Deaths, Number:  387","Deaths:  <br> Year:  2015 <br> Deaths, Number:  637","Deaths:  <br> Year:  2015 <br> Deaths, Number:  1341","Deaths:  <br> Year:  2015 <br> Deaths, Number:  2764","Deaths:  <br> Year:  2015 <br> Deaths, Number:  5195","Deaths:  <br> Year:  2015 <br> Deaths, Number:  19135","Deaths:  <br> Year:  2016 <br> Deaths, Number:  189","Deaths:  <br> Year:  2016 <br> Deaths, Number:  34","Deaths:  <br> Year:  2016 <br> Deaths, Number:  167","Deaths:  <br> Year:  2016 <br> Deaths, Number:  336","Deaths:  <br> Year:  2016 <br> Deaths, Number:  616","Deaths:  <br> Year:  2016 <br> Deaths, Number:  1365","Deaths:  <br> Year:  2016 <br> Deaths, Number:  2839","Deaths:  <br> Year:  2016 <br> Deaths, Number:  5506","Deaths:  <br> Year:  2016 <br> Deaths, Number:  19137","Deaths:  <br> Year:  2017 <br> Deaths, Number:  202","Deaths:  <br> Year:  2017 <br> Deaths, Number:  45","Deaths:  <br> Year:  2017 <br> Deaths, Number:  175","Deaths:  <br> Year:  2017 <br> Deaths, Number:  306","Deaths:  <br> Year:  2017 <br> Deaths, Number:  679","Deaths:  <br> Year:  2017 <br> Deaths, Number:  1312","Deaths:  <br> Year:  2017 <br> Deaths, Number:  2739","Deaths:  <br> Year:  2017 <br> Deaths, Number:  5364","Deaths:  <br> Year:  2017 <br> Deaths, Number:  19662","Deaths:  <br> Year:  2018 <br> Deaths, Number:  214","Deaths:  <br> Year:  2018 <br> Deaths, Number:  54","Deaths:  <br> Year:  2018 <br> Deaths, Number:  157","Deaths:  <br> Year:  2018 <br> Deaths, Number:  331","Deaths:  <br> Year:  2018 <br> Deaths, Number:  619","Deaths:  <br> Year:  2018 <br> Deaths, Number:  1346","Deaths:  <br> Year:  2018 <br> Deaths, Number:  2762","Deaths:  <br> Year:  2018 <br> Deaths, Number:  5589","Deaths:  <br> Year:  2018 <br> Deaths, Number:  20044","Deaths:  <br> Year:  2019 <br> Deaths, Number:  219","Deaths:  <br> Year:  2019 <br> Deaths, Number:  45","Deaths:  <br> Year:  2019 <br> Deaths, Number:  153","Deaths:  <br> Year:  2019 <br> Deaths, Number:  305","Deaths:  <br> Year:  2019 <br> Deaths, Number:  673","Deaths:  <br> Year:  2019 <br> Deaths, Number:  1374","Deaths:  <br> Year:  2019 <br> Deaths, Number:  2927","Deaths:  <br> Year:  2019 <br> Deaths, Number:  5615","Deaths:  <br> Year:  2019 <br> Deaths, Number:  19823","Deaths:  <br> Year:  2020 <br> Deaths, Number:  180","Deaths:  <br> Year:  2020 <br> Deaths, Number:  47","Deaths:  <br> Year:  2020 <br> Deaths, Number:  136","Deaths:  <br> Year:  2020 <br> Deaths, Number:  256","Deaths:  <br> Year:  2020 <br> Deaths, Number:  642","Deaths:  <br> Year:  2020 <br> Deaths, Number:  1299","Deaths:  <br> Year:  2020 <br> Deaths, Number:  2765","Deaths:  <br> Year:  2020 <br> Deaths, Number:  5822","Deaths:  <br> Year:  2020 <br> Deaths, Number:  20618","Deaths:  <br> Year:  2021 <br> Deaths, Number:  194","Deaths:  <br> Year:  2021 <br> Deaths, Number:  35","Deaths:  <br> Year:  2021 <br> Deaths, Number:  146","Deaths:  <br> Year:  2021 <br> Deaths, Number:  262","Deaths:  <br> Year:  2021 <br> Deaths, Number:  674","Deaths:  <br> Year:  2021 <br> Deaths, Number:  1447","Deaths:  <br> Year:  2021 <br> Deaths, Number:  2975","Deaths:  <br> Year:  2021 <br> Deaths, Number:  5847","Deaths:  <br> Year:  2021 <br> Deaths, Number:  21475","Deaths:  <br> Year:  2022 <br> Deaths, Number:  210","Deaths:  <br> Year:  2022 <br> Deaths, Number:  42","Deaths:  <br> Year:  2022 <br> Deaths, Number:  175","Deaths:  <br> Year:  2022 <br> Deaths, Number:  340","Deaths:  <br> Year:  2022 <br> Deaths, Number:  659","Deaths:  <br> Year:  2022 <br> Deaths, Number:  1490","Deaths:  <br> Year:  2022 <br> Deaths, Number:  3122","Deaths:  <br> Year:  2022 <br> Deaths, Number:  6117","Deaths:  <br> Year:  2022 <br> Deaths, Number:  23322","Deaths:  <br> Year:  2023 <br> Deaths, Number:  97","Deaths:  <br> Year:  2023 <br> Deaths, Number:  29","Deaths:  <br> Year:  2023 <br> Deaths, Number:  78","Deaths:  <br> Year:  2023 <br> Deaths, Number:  123","Deaths:  <br> Year:  2023 <br> Deaths, Number:  299","Deaths:  <br> Year:  2023 <br> Deaths, Number:  742","Deaths:  <br> Year:  2023 <br> Deaths, Number:  1532","Deaths:  <br> Year:  2023 <br> Deaths, Number:  3151","Deaths:  <br> Year:  2023 <br> Deaths, Number:  12903"],"name":"Deaths","type":"scatter","textfont":{"color":"rgba(50,140,194,1)"},"error_y":{"color":"rgba(50,140,194,1)"},"error_x":{"color":"rgba(50,140,194,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2010,2010,2010,2010,2010,2010,2010,2010,2011,2011,2011,2011,2011,2011,2011,2011,2011,2012,2012,2012,2012,2012,2012,2012,2012,2012,2013,2013,2013,2013,2013,2013,2013,2013,2013,2014,2014,2014,2014,2014,2014,2014,2014,2014,2015,2015,2015,2015,2015,2015,2015,2015,2015,2016,2016,2016,2016,2016,2016,2016,2016,2016,2017,2017,2017,2017,2017,2017,2017,2017,2017,2018,2018,2018,2018,2018,2018,2018,2018,2018,2019,2019,2019,2019,2019,2019,2019,2019,2019],"y":[213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560],"mode":"lines+markers","line":{"color":"rgba(0,0,0,1)","width":3,"dash":"dash"},"marker":{"color":"rgba(0,0,0,1)","size":7,"symbol":"circle","line":{"color":"rgba(0,0,0,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560"],"name":"Trend","type":"scatter","textfont":{"color":"rgba(0,0,0,1)"},"error_y":{"color":"rgba(0,0,0,1)"},"error_x":{"color":"rgba(0,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2020,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022,2022,2022,2023,2023,2023,2023,2023,2023,2023,2023,2023],"y":[213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560,213,46,170,333,644,1347,2806,5453,19560],"mode":"lines+markers","line":{"color":"rgba(0,0,139,1)","width":3,"dash":"dash"},"marker":{"color":"rgba(0,0,139,1)","size":9,"symbol":"square","line":{"color":"rgba(0,0,139,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560","Trend:  <br> Deaths, Number:  213","Trend:  <br> Deaths, Number:  46","Trend:  <br> Deaths, Number:  170","Trend:  <br> Deaths, Number:  333","Trend:  <br> Deaths, Number:  644","Trend:  <br> Deaths, Number:  1347","Trend:  <br> Deaths, Number:  2806","Trend:  <br> Deaths, Number:  5453","Trend:  <br> Deaths, Number:  19560"],"name":"Trend","type":"scatter","textfont":{"color":"rgba(0,0,139,1)"},"error_y":{"color":"rgba(0,0,139,1)"},"error_x":{"color":"rgba(0,0,139,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2020","2020","2020","2020","2020","2020","2020","2020","2020","2021","2021","2021","2021","2021","2021","2021","2021","2021","2022","2022","2022","2022","2022","2022","2022","2022","2022","2023","2023","2023","2023","2023","2023","2023","2023","2023"],"y":[-15.49,2.1699999999999999,-20,-23.120000000000001,-0.31,-3.5600000000000001,-1.46,6.7699999999999996,5.4100000000000001,-8.9199999999999999,-23.91,-14.119999999999999,-21.32,4.6600000000000001,7.4199999999999999,6.0199999999999996,7.2300000000000004,9.7899999999999991,-1.4099999999999999,-8.6999999999999993,2.9399999999999999,2.1000000000000001,2.3300000000000001,10.619999999999999,11.26,12.18,19.23,-54.460000000000001,-36.960000000000001,-54.119999999999997,-63.060000000000002,-53.57,-44.909999999999997,-45.399999999999999,-42.219999999999999,-34.030000000000001],"showlegend":false,"transforms":[{"type":"filter","target":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"hovertext":["Excess Death Rate:  <br> Year:  2020 <br> Deaths:  -15.49 %","Excess Death Rate:  <br> Year:  2020 <br> Deaths:  2.17 %","Excess Death Rate:  <br> Year:  2020 <br> Deaths:  -20 %","Excess Death Rate:  <br> Year:  2020 <br> Deaths:  -23.12 %","Excess Death Rate:  <br> Year:  2020 <br> Deaths:  -0.31 %","Excess Death Rate:  <br> Year:  2020 <br> Deaths:  -3.56 %","Excess Death Rate:  <br> Year:  2020 <br> Deaths:  -1.46 %","Excess Death Rate:  <br> Year:  2020 <br> Deaths:  6.77 %","Excess Death Rate:  <br> Year:  2020 <br> Deaths:  5.41 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  -8.92 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  -23.91 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  -14.12 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  -21.32 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  4.66 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  7.42 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  6.02 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  7.23 %","Excess Death Rate:  <br> Year:  2021 <br> Deaths:  9.79 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  -1.41 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  -8.7 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  2.94 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  2.1 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  2.33 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  10.62 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  11.26 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  12.18 %","Excess Death Rate:  <br> Year:  2022 <br> Deaths:  19.23 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -54.46 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -36.96 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -54.12 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -63.06 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -53.57 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -44.91 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -45.4 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -42.22 %","Excess Death Rate:  <br> Year:  2023 <br> Deaths:  -34.03 %"],"type":"bar","marker":{"color":"rgba(50,140,194,1)","line":{"color":"rgba(50,140,194,1)"}},"textfont":{"color":"rgba(50,140,194,1)"},"error_y":{"color":"rgba(50,140,194,1)"},"error_x":{"color":"rgba(50,140,194,1)"},"xaxis":"x2","yaxis":"y2","frame":null}],"layout":{"xaxis":{"domain":[0,0.42999999999999999],"automargin":true,"title":"Year","showline":true,"linewidth":2,"linecolor":"black","dtick":2,"anchor":"y"},"xaxis2":{"domain":[0.57000000000000006,1],"automargin":true,"title":"Year","showline":true,"linewidth":2,"linecolor":"black","type":"category","categoryorder":"array","categoryarray":["2020","2021","2022","2023"],"anchor":"y2"},"yaxis2":{"domain":[0,1],"automargin":true,"title":"Excess Deaths","ticksuffix":"%","showline":true,"linewidth":2,"linecolor":"black","anchor":"x2"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Yearly Death, Number","showline":true,"linewidth":2,"linecolor":"black","anchor":"x"},"annotations":[{"x":0.20000000000000001,"y":1,"text":"Yearly Mortality by Age Group","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"center","yanchor":"bottom","showarrow":false},{"x":-0.13,"y":1.1899999999999999,"text":"Age Group","font":{"family":"Lato","size":14},"xref":"paper","yref":"paper","xanchor":"left","yanchor":"top","showarrow":false},{"x":0,"y":1.27,"text":"Country: Ireland","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"left","yanchor":"top","showarrow":false},{"x":0.80000000000000004,"y":1,"text":"Excess Mortality by Age Group","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"center","yanchor":"bottom","showarrow":false}],"shapes":[],"images":[],"margin":{"b":65,"l":50,"t":95,"r":50,"pad":20},"legend":{"x":0.10000000000000001,"y":-0.25,"orientation":"h","title":"Legend Title","font":{"size":12}},"updatemenus":[{"type":"dropdown","active":0,"y":1.1200000000000001,"buttons":[{"method":"restyle","args":["transforms[0].value","0-4"],"label":"0-4"},{"method":"restyle","args":["transforms[0].value","5-14"],"label":"5-14"},{"method":"restyle","args":["transforms[0].value","15-24"],"label":"15-24"},{"method":"restyle","args":["transforms[0].value","25-34"],"label":"25-34"},{"method":"restyle","args":["transforms[0].value","35-44"],"label":"35-44"},{"method":"restyle","args":["transforms[0].value","45-54"],"label":"45-54"},{"method":"restyle","args":["transforms[0].value","55-64"],"label":"55-64"},{"method":"restyle","args":["transforms[0].value","65-74"],"label":"65-74"},{"method":"restyle","args":["transforms[0].value","75+"],"label":"75+"}]}],"hovermode":"closest","showlegend":true},"attrs":{"3c864d41f2a":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3},"marker":{"size":9,"symbol":"circle"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Deaths","color":["#328cc2"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"3c864d41f2a.1":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3,"dash":"dash"},"marker":{"size":7,"symbol":"circle"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Trend","color":["black"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"3c864d41f2a.2":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3,"dash":"dash"},"marker":{"size":9,"symbol":"square"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Trend","color":["darkblue"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"3c81eef4b39":{"x":{},"y":{},"showlegend":false,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","hovertext":{},"color":["#328cc2"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+    <style>
+        body {font-family: "Lato", sans-serif}
+        .mySlides {display: none}
+        h3 {text-align: center; font-family: "Lato", sans-serif}
+        p {text-align: left;}
+        div {text-align: center;}
+    </style>
+<h3 class="w3-wide w3-center anchored"><b> Method 2A - Difference from Baseline </b> </h3>
+<p>The baseline level is the 2019 numbers for each age group. Difference from the baseline is expressed as a percentage.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-a5a13f805745deda6d81" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a5a13f805745deda6d81">{"x":{"data":[{"x":[2010,2010,2010,2010,2010,2010,2010,2010,2010,2011,2011,2011,2011,2011,2011,2011,2011,2011,2012,2012,2012,2012,2012,2012,2012,2012,2012,2013,2013,2013,2013,2013,2013,2013,2013,2013,2014,2014,2014,2014,2014,2014,2014,2014,2014,2015,2015,2015,2015,2015,2015,2015,2015,2015,2016,2016,2016,2016,2016,2016,2016,2016,2016,2017,2017,2017,2017,2017,2017,2017,2017,2017,2018,2018,2018,2018,2018,2018,2018,2018,2018,2019,2019,2019,2019,2019,2019,2019,2019,2019,2020,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022,2022,2022,2023,2023,2023,2023,2023,2023,2023,2023,2023],"y":[0.094240000000000004,0.0090100000000000006,0.042389999999999997,0.058860000000000003,0.10315000000000001,0.25074999999999997,0.61926999999999999,1.64825,7.4834500000000004,0.081949999999999995,0.0077000000000000002,0.05101,0.059200000000000003,0.11366,0.25276999999999999,0.65312999999999999,1.6527400000000001,7.6303900000000002,0.082360000000000003,0.0095300000000000003,0.044299999999999999,0.06105,0.10917,0.24475,0.60419,1.54782,7.6092700000000004,0.077899999999999997,0.0090500000000000008,0.038170000000000003,0.057630000000000001,0.089569999999999997,0.25266,0.62134,1.5777300000000001,7.8145499999999997,0.083089999999999997,0.0085900000000000004,0.035610000000000003,0.06087,0.09221,0.22980999999999999,0.58411000000000002,1.52722,7.2819700000000003,0.071910000000000002,0.0078300000000000002,0.034639999999999997,0.057939999999999998,0.086929999999999993,0.21904999999999999,0.56247000000000003,1.4658599999999999,7.4775299999999998,0.057009999999999998,0.0050400000000000002,0.028969999999999999,0.050950000000000002,0.082479999999999998,0.21804000000000001,0.55781000000000003,1.4741299999999999,7.2472399999999997,0.062230000000000001,0.0065900000000000004,0.029919999999999999,0.047789999999999999,0.089609999999999995,0.20616000000000001,0.53051000000000004,1.4097200000000001,7.2984400000000003,0.067019999999999996,0.0078300000000000002,0.025930000000000002,0.0528,0.080579999999999999,0.20774999999999999,0.52470000000000006,1.4203300000000001,7.1585700000000001,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.058160000000000003,0.00677,0.02155,0.041540000000000001,0.082290000000000002,0.19259000000000001,0.50126999999999999,1.40289,6.7577800000000003,0.06411,0.0050499999999999998,0.022970000000000001,0.043040000000000002,0.086650000000000005,0.2102,0.52832999999999997,1.3806400000000001,6.7362000000000002,0.07109,0.0058599999999999998,0.027140000000000001,0.054140000000000001,0.082960000000000006,0.20882999999999999,0.53842999999999996,1.3869899999999999,6.9558299999999997,0.033020000000000001,0.0040400000000000002,0.011690000000000001,0.019050000000000001,0.036810000000000002,0.10065,0.25469999999999998,0.69206999999999996,3.6760700000000002],"mode":"lines+markers","line":{"color":"rgba(50,140,194,1)","width":3},"marker":{"color":"rgba(50,140,194,1)","size":9,"symbol":"circle","line":{"color":"rgba(50,140,194,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.09424","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.00901","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.04239","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.05886","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.10315","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.25075","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.61927","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  1.64825","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  7.48345","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.08195","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.0077","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.05101","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.0592","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.11366","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.25277","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.65313","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  1.65274","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  7.63039","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.08236","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.00953","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.0443","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.06105","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.10917","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.24475","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.60419","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  1.54782","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  7.60927","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.0779","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.00905","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.03817","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.05763","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.08957","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.25266","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.62134","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  1.57773","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  7.81455","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.08309","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.00859","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.03561","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.06087","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.09221","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.22981","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.58411","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  1.52722","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  7.28197","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.07191","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.00783","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.03464","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.05794","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.08693","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.21905","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.56247","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  1.46586","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  7.47753","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.05701","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.00504","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.02897","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.05095","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.08248","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.21804","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.55781","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  1.47413","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  7.24724","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.06223","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.00659","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.02992","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.04779","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.08961","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.20616","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.53051","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  1.40972","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  7.29844","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.06702","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.00783","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.02593","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.0528","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.08058","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.20775","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.5247","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  1.42033","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  7.15857","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.06948","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.00649","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.02476","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.04919","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.08663","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.20768","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.54234","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  1.38951","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  6.78405","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.05816","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.00677","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.02155","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.04154","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.08229","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.19259","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.50127","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  1.40289","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  6.75778","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.06411","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.00505","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.02297","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.04304","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.08665","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.2102","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.52833","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  1.38064","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  6.7362","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.07109","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.00586","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.02714","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.05414","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.08296","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.20883","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.53843","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  1.38699","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  6.95583","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.03302","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.00404","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.01169","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.01905","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.03681","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.10065","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.2547","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.69207","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  3.67607"],"name":"Death Rates","type":"scatter","textfont":{"color":"rgba(50,140,194,1)"},"error_y":{"color":"rgba(50,140,194,1)"},"error_x":{"color":"rgba(50,140,194,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2010,2010,2010,2010,2010,2010,2010,2010,2011,2011,2011,2011,2011,2011,2011,2011,2011,2012,2012,2012,2012,2012,2012,2012,2012,2012,2013,2013,2013,2013,2013,2013,2013,2013,2013,2014,2014,2014,2014,2014,2014,2014,2014,2014,2015,2015,2015,2015,2015,2015,2015,2015,2015,2016,2016,2016,2016,2016,2016,2016,2016,2016,2017,2017,2017,2017,2017,2017,2017,2017,2017,2018,2018,2018,2018,2018,2018,2018,2018,2018,2019,2019,2019,2019,2019,2019,2019,2019,2019],"y":[0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997],"mode":"lines+markers","line":{"color":"rgba(0,0,0,1)","width":3,"dash":"dash"},"marker":{"color":"rgba(0,0,0,1)","size":7,"symbol":"circle","line":{"color":"rgba(0,0,0,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405","Trend:  <br> Death Rate, %:  0.06948","Trend:  <br> Death Rate, %:  0.00649","Trend:  <br> Death Rate, %:  0.02476","Trend:  <br> Death Rate, %:  0.04919","Trend:  <br> Death Rate, %:  0.08663","Trend:  <br> Death Rate, %:  0.20768","Trend:  <br> Death Rate, %:  0.54234","Trend:  <br> Death Rate, %:  1.38951","Trend:  <br> Death Rate, %:  6.78405"],"name":"Trend","type":"scatter","textfont":{"color":"rgba(0,0,0,1)"},"error_y":{"color":"rgba(0,0,0,1)"},"error_x":{"color":"rgba(0,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2020,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022,2022,2022,2023,2023,2023,2023,2023,2023,2023,2023,2023],"y":[0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.06948,0.0064900000000000001,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997],"mode":"lines+markers","line":{"color":"rgba(0,0,139,1)","width":3,"dash":"dash"},"marker":{"color":"rgba(0,0,139,1)","size":9,"symbol":"square","line":{"color":"rgba(0,0,139,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Projected:  <br> Deaths, Number:  0.06948","Projected:  <br> Deaths, Number:  0.00649","Projected:  <br> Deaths, Number:  0.02476","Projected:  <br> Deaths, Number:  0.04919","Projected:  <br> Deaths, Number:  0.08663","Projected:  <br> Deaths, Number:  0.20768","Projected:  <br> Deaths, Number:  0.54234","Projected:  <br> Deaths, Number:  1.38951","Projected:  <br> Deaths, Number:  6.78405","Projected:  <br> Deaths, Number:  0.06948","Projected:  <br> Deaths, Number:  0.00649","Projected:  <br> Deaths, Number:  0.02476","Projected:  <br> Deaths, Number:  0.04919","Projected:  <br> Deaths, Number:  0.08663","Projected:  <br> Deaths, Number:  0.20768","Projected:  <br> Deaths, Number:  0.54234","Projected:  <br> Deaths, Number:  1.38951","Projected:  <br> Deaths, Number:  6.78405","Projected:  <br> Deaths, Number:  0.06948","Projected:  <br> Deaths, Number:  0.00649","Projected:  <br> Deaths, Number:  0.02476","Projected:  <br> Deaths, Number:  0.04919","Projected:  <br> Deaths, Number:  0.08663","Projected:  <br> Deaths, Number:  0.20768","Projected:  <br> Deaths, Number:  0.54234","Projected:  <br> Deaths, Number:  1.38951","Projected:  <br> Deaths, Number:  6.78405","Projected:  <br> Deaths, Number:  0.06948","Projected:  <br> Deaths, Number:  0.00649","Projected:  <br> Deaths, Number:  0.02476","Projected:  <br> Deaths, Number:  0.04919","Projected:  <br> Deaths, Number:  0.08663","Projected:  <br> Deaths, Number:  0.20768","Projected:  <br> Deaths, Number:  0.54234","Projected:  <br> Deaths, Number:  1.38951","Projected:  <br> Deaths, Number:  6.78405"],"name":"Projected","type":"scatter","textfont":{"color":"rgba(0,0,139,1)"},"error_y":{"color":"rgba(0,0,139,1)"},"error_x":{"color":"rgba(0,0,139,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2020","2020","2020","2020","2020","2020","2020","2020","2020","2021","2021","2021","2021","2021","2021","2021","2021","2021","2022","2022","2022","2022","2022","2022","2022","2022","2022","2023","2023","2023","2023","2023","2023","2023","2023","2023"],"y":[-16.292000000000002,4.3140000000000001,-12.964,-15.552,-5.0099999999999998,-7.266,-7.5730000000000004,0.96299999999999997,-0.38700000000000001,-7.7290000000000001,-22.187999999999999,-7.2290000000000001,-12.503,0.023,1.2130000000000001,-2.5830000000000002,-0.63800000000000001,-0.70499999999999996,2.3170000000000002,-9.7070000000000007,9.6120000000000001,10.063000000000001,-4.2359999999999998,0.55400000000000005,-0.72099999999999997,-0.18099999999999999,2.532,-52.475999999999999,-37.75,-52.786999999999999,-61.273000000000003,-57.509,-51.536000000000001,-53.036999999999999,-50.192999999999998,-45.813000000000002],"showlegend":false,"transforms":[{"type":"filter","target":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"hovertemplate":["Excess Death Rate:  <br> Year:  2020 <br> Rate:  -16.292 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  4.314 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -12.964 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -15.552 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -5.01 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -7.266 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -7.573 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  0.963 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -0.387 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -7.729 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -22.188 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -7.229 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -12.503 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  0.023 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  1.213 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -2.583 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -0.638 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -0.705 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  2.317 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  -9.707 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  9.612 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  10.063 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  -4.236 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  0.554 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  -0.721 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  -0.181 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  2.532 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -52.476 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -37.75 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -52.787 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -61.273 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -57.509 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -51.536 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -53.037 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -50.193 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -45.813 %"],"type":"bar","marker":{"color":"rgba(50,140,194,1)","line":{"color":"rgba(50,140,194,1)"}},"textfont":{"color":"rgba(50,140,194,1)"},"error_y":{"color":"rgba(50,140,194,1)"},"error_x":{"color":"rgba(50,140,194,1)"},"xaxis":"x2","yaxis":"y2","frame":null}],"layout":{"xaxis":{"domain":[0,0.42999999999999999],"automargin":true,"title":"Year","showline":true,"linewidth":2,"linecolor":"black","dtick":2,"anchor":"y"},"xaxis2":{"domain":[0.57000000000000006,1],"automargin":true,"title":"Year","showline":true,"linewidth":2,"linecolor":"black","type":"category","categoryorder":"array","categoryarray":["2020","2021","2022","2023"],"anchor":"y2"},"yaxis2":{"domain":[0,1],"automargin":true,"title":"Excess Deaths","ticksuffix":"%","showline":true,"linewidth":2,"linecolor":"black","anchor":"x2"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Yearly Death Rate, %","showline":true,"linewidth":2,"linecolor":"black","anchor":"x"},"annotations":[{"x":0.20000000000000001,"y":1,"text":"Yearly Mortality by Age Group","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"center","yanchor":"bottom","showarrow":false},{"x":-0.13,"y":1.1899999999999999,"text":"Age Group","font":{"family":"Lato","size":14},"xref":"paper","yref":"paper","xanchor":"left","yanchor":"top","showarrow":false},{"x":0,"y":1.27,"text":"Country: Ireland","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"left","yanchor":"top","showarrow":false},{"x":0.80000000000000004,"y":1,"text":"Excess Mortality by Age Group","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"center","yanchor":"bottom","showarrow":false}],"shapes":[],"images":[],"margin":{"b":65,"l":50,"t":95,"r":50,"pad":20},"legend":{"x":0.10000000000000001,"y":-0.25,"orientation":"h","title":"Legend Title","font":{"size":12}},"updatemenus":[{"type":"dropdown","active":0,"y":1.1000000000000001,"buttons":[{"method":"restyle","args":["transforms[0].value","0-4"],"label":"0-4"},{"method":"restyle","args":["transforms[0].value","5-14"],"label":"5-14"},{"method":"restyle","args":["transforms[0].value","15-24"],"label":"15-24"},{"method":"restyle","args":["transforms[0].value","25-34"],"label":"25-34"},{"method":"restyle","args":["transforms[0].value","35-44"],"label":"35-44"},{"method":"restyle","args":["transforms[0].value","45-54"],"label":"45-54"},{"method":"restyle","args":["transforms[0].value","55-64"],"label":"55-64"},{"method":"restyle","args":["transforms[0].value","65-74"],"label":"65-74"},{"method":"restyle","args":["transforms[0].value","75+"],"label":"75+"}]}],"hovermode":"closest","showlegend":true},"attrs":{"3c8f103295":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3},"marker":{"size":9,"symbol":"circle"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Death Rates","color":["#328cc2"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"3c8f103295.1":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3,"dash":"dash"},"marker":{"size":7,"symbol":"circle"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Trend","color":["black"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"3c8f103295.2":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3,"dash":"dash"},"marker":{"size":9,"symbol":"square"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Projected","color":["darkblue"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"3c88ef408d":{"x":{},"y":{},"showlegend":false,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","hovertemplate":{},"color":["#328cc2"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+    <style>
+        body {font-family: "Lato", sans-serif}
+        .mySlides {display: none}
+        h3 {text-align: center; font-family: "Lato", sans-serif}
+        p {text-align: left;}
+        div {text-align: center;}
+    </style>
+<h3 class="w3-wide w3-center anchored"><b> Method 2C - Difference from Linear Trend </b> </h3>
+<p>Age group<em>“5-14”</em> has low <span class="math inline">\(r^2\)</span> value (0.42) and so, use of a linear model is unwarranted for this group.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-acb092d555ad2045d1d4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-acb092d555ad2045d1d4">{"x":{"data":[{"x":[2010,2010,2010,2010,2010,2010,2010,2010,2011,2011,2011,2011,2011,2011,2011,2011,2012,2012,2012,2012,2012,2012,2012,2012,2013,2013,2013,2013,2013,2013,2013,2013,2014,2014,2014,2014,2014,2014,2014,2014,2015,2015,2015,2015,2015,2015,2015,2015,2016,2016,2016,2016,2016,2016,2016,2016,2017,2017,2017,2017,2017,2017,2017,2017,2018,2018,2018,2018,2018,2018,2018,2018,2019,2019,2019,2019,2019,2019,2019,2019,2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022,2022,2023,2023,2023,2023,2023,2023,2023,2023],"y":[0.094240000000000004,0.042389999999999997,0.058860000000000003,0.10315000000000001,0.25074999999999997,0.61926999999999999,1.64825,7.4834500000000004,0.081949999999999995,0.05101,0.059200000000000003,0.11366,0.25276999999999999,0.65312999999999999,1.6527400000000001,7.6303900000000002,0.082360000000000003,0.044299999999999999,0.06105,0.10917,0.24475,0.60419,1.54782,7.6092700000000004,0.077899999999999997,0.038170000000000003,0.057630000000000001,0.089569999999999997,0.25266,0.62134,1.5777300000000001,7.8145499999999997,0.083089999999999997,0.035610000000000003,0.06087,0.09221,0.22980999999999999,0.58411000000000002,1.52722,7.2819700000000003,0.071910000000000002,0.034639999999999997,0.057939999999999998,0.086929999999999993,0.21904999999999999,0.56247000000000003,1.4658599999999999,7.4775299999999998,0.057009999999999998,0.028969999999999999,0.050950000000000002,0.082479999999999998,0.21804000000000001,0.55781000000000003,1.4741299999999999,7.2472399999999997,0.062230000000000001,0.029919999999999999,0.047789999999999999,0.089609999999999995,0.20616000000000001,0.53051000000000004,1.4097200000000001,7.2984400000000003,0.067019999999999996,0.025930000000000002,0.0528,0.080579999999999999,0.20774999999999999,0.52470000000000006,1.4203300000000001,7.1585700000000001,0.06948,0.024760000000000001,0.049189999999999998,0.086629999999999999,0.20768,0.54234000000000004,1.38951,6.7840499999999997,0.058160000000000003,0.02155,0.041540000000000001,0.082290000000000002,0.19259000000000001,0.50126999999999999,1.40289,6.7577800000000003,0.06411,0.022970000000000001,0.043040000000000002,0.086650000000000005,0.2102,0.52832999999999997,1.3806400000000001,6.7362000000000002,0.07109,0.027140000000000001,0.054140000000000001,0.082960000000000006,0.20882999999999999,0.53842999999999996,1.3869899999999999,6.9558299999999997,0.033020000000000001,0.011690000000000001,0.019050000000000001,0.036810000000000002,0.10065,0.25469999999999998,0.69206999999999996,3.6760700000000002],"mode":"lines+markers","line":{"color":"rgba(50,140,194,1)","width":3},"marker":{"color":"rgba(50,140,194,1)","size":9,"symbol":"circle","line":{"color":"rgba(50,140,194,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.09424","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.04239","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.05886","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.10315","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.25075","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  0.61927","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  1.64825","Death Rate:  <br> Year:  2010 <br> Death Rate, %:  7.48345","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.08195","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.05101","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.0592","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.11366","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.25277","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  0.65313","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  1.65274","Death Rate:  <br> Year:  2011 <br> Death Rate, %:  7.63039","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.08236","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.0443","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.06105","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.10917","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.24475","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  0.60419","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  1.54782","Death Rate:  <br> Year:  2012 <br> Death Rate, %:  7.60927","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.0779","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.03817","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.05763","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.08957","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.25266","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  0.62134","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  1.57773","Death Rate:  <br> Year:  2013 <br> Death Rate, %:  7.81455","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.08309","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.03561","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.06087","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.09221","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.22981","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  0.58411","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  1.52722","Death Rate:  <br> Year:  2014 <br> Death Rate, %:  7.28197","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.07191","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.03464","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.05794","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.08693","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.21905","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  0.56247","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  1.46586","Death Rate:  <br> Year:  2015 <br> Death Rate, %:  7.47753","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.05701","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.02897","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.05095","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.08248","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.21804","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  0.55781","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  1.47413","Death Rate:  <br> Year:  2016 <br> Death Rate, %:  7.24724","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.06223","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.02992","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.04779","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.08961","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.20616","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  0.53051","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  1.40972","Death Rate:  <br> Year:  2017 <br> Death Rate, %:  7.29844","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.06702","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.02593","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.0528","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.08058","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.20775","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  0.5247","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  1.42033","Death Rate:  <br> Year:  2018 <br> Death Rate, %:  7.15857","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.06948","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.02476","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.04919","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.08663","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.20768","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  0.54234","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  1.38951","Death Rate:  <br> Year:  2019 <br> Death Rate, %:  6.78405","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.05816","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.02155","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.04154","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.08229","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.19259","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  0.50127","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  1.40289","Death Rate:  <br> Year:  2020 <br> Death Rate, %:  6.75778","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.06411","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.02297","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.04304","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.08665","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.2102","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  0.52833","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  1.38064","Death Rate:  <br> Year:  2021 <br> Death Rate, %:  6.7362","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.07109","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.02714","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.05414","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.08296","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.20883","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  0.53843","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  1.38699","Death Rate:  <br> Year:  2022 <br> Death Rate, %:  6.95583","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.03302","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.01169","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.01905","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.03681","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.10065","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.2547","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  0.69207","Death Rate:  <br> Year:  2023 <br> Death Rate, %:  3.67607"],"name":"Death Rates","type":"scatter","textfont":{"color":"rgba(50,140,194,1)"},"error_y":{"color":"rgba(50,140,194,1)"},"error_x":{"color":"rgba(50,140,194,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2010,2010,2010,2010,2010,2010,2010,2011,2011,2011,2011,2011,2011,2011,2011,2012,2012,2012,2012,2012,2012,2012,2012,2013,2013,2013,2013,2013,2013,2013,2013,2014,2014,2014,2014,2014,2014,2014,2014,2015,2015,2015,2015,2015,2015,2015,2015,2016,2016,2016,2016,2016,2016,2016,2016,2017,2017,2017,2017,2017,2017,2017,2017,2018,2018,2018,2018,2018,2018,2018,2018,2019,2019,2019,2019,2019,2019,2019,2019],"y":[0.088410000000000002,0.04743,0.06166,0.10716000000000001,0.25650000000000001,0.63922000000000001,1.64819,7.7237600000000004,0.085360000000000005,0.044790000000000003,0.060319999999999999,0.1041,0.25036999999999998,0.62605999999999995,1.61778,7.6470500000000001,0.082320000000000004,0.042160000000000003,0.058979999999999998,0.10104,0.24424999999999999,0.6129,1.5873600000000001,7.5703300000000002,0.079280000000000003,0.03952,0.057639999999999997,0.097989999999999994,0.23813000000000001,0.59972999999999999,1.5569500000000001,7.4936199999999999,0.076240000000000002,0.036889999999999999,0.056300000000000003,0.09493,0.23200000000000001,0.58657000000000004,1.52654,7.4169,0.073200000000000001,0.034250000000000003,0.054960000000000002,0.091869999999999993,0.22588,0.57340999999999998,1.4961199999999999,7.3401899999999998,0.07016,0.031620000000000002,0.053620000000000001,0.08881,0.21976000000000001,0.56023999999999996,1.4657100000000001,7.2634699999999999,0.067119999999999999,0.028979999999999999,0.05228,0.085750000000000007,0.21362999999999999,0.54708000000000001,1.4353,7.1867599999999996,0.064070000000000002,0.026349999999999998,0.050939999999999999,0.082699999999999996,0.20751,0.53391,1.4048799999999999,7.1100500000000002,0.061030000000000001,0.023709999999999998,0.049599999999999998,0.079640000000000002,0.20139000000000001,0.52075000000000005,1.3744700000000001,7.0333300000000003],"mode":"lines+markers","line":{"color":"rgba(0,0,0,1)","width":3,"dash":"dash"},"marker":{"color":"rgba(0,0,0,1)","size":9,"symbol":"circle","line":{"color":"rgba(0,0,0,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Trend:  <br> Death Rate, %:  0.08841","Trend:  <br> Death Rate, %:  0.04743","Trend:  <br> Death Rate, %:  0.06166","Trend:  <br> Death Rate, %:  0.10716","Trend:  <br> Death Rate, %:  0.2565","Trend:  <br> Death Rate, %:  0.63922","Trend:  <br> Death Rate, %:  1.64819","Trend:  <br> Death Rate, %:  7.72376","Trend:  <br> Death Rate, %:  0.08536","Trend:  <br> Death Rate, %:  0.04479","Trend:  <br> Death Rate, %:  0.06032","Trend:  <br> Death Rate, %:  0.1041","Trend:  <br> Death Rate, %:  0.25037","Trend:  <br> Death Rate, %:  0.62606","Trend:  <br> Death Rate, %:  1.61778","Trend:  <br> Death Rate, %:  7.64705","Trend:  <br> Death Rate, %:  0.08232","Trend:  <br> Death Rate, %:  0.04216","Trend:  <br> Death Rate, %:  0.05898","Trend:  <br> Death Rate, %:  0.10104","Trend:  <br> Death Rate, %:  0.24425","Trend:  <br> Death Rate, %:  0.6129","Trend:  <br> Death Rate, %:  1.58736","Trend:  <br> Death Rate, %:  7.57033","Trend:  <br> Death Rate, %:  0.07928","Trend:  <br> Death Rate, %:  0.03952","Trend:  <br> Death Rate, %:  0.05764","Trend:  <br> Death Rate, %:  0.09799","Trend:  <br> Death Rate, %:  0.23813","Trend:  <br> Death Rate, %:  0.59973","Trend:  <br> Death Rate, %:  1.55695","Trend:  <br> Death Rate, %:  7.49362","Trend:  <br> Death Rate, %:  0.07624","Trend:  <br> Death Rate, %:  0.03689","Trend:  <br> Death Rate, %:  0.0563","Trend:  <br> Death Rate, %:  0.09493","Trend:  <br> Death Rate, %:  0.232","Trend:  <br> Death Rate, %:  0.58657","Trend:  <br> Death Rate, %:  1.52654","Trend:  <br> Death Rate, %:  7.4169","Trend:  <br> Death Rate, %:  0.0732","Trend:  <br> Death Rate, %:  0.03425","Trend:  <br> Death Rate, %:  0.05496","Trend:  <br> Death Rate, %:  0.09187","Trend:  <br> Death Rate, %:  0.22588","Trend:  <br> Death Rate, %:  0.57341","Trend:  <br> Death Rate, %:  1.49612","Trend:  <br> Death Rate, %:  7.34019","Trend:  <br> Death Rate, %:  0.07016","Trend:  <br> Death Rate, %:  0.03162","Trend:  <br> Death Rate, %:  0.05362","Trend:  <br> Death Rate, %:  0.08881","Trend:  <br> Death Rate, %:  0.21976","Trend:  <br> Death Rate, %:  0.56024","Trend:  <br> Death Rate, %:  1.46571","Trend:  <br> Death Rate, %:  7.26347","Trend:  <br> Death Rate, %:  0.06712","Trend:  <br> Death Rate, %:  0.02898","Trend:  <br> Death Rate, %:  0.05228","Trend:  <br> Death Rate, %:  0.08575","Trend:  <br> Death Rate, %:  0.21363","Trend:  <br> Death Rate, %:  0.54708","Trend:  <br> Death Rate, %:  1.4353","Trend:  <br> Death Rate, %:  7.18676","Trend:  <br> Death Rate, %:  0.06407","Trend:  <br> Death Rate, %:  0.02635","Trend:  <br> Death Rate, %:  0.05094","Trend:  <br> Death Rate, %:  0.0827","Trend:  <br> Death Rate, %:  0.20751","Trend:  <br> Death Rate, %:  0.53391","Trend:  <br> Death Rate, %:  1.40488","Trend:  <br> Death Rate, %:  7.11005","Trend:  <br> Death Rate, %:  0.06103","Trend:  <br> Death Rate, %:  0.02371","Trend:  <br> Death Rate, %:  0.0496","Trend:  <br> Death Rate, %:  0.07964","Trend:  <br> Death Rate, %:  0.20139","Trend:  <br> Death Rate, %:  0.52075","Trend:  <br> Death Rate, %:  1.37447","Trend:  <br> Death Rate, %:  7.03333"],"name":"Trend","type":"scatter","textfont":{"color":"rgba(0,0,0,1)"},"error_y":{"color":"rgba(0,0,0,1)"},"error_x":{"color":"rgba(0,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022,2022,2023,2023,2023,2023,2023,2023,2023,2023],"y":[0.05799,0.021080000000000002,0.048259999999999997,0.076579999999999995,0.19525999999999999,0.50758999999999999,1.34406,6.95662,0.054949999999999999,0.018450000000000001,0.046920000000000003,0.073520000000000002,0.18914,0.49442000000000003,1.3136399999999999,6.8799000000000001,0.051909999999999998,0.015810000000000001,0.045580000000000002,0.070459999999999995,0.18301999999999999,0.48126000000000002,1.2832300000000001,6.8031899999999998,0.048869999999999997,0.013180000000000001,0.044240000000000002,0.067400000000000002,0.17688999999999999,0.46810000000000002,1.25282,6.7264699999999999],"mode":"lines+markers","line":{"color":"rgba(0,0,139,1)","width":3,"dash":"dash"},"marker":{"color":"blue","size":9,"symbol":"square","line":{"color":"rgba(0,0,139,1)"}},"showlegend":true,"transforms":[{"type":"filter","target":["0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Trend:  <br> Death Rate, %:  0.05799","Trend:  <br> Death Rate, %:  0.02108","Trend:  <br> Death Rate, %:  0.04826","Trend:  <br> Death Rate, %:  0.07658","Trend:  <br> Death Rate, %:  0.19526","Trend:  <br> Death Rate, %:  0.50759","Trend:  <br> Death Rate, %:  1.34406","Trend:  <br> Death Rate, %:  6.95662","Trend:  <br> Death Rate, %:  0.05495","Trend:  <br> Death Rate, %:  0.01845","Trend:  <br> Death Rate, %:  0.04692","Trend:  <br> Death Rate, %:  0.07352","Trend:  <br> Death Rate, %:  0.18914","Trend:  <br> Death Rate, %:  0.49442","Trend:  <br> Death Rate, %:  1.31364","Trend:  <br> Death Rate, %:  6.8799","Trend:  <br> Death Rate, %:  0.05191","Trend:  <br> Death Rate, %:  0.01581","Trend:  <br> Death Rate, %:  0.04558","Trend:  <br> Death Rate, %:  0.07046","Trend:  <br> Death Rate, %:  0.18302","Trend:  <br> Death Rate, %:  0.48126","Trend:  <br> Death Rate, %:  1.28323","Trend:  <br> Death Rate, %:  6.80319","Trend:  <br> Death Rate, %:  0.04887","Trend:  <br> Death Rate, %:  0.01318","Trend:  <br> Death Rate, %:  0.04424","Trend:  <br> Death Rate, %:  0.0674","Trend:  <br> Death Rate, %:  0.17689","Trend:  <br> Death Rate, %:  0.4681","Trend:  <br> Death Rate, %:  1.25282","Trend:  <br> Death Rate, %:  6.72647"],"name":"Projected","type":"scatter","textfont":{"color":"rgba(0,0,139,1)"},"error_y":{"color":"rgba(0,0,139,1)"},"error_x":{"color":"rgba(0,0,139,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2020,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022,2022,2023,2023,2023,2023,2023,2023,2023,2023],"y":[0.29315000000000002,2.2296,-13.924580000000001,7.4562499999999998,-1.36741,-1.2451000000000001,4.37704,-2.8582800000000002,16.669699999999999,24.498640000000002,-8.2693899999999996,17.859089999999998,11.13461,6.8585399999999996,5.1003299999999996,-2.0886900000000002,36.948560000000001,71.663499999999999,18.780169999999998,17.740559999999999,14.10228,11.87923,8.0858500000000006,2.2436500000000001,-32.432989999999997,-11.305009999999999,-56.939419999999998,-45.385759999999998,-43.100230000000003,-45.588549999999998,-44.75902,-45.349200000000003],"showlegend":false,"transforms":[{"type":"filter","target":["0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+","0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"operation":"=","value":"0-4"}],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"hovertemplate":["Excess Death Rate:  <br> Year:  2020 <br> Rate:  0.29315 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  2.2296 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -13.92458 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  7.45625 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -1.36741 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -1.2451 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  4.37704 %","Excess Death Rate:  <br> Year:  2020 <br> Rate:  -2.85828 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  16.6697 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  24.49864 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -8.26939 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  17.85909 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  11.13461 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  6.85854 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  5.10033 %","Excess Death Rate:  <br> Year:  2021 <br> Rate:  -2.08869 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  36.94856 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  71.6635 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  18.78017 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  17.74056 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  14.10228 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  11.87923 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  8.08585 %","Excess Death Rate:  <br> Year:  2022 <br> Rate:  2.24365 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -32.43299 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -11.30501 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -56.93942 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -45.38576 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -43.10023 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -45.58855 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -44.75902 %","Excess Death Rate:  <br> Year:  2023 <br> Rate:  -45.3492 %"],"type":"bar","marker":{"color":"rgba(50,140,194,1)","line":{"color":"rgba(50,140,194,1)"}},"textfont":{"color":"rgba(50,140,194,1)"},"error_y":{"color":"rgba(50,140,194,1)"},"error_x":{"color":"rgba(50,140,194,1)"},"xaxis":"x2","yaxis":"y2","frame":null}],"layout":{"xaxis":{"domain":[0,0.42999999999999999],"automargin":true,"title":"Year","showline":true,"linewidth":2,"linecolor":"black","dtick":2,"anchor":"y"},"xaxis2":{"domain":[0.57000000000000006,1],"automargin":true,"title":"Year","showline":true,"linewidth":2,"linecolor":"black","anchor":"y2"},"yaxis2":{"domain":[0,1],"automargin":true,"title":"Excess Deaths","ticksuffix":"%","showline":true,"linewidth":2,"linecolor":"black","anchor":"x2"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Yearly Death Rate, %","showline":true,"linewidth":2,"linecolor":"black","anchor":"x"},"annotations":[{"x":0.20000000000000001,"y":1,"text":"Yearly Mortality by Age Group","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"center","yanchor":"bottom","showarrow":false},{"x":-0.13,"y":1.1899999999999999,"text":"Age Group","font":{"family":"Lato","size":14},"xref":"paper","yref":"paper","xanchor":"left","yanchor":"top","showarrow":false},{"x":0,"y":1.27,"text":"Country: Ireland","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"left","yanchor":"top","showarrow":false},{"x":0.80000000000000004,"y":1,"text":"Excess Mortality by Age Group","font":{"family":"Lato","size":18,"color":"black"},"xref":"paper","yref":"paper","xanchor":"center","yanchor":"bottom","showarrow":false}],"shapes":[],"images":[],"margin":{"b":65,"l":50,"t":95,"r":50,"pad":20},"legend":{"x":0.10000000000000001,"y":-0.25,"orientation":"h","title":"Legend Title","font":{"size":12}},"updatemenus":[{"type":"dropdown","active":0,"y":1.1000000000000001,"buttons":[{"method":"restyle","args":["transforms[0].value","0-4"],"label":"0-4"},{"method":"restyle","args":["transforms[0].value","15-24"],"label":"15-24"},{"method":"restyle","args":["transforms[0].value","25-34"],"label":"25-34"},{"method":"restyle","args":["transforms[0].value","35-44"],"label":"35-44"},{"method":"restyle","args":["transforms[0].value","45-54"],"label":"45-54"},{"method":"restyle","args":["transforms[0].value","45-54"],"label":"55-64"},{"method":"restyle","args":["transforms[0].value","55-64"],"label":"65-74"},{"method":"restyle","args":["transforms[0].value","65-74"],"label":"75+"}]}],"hovermode":"closest","showlegend":true},"attrs":{"3c839c049ea":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3},"marker":{"size":9,"symbol":"circle"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Death Rates","color":["#328cc2"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"3c839c049ea.1":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3,"dash":"dash"},"marker":{"size":9,"symbol":"circle"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Trend","color":["black"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"3c839c049ea.2":{"x":{},"y":{},"mode":"lines+markers","line":{"width":3,"dash":"dash"},"marker":{"size":9,"symbol":"square","color":"blue"},"showlegend":true,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","text":{},"name":"Projected","color":["darkblue"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"3c8584884e":{"x":{},"y":{},"showlegend":false,"transforms":[{"type":"filter","target":{},"operation":"=","value":"0-4"}],"hoverinfo":"text","hovertemplate":{},"color":["#328cc2"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+ <!-- Age Group Comparison ---------------------------------------------------- -->
+ 
+        <div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1000px" id="Nav_agegroup_comparison">
+            <h2 class="w3-wide w3-center anchored"><b>Excess Mortality. Age-group comparison.</b></h2>
+            <br>
+            <h6 class="w3-container w3-text-gray w3-justify anchored">
+                <p>The following chart shows the analysis of excess mortality for 2020, 2021, 2022 and 2023, for different age groups. 
+                The user can specify the method for estimating excess mortality.</p>
+                <p>Please be aware that, European CDPC data on vaccination for Ireland has different age groups from the ones available in the mortality data, as mentioned before. We matched the age groups as described in the <a href="#Nav_Data">data section</a> above.</p>
+            </h6>
+            <h5 class="w3-blue-gray anchored">   Yearly excess mortality, from 2020 to 2023, for different age groups.</h5>
+        </div>
+        <br><br>
+
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d800f9a258bd0daa7798" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d800f9a258bd0daa7798">{"x":{"data":[{"orientation":"v","width":[0.30000000000000004,0.30000000000000027,0.29999999999999982,0.29999999999999982,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.29999999999999893,0.30000000000000071],"base":[-15.49,0,-20,-23.120000000000001,-0.31,-3.5600000000000001,-1.46,0,0],"x":[0.69999999999999996,1.7,2.7000000000000002,3.7000000000000002,4.7000000000000002,5.7000000000000002,6.7000000000000002,7.7000000000000002,8.6999999999999993],"y":[15.49,2.1699999999999999,20,23.120000000000001,0.31,3.5600000000000001,1.46,6.7699999999999996,5.4100000000000001],"text":["Excess deaths  2020 <br>Value (%)  -15.49","Excess deaths  2020 <br>Value (%)  2.17","Excess deaths  2020 <br>Value (%)  -20","Excess deaths  2020 <br>Value (%)  -23.12","Excess deaths  2020 <br>Value (%)  -0.31","Excess deaths  2020 <br>Value (%)  -3.56","Excess deaths  2020 <br>Value (%)  -1.46","Excess deaths  2020 <br>Value (%)  6.77","Excess deaths  2020 <br>Value (%)  5.41"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,206,227,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2020","legendgroup":"2020","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.29999999999999993,0.29999999999999982,0.29999999999999982,0.30000000000000027,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071],"base":[-8.9199999999999999,-23.91,-14.119999999999999,-21.32,0,0,0,0,0],"x":[1,2,3,4,5,6,7,8,9],"y":[8.9199999999999999,23.91,14.119999999999999,21.32,4.6600000000000001,7.4199999999999999,6.0199999999999996,7.2300000000000004,9.7899999999999991],"text":["Excess deaths  2021 <br>Value (%)  -8.92","Excess deaths  2021 <br>Value (%)  -23.91","Excess deaths  2021 <br>Value (%)  -14.12","Excess deaths  2021 <br>Value (%)  -21.32","Excess deaths  2021 <br>Value (%)  4.66","Excess deaths  2021 <br>Value (%)  7.42","Excess deaths  2021 <br>Value (%)  6.02","Excess deaths  2021 <br>Value (%)  7.23","Excess deaths  2021 <br>Value (%)  9.79"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(31,120,180,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2021","legendgroup":"2021","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.29999999999999982,0.29999999999999982,0.29999999999999982,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071],"base":[-1.4099999999999999,-8.6999999999999993,0,0,0,0,0,0,0],"x":[1.3,2.2999999999999998,3.2999999999999998,4.2999999999999998,5.2999999999999998,6.2999999999999998,7.2999999999999998,8.3000000000000007,9.3000000000000007],"y":[1.4099999999999999,8.6999999999999993,2.9399999999999999,2.1000000000000001,2.3300000000000001,10.619999999999999,11.26,12.18,19.23],"text":["Excess deaths  2022 <br>Value (%)  -1.41","Excess deaths  2022 <br>Value (%)  -8.7","Excess deaths  2022 <br>Value (%)  2.94","Excess deaths  2022 <br>Value (%)  2.1","Excess deaths  2022 <br>Value (%)  2.33","Excess deaths  2022 <br>Value (%)  10.62","Excess deaths  2022 <br>Value (%)  11.26","Excess deaths  2022 <br>Value (%)  12.18","Excess deaths  2022 <br>Value (%)  19.23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(178,223,138,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2022","legendgroup":"2022","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":75,"r":50,"b":75,"l":50,"pad":20},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,9.5999999999999996],"tickmode":"array","ticktext":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"tickvals":[1,2,3,4,5,6,6.9999999999999991,8,9],"categoryorder":"array","categoryarray":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Age Group","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-26.067,21.387],"tickmode":"array","ticktext":["-20%","-10%","0%","10%","20%"],"tickvals":[-20,-10,3.5527136788005009e-15,10,20],"categoryorder":"array","categoryarray":["-20%","-10%","0%","10%","20%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Excess deaths","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","title":{"text":"Excess Deaths for Ireland<br><sup>Method 1<\/sup>"},"annotations":[{"x":1.1499999999999999,"y":0,"text":"Source: CSO census, popln estimates, and <br />VSAQ2 mortality by age","showarrow":false,"xref":"paper","yref":"paper","xanchor":"right","yanchor":"auto","xshift":0,"yshift":0,"font":{"size":12}}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3c87b794773":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"3c87b794773","visdat":{"3c87b794773":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d1167c591308c38822f7" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d1167c591308c38822f7">{"x":{"data":[{"orientation":"v","width":[0.30000000000000004,0.30000000000000027,0.29999999999999982,0.29999999999999982,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.29999999999999893,0.30000000000000071],"base":[-16.292000000000002,0,-12.964,-15.552,-5.0099999999999998,-7.266,-7.5730000000000004,0,-0.38700000000000001],"x":[0.69999999999999996,1.7,2.7000000000000002,3.7000000000000002,4.7000000000000002,5.7000000000000002,6.7000000000000002,7.7000000000000002,8.6999999999999993],"y":[16.292000000000002,4.3140000000000001,12.964,15.552,5.0099999999999998,7.266,7.5730000000000004,0.96299999999999997,0.38700000000000001],"text":["Excess deaths  2020 <br>Value (%)  -16.292","Excess deaths  2020 <br>Value (%)  4.314","Excess deaths  2020 <br>Value (%)  -12.964","Excess deaths  2020 <br>Value (%)  -15.552","Excess deaths  2020 <br>Value (%)  -5.01","Excess deaths  2020 <br>Value (%)  -7.266","Excess deaths  2020 <br>Value (%)  -7.573","Excess deaths  2020 <br>Value (%)  0.963","Excess deaths  2020 <br>Value (%)  -0.387"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,206,227,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2020","legendgroup":"2020","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.29999999999999993,0.29999999999999982,0.29999999999999982,0.30000000000000027,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071],"base":[-7.7290000000000001,-22.187999999999999,-7.2290000000000001,-12.503,0,0,-2.5830000000000002,-0.63800000000000001,-0.70499999999999996],"x":[1,2,3,4,5,6,7,8,9],"y":[7.7290000000000001,22.187999999999999,7.2290000000000001,12.503,0.023,1.2130000000000001,2.5830000000000002,0.63800000000000001,0.70499999999999996],"text":["Excess deaths  2021 <br>Value (%)  -7.729","Excess deaths  2021 <br>Value (%)  -22.188","Excess deaths  2021 <br>Value (%)  -7.229","Excess deaths  2021 <br>Value (%)  -12.503","Excess deaths  2021 <br>Value (%)  0.023","Excess deaths  2021 <br>Value (%)  1.213","Excess deaths  2021 <br>Value (%)  -2.583","Excess deaths  2021 <br>Value (%)  -0.638","Excess deaths  2021 <br>Value (%)  -0.705"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(31,120,180,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2021","legendgroup":"2021","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.29999999999999982,0.29999999999999982,0.29999999999999982,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071,0.30000000000000071],"base":[0,-9.7070000000000007,0,0,-4.2359999999999998,0,-0.72099999999999997,-0.18099999999999999,0],"x":[1.3,2.2999999999999998,3.2999999999999998,4.2999999999999998,5.2999999999999998,6.2999999999999998,7.2999999999999998,8.3000000000000007,9.3000000000000007],"y":[2.3170000000000002,9.7070000000000007,9.6120000000000001,10.063000000000001,4.2359999999999998,0.55400000000000005,0.72099999999999997,0.18099999999999999,2.532],"text":["Excess deaths  2022 <br>Value (%)  2.317","Excess deaths  2022 <br>Value (%)  -9.707","Excess deaths  2022 <br>Value (%)  9.612","Excess deaths  2022 <br>Value (%)  10.063","Excess deaths  2022 <br>Value (%)  -4.236","Excess deaths  2022 <br>Value (%)  0.554","Excess deaths  2022 <br>Value (%)  -0.721","Excess deaths  2022 <br>Value (%)  -0.181","Excess deaths  2022 <br>Value (%)  2.532"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(178,223,138,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2022","legendgroup":"2022","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":75,"r":50,"b":75,"l":50,"pad":20},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,9.5999999999999996],"tickmode":"array","ticktext":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"tickvals":[1,2,3,4,5,6,6.9999999999999991,8,9],"categoryorder":"array","categoryarray":["0-4","5-14","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Age group","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-23.800549999999998,11.675550000000001],"tickmode":"array","ticktext":["-20%","-10%","0%","10%"],"tickvals":[-20,-10,0,10.000000000000004],"categoryorder":"array","categoryarray":["-20%","-10%","0%","10%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Excess deaths, %","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","title":{"text":"Excess Deaths for Ireland<br><sup>Method 2A<\/sup>"},"annotations":[{"x":1.1499999999999999,"y":0,"text":"Source: CSO census, popln estimates, and <br />VSAQ2 mortality by age","showarrow":false,"xref":"paper","yref":"paper","xanchor":"right","yanchor":"auto","xshift":0,"yshift":0,"font":{"size":12}}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3c855851e3e":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"3c855851e3e","visdat":{"3c855851e3e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-42c44e79196cbb1b8d48" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-42c44e79196cbb1b8d48">{"x":{"data":[{"orientation":"v","width":[0.22500000000000009,0.22500000000000009,0.22500000000000053,0.22500000000000053,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22499999999999964],"base":[0,0,-13.924580000000001,0,-1.36741,-1.2451000000000001,0,-2.8582800000000002],"x":[0.66250000000000009,1.6625000000000001,2.6625000000000001,3.6625000000000001,4.6624999999999996,5.6624999999999996,6.6624999999999996,7.6624999999999996],"y":[0.29315000000000002,2.2296,13.924580000000001,7.4562499999999998,1.36741,1.2451000000000001,4.37704,2.8582800000000002],"text":["Excess deaths  2020 <br>Value (%)  0.29315","Excess deaths  2020 <br>Value (%)  2.2296","Excess deaths  2020 <br>Value (%)  -13.92458","Excess deaths  2020 <br>Value (%)  7.45625","Excess deaths  2020 <br>Value (%)  -1.36741","Excess deaths  2020 <br>Value (%)  -1.2451","Excess deaths  2020 <br>Value (%)  4.37704","Excess deaths  2020 <br>Value (%)  -2.85828"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,206,227,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2020","legendgroup":"2020","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.22500000000000009,0.22500000000000009,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22499999999999964],"base":[0,0,-8.2693899999999996,0,0,0,0,-2.0886900000000002],"x":[0.88749999999999996,1.8875,2.8875000000000002,3.8875000000000002,4.8875000000000002,5.8875000000000002,6.8875000000000002,7.8875000000000002],"y":[16.669699999999999,24.498640000000002,8.2693899999999996,17.859089999999998,11.13461,6.8585399999999996,5.1003299999999996,2.0886900000000002],"text":["Excess deaths  2021 <br>Value (%)  16.6697","Excess deaths  2021 <br>Value (%)  24.49864","Excess deaths  2021 <br>Value (%)  -8.26939","Excess deaths  2021 <br>Value (%)  17.85909","Excess deaths  2021 <br>Value (%)  11.13461","Excess deaths  2021 <br>Value (%)  6.85854","Excess deaths  2021 <br>Value (%)  5.10033","Excess deaths  2021 <br>Value (%)  -2.08869"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(31,120,180,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2021","legendgroup":"2021","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.22500000000000009,0.22499999999999987,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22500000000000142],"base":[0,0,0,0,0,0,0,0],"x":[1.1125,2.1124999999999998,3.1124999999999998,4.1124999999999998,5.1124999999999998,6.1124999999999998,7.1124999999999998,8.1125000000000007],"y":[36.948560000000001,71.663499999999999,18.780169999999998,17.740559999999999,14.10228,11.87923,8.0858500000000006,2.2436500000000001],"text":["Excess deaths  2022 <br>Value (%)  36.94856","Excess deaths  2022 <br>Value (%)  71.6635","Excess deaths  2022 <br>Value (%)  18.78017","Excess deaths  2022 <br>Value (%)  17.74056","Excess deaths  2022 <br>Value (%)  14.10228","Excess deaths  2022 <br>Value (%)  11.87923","Excess deaths  2022 <br>Value (%)  8.08585","Excess deaths  2022 <br>Value (%)  2.24365"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(178,223,138,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2022","legendgroup":"2022","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.22500000000000009,0.22499999999999964,0.22500000000000053,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22499999999999964,0.22500000000000142],"base":[-32.432989999999997,-11.305009999999999,-56.939419999999998,-45.385759999999998,-43.100230000000003,-45.588549999999998,-44.75902,-45.349200000000003],"x":[1.3374999999999999,2.3374999999999999,3.3374999999999999,4.3375000000000004,5.3375000000000004,6.3375000000000004,7.3375000000000004,8.3375000000000004],"y":[32.432989999999997,11.305009999999999,56.939419999999998,45.385759999999998,43.100230000000003,45.588549999999998,44.75902,45.349200000000003],"text":["Excess deaths  2023 <br>Value (%)  -32.43299","Excess deaths  2023 <br>Value (%)  -11.30501","Excess deaths  2023 <br>Value (%)  -56.93942","Excess deaths  2023 <br>Value (%)  -45.38576","Excess deaths  2023 <br>Value (%)  -43.10023","Excess deaths  2023 <br>Value (%)  -45.58855","Excess deaths  2023 <br>Value (%)  -44.75902","Excess deaths  2023 <br>Value (%)  -45.3492"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(51,160,44,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2023","legendgroup":"2023","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[7],"y":[20],"text":"Method 2C","hovertext":"","textfont":{"size":14.66456692913386,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":75,"r":50,"b":75,"l":50,"pad":20},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,8.5999999999999996],"tickmode":"array","ticktext":["0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"tickvals":[1,2,3,4,5,6,7,8],"categoryorder":"array","categoryarray":["0-4","15-24","25-34","35-44","45-54","55-64","65-74","75+"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"age category","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-63.369565999999999,78.093645999999993],"tickmode":"array","ticktext":["-40%","0%","40%"],"tickvals":[-40,0,39.999999999999993],"categoryorder":"array","categoryarray":["-40%","0%","40%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"death rate difference from linear fit","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","title":{"text":"Excess Deaths for Ireland<br><sup>Method 2C<\/sup>"},"annotations":[{"x":1.1499999999999999,"y":0,"text":"Source: CSO census, popln estimates, and <br />VSAQ2 mortality by age","showarrow":false,"xref":"paper","yref":"paper","xanchor":"right","yanchor":"auto","xshift":0,"yshift":0,"font":{"size":12}}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3c85e813a62":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"3c812df5c7c":{"x":{},"y":{}}},"cur_data":"3c85e813a62","visdat":{"3c85e813a62":["function (y) ","x"],"3c812df5c7c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© CC-Based on Openscapes, 2022</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jjcoen/vax-ireland/edit/main/Ireland-report.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jjcoen/vax-ireland/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

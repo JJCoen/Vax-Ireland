@@ -1,32 +1,1048 @@
 ---
-title: "Change in Mortality Rates for Ireland"
-subtitle: "for the years 2010 to 2022"
-editor_options: 
-  chunk_output_type: inline
+title: ""
+format: 
+    html:
+        # highlight-style: github
+        page-layout: full
+execute:
+  echo: false
+fontfamily: "Lato"
+editor: visual
 ---
 
-## Method 1: Number of Deaths above Average
+```{=html}
+<head><!-- -------------------------------------- HEAD ---------------------------------------------- -->
+<title>IE - Yearly Excess Death Rate Analysis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <style>
+        body {font-family: "Lato", sans-serif}
+        .mySlides {display: none}
+        h3 {text-align: center; font-family: "Lato", sans-serif}
+        p {text-align: left;}
+        div {text-align: center;}
+    </style>
+</head><!-- End HEAD -->
 
-![](images/method_1.png)
+<body>
+<!-- -------------------------------------- BODY ----- -->
+    
+<!-- top menus--------------------------------- -->
 
-![Figure 1. Deaths above average (2015-2019)](./figures/method1-diff-avg.jpeg)
+    <br>
+    <div class="w3-top">
+        <div class="w3-bar w3-highway-green">
+            
+            <!-- phinance technologies logo - home button --------------------- -->
 
-## Method 2A: Death Rate Percent Change from 2019 Baseline
+            <!-- humanity projects button ------------------------------------- -->
 
-![](images/method_2A.png)
+            <!-- Projects button --------------------------- -->
 
-![Figure 2. Death Rate change from Baseline 2019](figures/method2a-xs_base.jpeg)
+            <!-- Resources button --------------------------------------------- -->
+            
+            <!-- About button --------------------------------------------- -->
+            
+            <!-- FAQ button --------------------------------------------- -->
+                        
+            <!-- YEARLY EXCESS DEATH RATE ANALYSIS button --------------------------- -->
+            
+        </div>
+    </div>
 
-## Method 2C: Death Rate divergence from Linear Trend
+ <!-- Page content  -->
+    <br>
+    <div class="w3-container w3-content w3-padding-64" style="max-width:2000px;margin-top:60px">
+       
+        <!-- Title Section ---------------------------------------------------- -->
+<div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1000px" id="Nav_title">
+            <h1 class="w3-wide"><b>Yearly Excess Death Rate Analysis</b></h1>
+            <h3 class="w3-text-gray">Ireland</h3>
+            <h6 class="w3-text-gray">Data Sources: Central Statistics Office, Ireland </h6>
+            <p><center>May 2024</center></p>
+            <br>
+            <br>
+        </div>
+        <br><br>
+</div>    
 
-![](images/method_2C.png)
+ <!-- HP Section --->
+<div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1000px" id="Nav_Data">
+        <h3 class="w3-wide w3-center"><b> Humanity Projects </b> </h3>
+        <h6 class="w3-container w3-justify"> 
+            <p>
+                This analysis is an adjunct to the main report from Humanity Projects.  Please refer to that website for analysis methodology and country reports, including Ireland.                            <p>
+                <a href="https://phinancetechnologies.com/HumanityProjects/Humanity%20projects.asp" target="_blank">Humanity Projects - Objectives, Principles, and Projects.</a></p>
+<p>The analysis presented here incorporates the latest mortality counts from the CSO.  Another reason for this complimentary report is reproducibility.  On this website, the researcher can identify the source data files used, access code for transforming that data and for performing exploratory analysis.
+</p>                
+<p>In addition, the format of the report presented here is adapted from the Humanity Projects report on Ireland: 
+<a href="https://phinancetechnologies.com/HumanityProjects/yearly%20Excess%20Death%20Rate%20Analysis%20-%20IE.htm" target="_blank">Yearly Excess Death Rate Analysis, Ireland. </a></p>
+                
+</div>
+<br><br>
 
-![Figure 3. Death Rate, Linear Fit](figures/method2c-diff-lin-fit.jpeg){alt="Figure 6. Death Rate, Linear Fit"}
+ <!-- Data Section --->
+<div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1000px" id="Nav_Data">
+        <h3 class="w3-wide w3-center"><b> Data: </b> </h3>
+        <h6 class="w3-container w3-justify"> 
+            <p>
+                Data for this analysis are quarterly deaths data from the Irish Central Statistics Office, spanning from 2010 to Q4-2023 (as of May, 2024). </p>
+            <p>Countries: IE (Ireland)</p>
+            <p>Source for Quarterly Deaths (Ireland - <a href="https://data.cso.ie" target="_blank">Central Statistics Office</a>): 
+            <a href="https://data.cso.ie/table/VSAQ2" target="_blank">Data file: Quarterly deaths, sex and age group.</a></p>
+    <p>Source for Population Census and Estimates (CSO): 
+                <a href="https://data.cso.ie/table/CD205">CSO Census 2011.</a>
+     <a href="https://data.cso.ie/table/CNA20">Census 2016.</a>
+     <a href="https://data.cso.ie/table/FY006B">Census 2022.</a>
+     <a href="https://data.cso.ie/table/PEA01">Yearly Population Estimates.</a>
+     </p>    
+            <br>
+     <p><b>Comment on the available data and its limitations.</b></p>
+    <p>Deaths registered in Ireland are recorded on a quarterly basis by the CSO. There is a variable time lag between when a person dies and when that death is registered. In addition, population counts are on a yearly basis. Census, carried out in 2011, 2016, and 2022 give actual numbers while estimates, based on demographic factors, are given for the other years.</p>
 
-## Appendix
+    <p>There is a mismatch between population and mortality for the lowest age group. Population data records counts for years 0 to 4 while there are separate age groups for under 1 year and for 1 to 4 years in the mortality data. These two groups are combined for compatibility between population and mortality.</p>
+    <p>Number of persons vaccinated comes from the European Centre for Disease Prevention and Control.  Age groups in this data are not compatible with the population / mortality data from the CSO.  The CSO age group and comparible ECDPC group are given below: </p>
+    <table class="w3-table-all w3-card">
+<tr><th>CSO Age Group</th><th>EDCPC Vaccination Age Group</th></tr>
+<tr><td>Under 1 plus 1-4</td><td>0-4</td></tr>
+<tr><td>5-14</td><td>5-9 plus 10-14</td></tr>
+<tr><td>15-24</td><td>15-17 plus 18-24</td></tr>
+<tr><td>25-34</td><td>25-49</td></tr>
+<tr><td>35-44</td><td>25-49</td></tr>
+<tr><td>45-54</td><td>50-59</td></tr>
+<tr><td>55-64</td><td>60-69</td></tr>
+<tr><td>65-74</td><td>60 plus</td></tr>
+<tr><td>75+</td><td>60 plus</td></tr>
+</table>
+    <p> The analysis uses data from the COVID-19 Vaccine Tracker.  This covers all weeks from w53 2020 up to w39 2023.  It records the median cumulative uptake (%) of the primary course by age group.  The main "Data on COVID-19 vaccination in the EU/EEA" data-set only covers doses administered during the most recent weeks. </p>
+    <p> This report records the "FirstDose" variable which is the "Number of first dose vaccine administered to individuals 
+during the reporting week" (Data Dictionary for the COVID-19 vaccination data).  Once an person receives a single dose, mRMA particles circulate throughout the body</p>.
+</div>
+<br><br>
+        
+<!-- Yearly plots Section 1 ------------------------------------- -->
+        <div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1280px" id="Nav_ExcessMortality">
+            <br>                                    
+            <div class="w3-container w3-content" style="width:90%">
+                <h4 class="w3-wide w3-center"><b>Methodology</b></h4>
+                <h6 class="w3-text-gray w3-justify">
+                    <p>For details on methods for calculating excess mortality, please refer to the Humanity Projects <a href="Resources.htm#ExcessDeathsMethodology" target="_blank">methodology papers.</a> These papers illustrate the pitfalls and advantages of using the different calculation methods for excess mortality.</p>
+                </h6>
+            </div>
+            <h5 class="w3-blue-gray"> &ensp; Yearly Excess Deaths using methods 1, 2A and 2C</h5>
+            <div class="w3-row">
+                <div class="w3-half w3-padding">
+                    <h6 class="w3-text-gray w3-justify">
+                        <p>The chart below shows the actual deaths (or death rate) versus the projected estimates when using the different methodologies described in our <a href="Resources.htm#ExcessDeathsMethodology">methodology papers.</a></p>
+                        <p>The user can select the calculation method and age group. 2023 deaths or deaths rates are annualised estimates using a linear model.</p>
+                    </h6>
+                </div>
+                <div class="w3-half w3-padding">
+                    <h6 class="w3-text-gray w3-justify">
+                        <p>The chart below shows the excess mortality for 2020, 2021, 2022 and 2023 (either excess deaths or excess death rates) for a given age group. Please be aware that we matched the age groups as described in the <a href="#Nav_Data">data section</a> above.</p>
+                        <p>The plot allows the user to select the desired methodology and age group. 2023 deaths or deaths rates are annualised estimates using a linear model. Note that for older age groups this could lead to higher yearly estimates due to winter-months seasonality.</p>
+                    </h6>
+                </div>
+            </div>
+            
+        </div>
+        <br><br>
+</body>
+```
+```{r}
+#| include: false
+#| label: load_libraries
 
-### Linear Model Evaluation
+library(data.table)
+library(kableExtra)
+library(gt)
+library(tidyverse)
+library(ggpubr)
+library(grid)     # textGrob
+library(gridExtra)
+library(janitor)
+library(tidyr)
+library(writexl)
+library(cowplot)
+library(purrr)
+library(plotly)
+library(scales)    # label_comma()
+# library("ggsci")   # Scientific Journal colours
+```
 
-![Figure 5. Scatter Plot and Linear Model Fit](figures/linear_fit.jpeg)
+```{r}
+#| include: false
+#| label: "mortality rate"
 
-Only age categories 15-24, 45-54, 55-64, and 65-74 have adequate \$\$r\^2\$\$ value.
+irl_dt <- readRDS(file = "./processed-data/irl_dt.rds") |> 
+    setDT()
+
+irl_post_vax <- readRDS(file = "./processed-data/irl_post_vax.rds") |> 
+    setDT()
+
+irl_trend_adj <- readRDS(file = "./processed-data/irl_trend_adj.rds") |> 
+    setDT()
+
+age_vec <- c("0-4", "5-14", "15-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75+")
+```
+
+```{=html}
+    <style>
+        body {font-family: "Lato", sans-serif}
+        .mySlides {display: none}
+        h3 {text-align: center; font-family: "Lato", sans-serif}
+        p {text-align: left;}
+        div {text-align: center;}
+    </style>
+<h3 class="w3-wide w3-center"><b> Method 1 - Difference from Average </b> </h3>
+```
+```{r}
+# Number of Deaths above Average
+
+```
+
+```{r}
+
+avg_vec <- irl_dt[year %in% 2015:2019, 
+                        floor(mean(mort_count)), 
+         by = age_cat ][, V1]
+
+# Margins
+mrg <- list(l = 50, r = 50,
+          b = 65, t = 95,
+          pad = 20)
+
+# Specify fonts
+f1 <- list(
+  family = "Lato",
+  size = 18,
+  color = "black"
+)
+f2 <- list(
+  family = "Lato",
+  size = 14
+)
+
+fig1_num <- irl_dt %>%
+  plot_ly(x = ~year, y = ~mort_count,
+    type = "scatter", mode = "lines+markers", name = "Deaths",
+    color = I("#328cc2"), 
+    line = list(width = 3),
+    marker = list(size = 9, symbol = 'circle'),
+    showlegend = TRUE,
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~age_cat,
+        operation = '=',
+        value = unique(irl_dt$age_cat)[1])),
+    hoverinfo = "text",
+    text = ~paste("Deaths: ", 
+                  "<br> Year: ", year,
+                  "<br> Deaths, Number: ", mort_count)) |> 
+    add_trace(y = ~avg5yr, 
+              type = "scatter", mode = "lines+markers", 
+              name = "Trend",
+              color = I("black"), 
+              line = list(width = 3, dash = "dash"),
+              marker = list(size = 7, symbol = 'circle'),
+              showlegend = TRUE,
+              hoverinfo = "text",
+              text = ~paste("Trend: ", 
+                            "<br> Deaths, Number: ", avg5yr) ) |> 
+        add_trace(y = ~proj_avg, 
+              type = "scatter", mode = "lines+markers", 
+              name = "Trend",
+              color = I("darkblue"), 
+              line = list(width = 3, dash = "dash"),
+              marker = list(size = 9, symbol = 'square'),
+              showlegend = TRUE,
+              hoverinfo = "text",
+              text = ~paste("Trend: ", 
+                            "<br> Deaths, Number: ", proj_avg) ) |> 
+        layout( #title = list(text = "Yearly Mortality by Age Group", font = f1),
+        yaxis = list( title = 'Yearly Death, Number',
+           #rangemode = 'tozero',
+           showline= T, linewidth=2, linecolor='black'),
+        xaxis = list(title = 'Year', showline= T, 
+                     linewidth=2, linecolor='black',
+                     dtick = 2),
+                     #type = 'date', tickformat = "%Y"),
+        margin = mrg) |> 
+      layout(
+          legend = list(
+              x = 0.1, y = -0.25,  # Position the legend at the bottom
+              orientation = "h",  # Set the orientation to horizontal
+              title = "Legend Title",
+              font = list(size = 12) ) 
+          ) |> 
+    layout(
+        updatemenus = list(
+            list(
+                type = 'dropdown',
+                active = 0,
+                y = 1.12,
+                buttons = list(
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[1]),
+                         label = unique(irl_dt$age_cat)[1]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[2]),
+                         label = unique(irl_dt$age_cat)[2]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[3]),
+                         label = unique(irl_dt$age_cat)[3]),                     list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[4]),
+                         label = unique(irl_dt$age_cat)[4]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[5]),
+                         label = unique(irl_dt$age_cat)[5]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[6]),
+                         label = unique(irl_dt$age_cat)[6]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[7]),
+                         label = unique(irl_dt$age_cat)[7]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[8]),
+                         label = unique(irl_dt$age_cat)[8]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[9]),
+                         label = unique(irl_dt$age_cat)[9])
+                    
+                ) ) )
+    ) 
+```
+
+```{r}
+
+# Percentage Deaths above Average by Age Group
+```
+
+```{r}
+
+fig1_xs <- irl_post_vax%>%  
+plot_ly(x = ~year, y = ~xs_avg_pc, 
+    type = "bar",
+    color = I("#328cc2"),
+    showlegend = FALSE,
+    #width = 500,
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~age_cat,
+        operation = '=',
+        value = unique(irl_dt$age_cat)[1])),
+    hoverinfo = "text",
+    hovertext = ~paste("Excess Death Rate: ", 
+                  "<br> Year: ", year,
+                  "<br> Deaths: ", xs_avg_pc, "%")) |> 
+    layout( #title = list(text = "Excess Deaths by Age Group", font = f1),
+        yaxis = list( title = 'Excess Deaths',
+                      ticksuffix = "%",
+                    showline= T, linewidth=2, linecolor='black'),
+        xaxis = list(title = 'Year', showline= T, 
+                     linewidth=2, linecolor='black'),
+        margin = mrg
+    ) |> 
+    layout(
+        updatemenus = list(
+            list(
+                type = 'dropdown',
+                active = 0,
+                y = 1.13,
+                buttons = list(
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[1]),
+                         label = unique(irl_dt$age_cat)[1]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[2]),
+                         label = unique(irl_dt$age_cat)[2]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[3]),
+                         label = unique(irl_dt$age_cat)[3]),                     list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[4]),
+                         label = unique(irl_dt$age_cat)[4]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[5]),
+                         label = unique(irl_dt$age_cat)[5]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[6]),
+                         label = unique(irl_dt$age_cat)[6]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[7]),
+                         label = unique(irl_dt$age_cat)[7]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[8]),
+                         label = unique(irl_dt$age_cat)[8]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[9]),
+                         label = unique(irl_dt$age_cat)[9])
+                    
+                ) ) )
+    ) 
+
+```
+
+```{r}
+fig1 <- subplot(fig1_num, fig1_xs, margin = 0.07,
+                titleY = TRUE, titleX = TRUE)
+                #widths = c(0.65, 0.35))
+annotations = list( 
+  list( 
+    x = 0.2,  
+    y = 1.0,  
+    text = "Yearly Mortality by Age Group", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "center",  
+    yanchor = "bottom",  
+    showarrow = FALSE 
+  ),  
+  list( 
+    x = -0.13,  
+    y = 1.19,  
+    text = "Age Group", font = f2,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "left",  
+    yanchor = "top",  
+    showarrow = FALSE 
+  ), 
+  list( 
+    x = 0,  
+    y = 1.27,  
+    text = "Country: Ireland", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "left",  
+    yanchor = "top",  
+    showarrow = FALSE 
+  ), 
+  list( 
+    x = 0.8,  
+    y = 1,  
+    text = "Excess Mortality by Age Group", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "center",  
+    yanchor = "bottom",  
+    showarrow = FALSE 
+  ))
+
+fig1 <- fig1 %>%layout(annotations = annotations,
+                       margin = mrg) 
+fig1
+
+```
+
+```{=html}
+    <style>
+        body {font-family: "Lato", sans-serif}
+        .mySlides {display: none}
+        h3 {text-align: center; font-family: "Lato", sans-serif}
+        p {text-align: left;}
+        div {text-align: center;}
+    </style>
+<h3 class="w3-wide w3-center"><b> Method 2A - Difference from Baseline </b> </h3>
+```
+The baseline level is the 2019 numbers for each age group. Difference from the baseline is expressed as a percentage.
+
+```{r}
+fig2A_rate <- irl_dt %>%
+  plot_ly(x = ~year, y = ~rate_pc, #text = ~age_cat,
+    type = "scatter", mode = "lines+markers", name = "Death Rates",
+    color = I("#328cc2"), 
+    line = list(width = 3),
+    marker = list(size = 9, symbol = 'circle'),
+    showlegend = TRUE,
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~age_cat,
+        operation = '=',
+        value = unique(irl_dt$age_cat)[1])),
+    hoverinfo = "text",
+    text = ~paste("Death Rate: ", 
+                  "<br> Year: ", year,
+                  "<br> Death Rate, %: ", rate_pc)) |> 
+    add_trace(y = ~base_pc, 
+              type = "scatter", mode = "lines+markers", 
+              name = "Trend",
+              color = I("black"), 
+              line = list(width = 3, dash = 'dash'),
+              marker = list(size = 7, symbol = 'circle'),
+              showlegend = TRUE,
+              hoverinfo = "text",
+              text = ~paste("Trend: ", 
+                            "<br> Death Rate, %: ", base_pc) ) |> 
+        layout( yaxis = list( title = 'Yearly Death Rate, %',
+           #rangemode = 'tozero',
+           showline= T, linewidth=2, linecolor='black'),
+        xaxis = list(title = 'Year', showline= T, 
+                     linewidth=2, linecolor='black',
+                     dtick = 2),
+                     #type = 'date', tickformat = "%Y"),
+        margin = mrg) |> 
+    add_trace(y = ~proj_base, 
+              type = "scatter", mode = "lines+markers", 
+              name = "Projected",
+              color = I("darkblue"), 
+              line = list(width = 3, dash = "dash"),
+              marker = list(size = 9, symbol = 'square'),
+              showlegend = TRUE,
+              hoverinfo = "text",
+              text = ~paste("Projected: ", 
+                            "<br> Deaths, Number: ", proj_base) ) |> 
+      layout(
+          legend = list(
+              x = 0.1, y = -0.25,  # Position the legend at the bottom
+              orientation = "h",  # Set the orientation to horizontal
+              title = "Legend Title",
+              font = list(size = 12)
+          ) ) |> 
+    layout(
+        updatemenus = list(
+            list(
+                type = 'dropdown',
+                active = 0,
+                y = 1.1,
+                buttons = list(
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[1]),
+                         label = unique(irl_dt$age_cat)[1]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[2]),
+                         label = unique(irl_dt$age_cat)[2]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[3]),
+                         label = unique(irl_dt$age_cat)[3]),                     list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[4]),
+                         label = unique(irl_dt$age_cat)[4]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[5]),
+                         label = unique(irl_dt$age_cat)[5]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[6]),
+                         label = unique(irl_dt$age_cat)[6]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[7]),
+                         label = unique(irl_dt$age_cat)[7]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[8]),
+                         label = unique(irl_dt$age_cat)[8]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[9]),
+                         label = unique(irl_dt$age_cat)[9])
+                    
+                ) ) )
+    ) 
+ 
+# # Use annotation for subtitle
+# fig2_rate <- fig2_rate %>% add_annotations(
+#     x= 0.5, y= 1.1, 
+#     xref = "paper", yref = "paper",     
+#     text = "<b>Country: Ireland - Method 2A</b>",
+#     showarrow = F, font = f2
+#   ) |> 
+#     add_annotations(
+#         x = -0.17, y = 1.2,
+#         xref = "paper", yref = "paper",     
+#         text = "<b>Age Group</b>",
+#         showarrow = F, font = f2
+#     )
+
+```
+
+```{r}
+fig2A_xs <- irl_post_vax%>%  
+plot_ly(x = ~year, y = ~xs_base_pc, 
+    type = "bar",
+    color = I("#328cc2"),
+    showlegend = FALSE,
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~age_cat,
+        operation = '=',
+        value = unique(irl_dt$age_cat)[1])),
+    hoverinfo = "text",
+    hovertemplate = ~paste("Excess Death Rate: ", 
+                  "<br> Year: ", year,
+                  "<br> Rate: ", xs_base_pc, "%")) |> 
+    layout( #title = list(text = "Excess Deaths by Age Group", font = f1),
+        yaxis = list( title = 'Excess Deaths',
+                      ticksuffix = "%",
+                    showline= T, linewidth=2, linecolor='black'),
+        xaxis = list(title = 'Year', showline= T, 
+                     linewidth=2, linecolor='black'),
+        margin = mrg
+    ) |> layout(
+        updatemenus = list(
+            list(
+                type = 'dropdown',
+                active = 0,
+                y = 1.1,
+                buttons = list(
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[1]),
+                         label = unique(irl_dt$age_cat)[1]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[2]),
+                         label = unique(irl_dt$age_cat)[2]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[3]),
+                         label = unique(irl_dt$age_cat)[3]),                     list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[4]),
+                         label = unique(irl_dt$age_cat)[4]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[5]),
+                         label = unique(irl_dt$age_cat)[5]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[6]),
+                         label = unique(irl_dt$age_cat)[6]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[7]),
+                         label = unique(irl_dt$age_cat)[7]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[8]),
+                         label = unique(irl_dt$age_cat)[8]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[9]),
+                         label = unique(irl_dt$age_cat)[9])
+                    
+                ) ) )
+    ) 
+
+```
+
+```{r}
+fig2A <- subplot(fig2A_rate, fig2A_xs, margin = 0.07,
+                titleY = TRUE, titleX = TRUE)
+                #widths = c(0.65, 0.35))
+annotations = list( 
+  list( 
+    x = 0.2,  
+    y = 1.0,  
+    text = "Yearly Mortality by Age Group", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "center",  
+    yanchor = "bottom",  
+    showarrow = FALSE 
+  ),  
+  list( 
+    x = -0.13,  
+    y = 1.19,  
+    text = "Age Group", font = f2,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "left",  
+    yanchor = "top",  
+    showarrow = FALSE 
+  ), 
+  list( 
+    x = 0,  
+    y = 1.27,
+    text = "Country: Ireland", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "left",  
+    yanchor = "top",  
+    showarrow = FALSE 
+  ), 
+  list( 
+    x = 0.8,  
+    y = 1,  
+    text = "Excess Mortality by Age Group", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "center",  
+    yanchor = "bottom",  
+    showarrow = FALSE 
+  ))
+
+fig2A <- fig2A %>%layout(annotations = annotations,
+                         margin = mrg) 
+fig2A
+```
+
+```{=html}
+    <style>
+        body {font-family: "Lato", sans-serif}
+        .mySlides {display: none}
+        h3 {text-align: center; font-family: "Lato", sans-serif}
+        p {text-align: left;}
+        div {text-align: center;}
+    </style>
+<h3 class="w3-wide w3-center"><b> Method 2C - Difference from Linear Trend </b> </h3>
+```
+Age group*"5-14"* has low $r^2$ value (0.42) and so, use of a linear model is unwarranted for this group.
+
+```{r}
+fig2C_rate <- irl_trend_adj %>%
+  plot_ly(x = ~year, y = ~rate_pc, #text = ~age_cat,
+    type = "scatter", mode = "lines+markers", name = "Death Rates",
+    color = I("#328cc2"), 
+    line = list(width = 3),
+    marker = list(size = 9, symbol = 'circle'),
+    showlegend = TRUE,
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~age_cat,
+        operation = '=',
+        value = unique(irl_dt$age_cat)[1])),
+    hoverinfo = "text",
+    text = ~paste("Death Rate: ", 
+                  "<br> Year: ", year,
+                  "<br> Death Rate, %: ", rate_pc)) |> 
+    add_trace(y = ~fitted_values, 
+              type = 'scatter', mode = 'lines+markers', 
+              name = "Trend", 
+              color = I("black"),
+              line = list(dash = 'dash', width = 3),
+              marker = list(size = 9, symbol = 'circle'),
+              showlegend = TRUE, 
+              hoverinfo = "text",
+              text = ~paste("Trend: ", 
+                            "<br> Death Rate, %: ", fitted_values) ) |> 
+        add_trace(y = ~predicted, 
+              type = 'scatter', mode = 'lines+markers', name = "Projected",
+              color = I("darkblue"),
+              line = list(dash = 'dash'),
+              showlegend = TRUE, 
+              hoverinfo = "text",
+              text = ~paste("Trend: ", 
+                            "<br> Death Rate, %: ", predicted), 
+              marker = list(
+                  color = 'blue',
+                  size = 9,
+                  symbol = 'square'
+                    ) ) |> 
+        layout( yaxis = list( title = 'Yearly Death Rate, %',
+           #rangemode = 'tozero',
+           showline= T, linewidth=2, linecolor='black'),
+        xaxis = list(title = 'Year', showline= T, 
+                     linewidth=2, linecolor='black',
+                     dtick = 2),
+                     #type = 'date', tickformat = "%Y"),
+        margin = mrg) |> 
+  layout(
+    legend = list(
+      x = 0.1, y = -0.25,  # Position the legend at the bottom
+      orientation = "h",  # Set the orientation to horizontal
+      title = "Legend Title",
+      font = list(size = 12)
+    )
+  ) |> 
+    layout(
+        updatemenus = list(
+            list(
+                type = 'dropdown',
+                active = 0,
+                y = 1.1,
+                buttons = list(
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_trend_adj$age_cat)[1]),
+                         label = unique(irl_dt$age_cat)[1]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_trend_adj$age_cat)[2]),
+                         label = unique(irl_trend_adj$age_cat)[2]),
+                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_trend_adj$age_cat)[3]),
+                         label = unique(irl_trend_adj$age_cat)[3]),                     list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_trend_adj$age_cat)[4]),
+                         label = unique(irl_trend_adj$age_cat)[4]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_trend_adj$age_cat)[5]),
+                         label = unique(irl_trend_adj$age_cat)[5]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[6]),
+                         label = unique(irl_trend_adj$age_cat)[6]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[7]),
+                         label = unique(irl_trend_adj$age_cat)[7]),                    list(method = "restyle",
+                         args = list("transforms[0].value", 
+                                     unique(irl_dt$age_cat)[8]),
+                         label = unique(irl_trend_adj$age_cat)[8])
+                ) ) )
+    ) 
+```
+
+```{r}
+# Calculate difference between yearly death rate and  
+# rate for linear model predicted values
+# expressed as a percentage
+# irl_trend_adj[year %in% 2020:2023, 
+#                 xs_trend_pc := round((rate_pc/predicted - 1)*100, 5)]
+# saveRDS(irl_trend_adj, file = "./processed-data/irl_trend_adj.rds")
+```
+
+```{r}
+fig2C_xs <- irl_trend_adj[year %in% 2020:2023, ]  %>%  
+plot_ly(x = ~year, y = ~xs_trend_pc, 
+    type = "bar",
+    color = I("#328cc2"),
+    showlegend = FALSE,
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~age_cat,
+        operation = '=',
+        value = unique(irl_trend_adj$age_cat)[1])),
+    hoverinfo = "text",
+    hovertemplate = ~paste("Excess Death Rate: ", 
+                  "<br> Year: ", year,
+                  "<br> Rate: ", xs_trend_pc, "%")) |> 
+    layout( #title = list(text = "Excess Deaths by Age Group", font = f1),
+        yaxis = list( title = 'Excess Deaths',
+                      ticksuffix = "%",
+                    showline= T, linewidth=2, linecolor='black'),
+        xaxis = list(title = 'Year', showline= T, 
+                     linewidth=2, linecolor='black'),
+        margin = mrg
+    ) |> layout(
+        updatemenus = list(
+            list(
+                type = 'dropdown',
+                active = 0,
+                y = 1.1,
+                buttons = list(
+                    list(method = "restyle",
+                      args = list("transforms[0].value", 
+                                   unique(irl_trend_adj$age_cat)[1]),
+                         label = unique(irl_trend_adj$age_cat)[1]),
+                    list(method = "restyle",
+                      args = list("transforms[0].value", 
+                                    unique(irl_trend_adj$age_cat)[2]),
+                         label = unique(irl_trend_adj$age_cat)[2]),
+                    list(method = "restyle",
+                      args = list("transforms[0].value", 
+                                   unique(irl_trend_adj$age_cat)[3]),
+                         label = unique(irl_trend_adj$age_cat)[3]),                     list(method = "restyle",
+                     args = list("transforms[0].value", 
+                         unique(irl_trend_adj$age_cat)[4]),
+                      label = unique(irl_trend_adj$age_cat)[4]),                    list(method = "restyle",
+                    args = list("transforms[0].value", 
+                        unique(irl_trend_adj$age_cat)[5]),
+                      label = unique(irl_trend_adj$age_cat)[5]),                    list(method = "restyle",
+                    args = list("transforms[0].value", 
+                         unique(irl_trend_adj$age_cat)[6]),
+                      label = unique(irl_trend_adj$age_cat)[6]),                    list(method = "restyle",
+                   args = list("transforms[0].value", 
+                          unique(irl_trend_adj$age_cat)[7]),
+                      label = unique(irl_trend_adj$age_cat)[7]),                    list(method = "restyle",
+                   args = list("transforms[0].value", 
+                           unique(irl_trend_adj$age_cat)[8]),
+                       label = unique(irl_trend_adj$age_cat)[8])
+                ) ) )
+    ) 
+```
+
+```{r}
+fig2C <- subplot(fig2C_rate, fig2C_xs, margin = 0.07,
+                titleY = TRUE, titleX = TRUE)
+                #widths = c(0.65, 0.35))
+annotations = list( 
+  list( 
+    x = 0.2,  
+    y = 1.0,  
+    text = "Yearly Mortality by Age Group", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "center",  
+    yanchor = "bottom",  
+    showarrow = FALSE 
+  ),  
+  list( 
+    x = -0.13,  
+    y = 1.19,  
+    text = "Age Group", font = f2,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "left",  
+    yanchor = "top",  
+    showarrow = FALSE 
+  ), 
+  list( 
+    x = 0,  
+    y = 1.27,   
+    text = "Country: Ireland", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "left",  
+    yanchor = "top",  
+    showarrow = FALSE 
+  ), 
+  list( 
+    x = 0.8,  
+    y = 1,  
+    text = "Excess Mortality by Age Group", font = f1,
+    xref = "paper",  
+    yref = "paper",  
+    xanchor = "center",  
+    yanchor = "bottom",  
+    showarrow = FALSE 
+  ))
+
+fig2C <- fig2C %>%layout(annotations = annotations, 
+                         margin = mrg) 
+fig2C
+```
+
+```{=html}
+ <!-- Age Group Comparison ---------------------------------------------------- -->
+ <body>
+        <div class="w3-container w3-content w3-center w3-padding-64 w3-card-4" style="max-width:1000px" id="Nav_agegroup_comparison">
+            <h2 class="w3-wide w3-center"><b>Excess Mortality. Age-group comparison.</b></h2>
+            <br>
+            <h6 class="w3-container w3-text-gray w3-justify">
+                <p>The following chart shows the analysis of excess mortality for 2020, 2021, 2022 and 2023, for different age groups. 
+                The user can specify the method for estimating excess mortality.</p>
+                <p>Please be aware that, European CDPC data on vaccination for Ireland has different age groups from the ones available in the mortality data, as mentioned before. We matched the age groups as described in the <a href="#Nav_Data">data section</a> above.</p>
+            </h6>
+            <h5 class="w3-blue-gray"> &ensp; Yearly excess mortality, from 2020 to 2023, for different age groups.</h5>
+        </div>
+        <br><br>
+</body>
+```
+```{r}
+#| message: false
+#| label: "plot excess above average"
+#| 
+
+age_compare1 <- ggplot(irl_post_vax[year %in% 2020:2022,], 
+                        aes(x=age_cat, y=xs_avg_pc, fill= year,
+                            text = paste('Excess deaths ', year, 
+                                         '<br>Value (%) ', xs_avg_pc))) +
+  geom_bar(stat="identity", position=position_dodge()) +
+#   # use custom palette
+#  scale_color_manual(values=c("#999999", "#E69F00", "darkblue")) + 
+  scale_fill_brewer(palette="Paired") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  labs(x = "Age Group",
+      y = "Excess deaths") +
+  theme_minimal() +
+  theme(legend.position='right', 
+        legend.justification='right',
+        legend.direction='vertical') 
+
+# Margins
+mrg2 <- list(l = 50, r = 50,
+          b = 75, t = 75,
+          pad = 20)
+ggplotly(age_compare1, tooltip = c("text")) |> 
+    layout(title = list(text = paste0('Excess Deaths for Ireland', '<br>',
+                                      '<sup>',
+                                      'Method 1',
+                                      '</sup>')),
+           annotations = 
+               list(x = 1.15, y = 0, 
+                    text = "Source: CSO census, popln estimates, and \nVSAQ2 mortality by age", 
+                    showarrow = F, xref='paper', yref='paper', 
+                    xanchor='right', yanchor='auto', xshift=0, yshift=0,
+                    font=list(size=12)),
+           margin = mrg2)
+
+# ggsave("./figures/method1-diff-avg.jpeg")
+```
+
+```{r}
+#| message: false
+
+### Method 2A: Difference from 2019 baseline
+
+age_compare2A <-   ggplot(irl_post_vax[year %in% 2020:2022,], 
+                        aes(x=age_cat, y=xs_base_pc, fill= year,
+                            text = paste('Excess deaths ', year, 
+                                         '<br>Value (%) ', xs_base_pc))) +
+  geom_bar(stat="identity", position=position_dodge())+
+  scale_fill_brewer(palette="Paired") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  labs(
+  # title ="Younger groups have reduced mortality",
+  subtitle = waiver(),
+  caption = "CSO census, popln estimates, and \nVSAQ2 mortality by age",
+  x = "Age group",
+  y = "Excess deaths, %") +
+  theme_minimal() +
+  theme(legend.position='top', 
+        legend.justification='right',
+        legend.direction='vertical') 
+
+ggplotly(age_compare2A, tooltip = c("text")) |> 
+    layout(title = list(text = paste0('Excess Deaths for Ireland', 
+                                      '<br>', '<sup>',
+                                      'Method 2A', '</sup>')),
+           annotations = 
+               list(x = 1.15, y = 0, 
+                    text = "Source: CSO census, popln estimates, and \nVSAQ2 mortality by age", 
+                    showarrow = F, xref='paper', yref='paper', 
+                    xanchor='right', yanchor='auto', xshift=0, 
+                    yshift=0, font=list(size=12)),
+           margin = mrg2)
+
+# ggsave("./figures/method2a-xs_base.jpeg")
+```
+
+```{r}
+#| warning: false
+#| 
+irl_trend_adj[, year := as.factor(year)]
+age_compare2C <- irl_trend_adj[year %in% 2020:2023, ] |> 
+    ggplot(aes(x=age_cat, y=xs_trend_pc, fill= year,
+               text = paste('Excess deaths ', year, 
+                                         '<br>Value (%) ', xs_trend_pc))) +
+    geom_bar(stat="identity", position=position_dodge())+
+    scale_fill_brewer(palette="Paired") +
+    scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+    labs(
+        subtitle = waiver(),
+        caption = "CSO census, popln estimates, and \nVSAQ2 mortality by age",
+        x = "age category",
+        y = "death rate difference from linear fit") +
+    annotate(geom = "text", x = "65-74", y = 20, 
+             label = "Method 2C") +
+    theme_minimal() +
+    theme(legend.position='top', 
+          legend.justification='left',
+          legend.direction='horizontal') 
+
+ggplotly(age_compare2C, tooltip = c("text")) |> 
+    layout(title = list(text = paste0('Excess Deaths for Ireland', 
+                                      '<br>', '<sup>',
+                                      'Method 2C', '</sup>')),
+           annotations = 
+               list(x = 1.15, y = 0, 
+                    text = "Source: CSO census, popln estimates, and \nVSAQ2 mortality by age", 
+                    showarrow = F, xref='paper', yref='paper', 
+                    xanchor='right', yanchor='auto', xshift=0, 
+                    yshift=0, font=list(size=12)),
+           margin = mrg2)
+# ggsave("./figures/method2c-diff-lin-fit.jpeg")
+```

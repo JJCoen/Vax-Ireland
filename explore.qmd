@@ -234,13 +234,7 @@ irl_post_vax <- irl_dt[year %in% 2020:2023,
 # record percent excess compared to average
 irl_post_vax[, xs_avg_pc := (mort_count-avg_vec)/avg_vec * 100, 
            by = year][ ,xs_avg_pc := round(xs_avg_pc, 2)] 
-# add column for percent of total population vaxxed by year
-vax_rates_vec <- c(rep(vax_rates[year==2020, rate], 9),
-                   rep(vax_rates[year==2021, rate], 9),
-                   rep(vax_rates[year==2022, rate], 9),
-                   rep(vax_rates[year==2023, rate], 9) )
-irl_post_vax[, vax_total := vax_rates_vec][, vax_total := 
-                                               round(vax_total, 1)]
+
 irl_post_vax |> 
     head(10) |> 
     gt()
@@ -264,18 +258,6 @@ plot_ly(x = ~year, y = ~xs_avg_pc,
     hovertemplate = ~paste("Excess Death Rate: ", 
                   "<br> Year: ", year,
                   "<br> Deaths: ", xs_avg_pc, "%")) |> 
-    add_trace(x = ~year, y = ~vax_total, 
-              type = "scatter", mode = "markers",
-              line = list(shape = 'spline', 
-                                     smoothing = .55),
-              marker = list(color = "blue", size = 10),
-              name = "VaxRates",
-              line = list(width = 3),
-              marker = list(size = 9, symbol = 'circle'),
-              #showlegend = TRUE,
-              hoverinfo = "text",
-              text = ~paste("Vax Rates ", 
-                            "<br> Year: ", year, "% population, first dose: ", vax_total) ) |>
     layout( yaxis = list( title = 'Excess Deaths',
                 ticksuffix = "%",
                 showline= T, linewidth=2, linecolor='black'),
@@ -1104,7 +1086,7 @@ ggplotly(age_compare2C, tooltip = c("text")) |>
 
 ## Comparison of Excess Mortality Methods
 
-The age group 5-14 is not given for Method 2C since the Linear Model does not fit to the observed data.
+The age group 5-14 is not given for Method 2C since there is not a linear trend in the observed data. Consequently, applying a linear model is inappropriate in this case
 
 ![](images/HP-method-comparison.png){width="1000" height="27"}
 
@@ -1142,7 +1124,7 @@ fig3 <- irl_post_vax |>
     text = ~paste("Excess Deaths - Method 1", 
                   "<br> Year: ", year, "(", xs_avg_pc, ")")) |> 
     add_trace(y = ~xs_base_pc, type = "bar", 
-              name = "Excess Deaths - Method 2",
+              name = "Excess Deaths - Method 2A",
               color = I("purple"), 
               showlegend = TRUE,
               textposition = "none",  
@@ -1229,10 +1211,6 @@ mrg <- list(l = 50, r = 50,
 
 vax_euro <- read_rds(file = "./processed-data/vax_euro_track.rds") |> 
     setDT()
-
-# Extract vaccination percent for 0-4 age group
-vax_0 <- vax_euro[age_group == "0-4", ]
-
 # Need to specify the day of the week for ISOweek.
 # appending the number 4 for day corresponds to Thursday
 # This ensures that the whole week is assigned to the month to which
@@ -1245,39 +1223,237 @@ to_week <- function(w){
         as.Date("%Y-%m-%d")
 }
  
-vax_0[, week_day := to_week(week)] #[, week := NULL]
+vax_euro[, week_day := to_week(week)] #[, week := NULL]
+
+# Convert 'vax_pc' to percentage
+# vax_euro[, vax_pc := vax_pc / 100]
 ```
 
-Fit a Logistic Function to the percentage vacccinated.
+Fit a Logistic Function to the percentage vaccinated.
 
 ```{r}
 #| warning: false
 #| message: false
 
-# Define font styles
+# # Define font styles
 # global_font <- list(family = "Courier New", size = 14, color = "blue")
 # title_font <- list(family = "Times New Roman", color = "red")
 # legend_font <- list(family = "Courier New", size = 14, color = "green")
 # xaxis_font <- list(family = "Arial")
 
-p_0_4 <- ggplot(vax_0, aes(x = week_day,
-                       y=vax_pc,
+gg_0_4 <- ggplot(vax_euro[age_group == '0-4', ], aes(x = week_day,
+                       y=vax_pc/100,
                        text = paste('percent: ', vax_pc,
                            '<br>Date: ', as.Date(week_day)),
-                       group = age_group) )
-p <- p_0_4 + geom_point(size = 0.2) + 
-    stat_smooth(method="glm", se=FALSE, colour = "darkblue",
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
               method.args = list(family=quasibinomial) ) +
-    labs(#title = 'Cumulative First Dose', 
-         x = "", y = 'Age Group percent') +
+    labs(title = 'Age Group: 0-4', 
+         x = "", y = '') +
     theme(plot.title = element_text(hjust = 0.5)) +
     theme_minimal() +
     scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
     scale_y_continuous(labels = scales::percent)
 
-fig <- ggplotly(p, tooltip = 'text')
+py_0_4 <- ggplotly(gg_0_4, tooltip = 'text')
 
-fig
+gg_5_14 <- ggplot(vax_euro[age_group == '5-14', ], aes(x = week_day,
+                       y=vax_pc/100,
+                       text = paste('percent: ', vax_pc,
+                           '<br>Date: ', as.Date(week_day)),
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
+              method.args = list(family=quasibinomial) ) +
+    labs(#title = 'Cumulative First Dose', 
+         x = "", y = '') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme_minimal() +
+    scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
+    scale_y_continuous(labels = scales::percent)
+
+py_5_14 <- ggplotly(gg_5_14, tooltip = 'text')
+
+gg_15_24 <- ggplot(vax_euro[age_group == '15-24', ], aes(x = week_day,
+                       y=vax_pc/100,
+                       text = paste('percent: ', vax_pc,
+                           '<br>Date: ', as.Date(week_day)),
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
+              method.args = list(family=quasibinomial) ) +
+    labs(#title = 'Cumulative First Dose', 
+         x = "", y = '') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme_minimal() +
+    scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
+    scale_y_continuous(labels = scales::percent)
+
+py_15_24 <- ggplotly(gg_15_24, tooltip = 'text')
+
+gg_25_34 <- ggplot(vax_euro[age_group == '25-34', ], aes(x = week_day,
+                       y=vax_pc/100,
+                       text = paste('percent: ', vax_pc,
+                           '<br>Date: ', as.Date(week_day)),
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
+              method.args = list(family=quasibinomial) ) +
+    labs(#title = 'Cumulative First Dose', 
+         x = "", y = '') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme_minimal() +
+    scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
+    scale_y_continuous(labels = scales::percent)
+
+py_25_34 <- ggplotly(gg_25_34, tooltip = 'text')
+
+gg_35_44 <- ggplot(vax_euro[age_group == '35-44', ], aes(x = week_day,
+                       y=vax_pc/100,
+                       text = paste('percent: ', vax_pc,
+                           '<br>Date: ', as.Date(week_day)),
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
+              method.args = list(family=quasibinomial) ) +
+    labs(#title = 'Cumulative First Dose', 
+         x = "", y = '') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme_minimal() +
+    scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
+    scale_y_continuous(labels = scales::percent)
+
+py_35_44 <- ggplotly(gg_35_44, tooltip = 'text')
+
+gg_45_54 <- ggplot(vax_euro[age_group == '45-54', ], aes(x = week_day,
+                       y=vax_pc/100,
+                       text = paste('percent: ', vax_pc,
+                           '<br>Date: ', as.Date(week_day)),
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
+              method.args = list(family=quasibinomial) ) +
+    labs(#title = 'Cumulative First Dose', 
+         x = "", y = '') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme_minimal() +
+    scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
+    scale_y_continuous(labels = scales::percent)
+
+py_45_54 <- ggplotly(gg_45_54, tooltip = 'text')
+
+gg_55_64 <- ggplot(vax_euro[age_group == '55-64', ], aes(x = week_day,
+                       y=vax_pc/100,
+                       text = paste('percent: ', vax_pc,
+                           '<br>Date: ', as.Date(week_day)),
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
+              method.args = list(family=quasibinomial) ) +
+    labs(#title = 'Cumulative First Dose', 
+         x = "", y = '') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme_minimal() +
+    scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
+    scale_y_continuous(labels = scales::percent)
+
+py_55_64 <- ggplotly(gg_55_64, tooltip = 'text')
+
+gg_65_74 <- ggplot(vax_euro[age_group == '65-74', ], aes(x = week_day,
+                       y=vax_pc/100,
+                       text = paste('percent: ', vax_pc,
+                           '<br>Date: ', as.Date(week_day)),
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
+              method.args = list(family=quasibinomial) ) +
+    labs(#title = 'Cumulative First Dose', 
+         x = "", y = '') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme_minimal() +
+    scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
+    scale_y_continuous(labels = scales::percent)
+
+py_65_74 <- ggplotly(gg_65_74, tooltip = 'text')
+
+gg_75 <- ggplot(vax_euro[age_group == '75+', ], aes(x = week_day,
+                       y=vax_pc/100,
+                       text = paste('percent: ', vax_pc,
+                           '<br>Date: ', as.Date(week_day)),
+                       group = age_group) ) + 
+    geom_point(size = 0.2) + 
+    stat_smooth(method="glm", se=FALSE, colour = "darkblue",size=0.2,
+              method.args = list(family=quasibinomial) ) +
+    labs(#title = 'Cumulative First Dose', 
+         x = "", y = '') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme_minimal() +
+    scale_x_date(date_labels = '%Y', date_breaks = "1 year") +
+    scale_y_continuous(labels = scales::percent)
+
+py_75 <- ggplotly(gg_75, tooltip = 'text')
+
+py_vax <- list(py_0_4, py_5_14, py_15_24, py_25_34, py_35_44,
+               py_45_54, py_55_64, py_65_74, py_75)
+```
+
+```{r}
+
+annotations = list( 
+  list( 
+    x = 0.1, y = 0.95, text = "Age Group: 0-4",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ),  
+  list( 
+    x = 0.5, y = 0.95, text = "Age Group: 5-14",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ),  
+  list( 
+    x = 0.85, y = 0.95, text = "Age Group: 15-24",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ),  list( 
+    x = 0.2, y = 0.5, text = "Age Group: 25-34",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ),
+  list(
+    x = 0.5, y = 0.5, text = "Age Group: 35-44",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ),  
+  list(
+    x = 0.8, y = 0.5, text = "Age Group: 45-54",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ), 
+  list(
+    x = 0.2, y = 0.2, text = "Age Group: 55-64",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ),  
+  list(
+    x = 0.5, y = 0.2, text = "Age Group: 65-74",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ),  
+  list(
+    x = 0.8, y = 0.2, text = "Age Group: 75+",  
+    xref = "paper", yref = "paper", 
+    xanchor = "center", yanchor = "bottom", showarrow = FALSE 
+  ) )
+
+subplot(py_vax, nrows = 3, shareX = TRUE, shareY = TRUE) |> 
+    layout(title = 'Cumulative First Dose Vax',
+           annotations = annotations)
+```
+
+```{r}
+py_35_44
+
 ```
 
 ## Appendix

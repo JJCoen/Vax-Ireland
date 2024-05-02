@@ -178,11 +178,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ireland-census---central-statistics-office" id="toc-ireland-census---central-statistics-office" class="nav-link" data-scroll-target="#ireland-census---central-statistics-office"><strong>2011 Ireland Census -</strong> Central Statistics Office</a></li>
   <li><a href="#ireland-census---central-statistics-office-1" id="toc-ireland-census---central-statistics-office-1" class="nav-link" data-scroll-target="#ireland-census---central-statistics-office-1"><strong>2016 Ireland Census -</strong> Central Statistics Office</a></li>
   <li><a href="#ireland-census---central-statistics-office-2" id="toc-ireland-census---central-statistics-office-2" class="nav-link" data-scroll-target="#ireland-census---central-statistics-office-2"><strong>2022 Ireland Census -</strong> Central Statistics Office</a></li>
-  <li><a href="#population-estimates-2023" id="toc-population-estimates-2023" class="nav-link" data-scroll-target="#population-estimates-2023">Population Estimates, 2023</a></li>
-  <li><a href="#population-estimates-2015-2021" id="toc-population-estimates-2015-2021" class="nav-link" data-scroll-target="#population-estimates-2015-2021">Population Estimates, 2015-2021</a></li>
-  <li><a href="#population-estimates-2010-2014" id="toc-population-estimates-2010-2014" class="nav-link" data-scroll-target="#population-estimates-2010-2014">Population Estimates, 2010-2014</a></li>
+  <li><a href="#population-estimates" id="toc-population-estimates" class="nav-link" data-scroll-target="#population-estimates">Population Estimates</a></li>
   </ul></li>
-  <li><a href="#mortality" id="toc-mortality" class="nav-link" data-scroll-target="#mortality">Mortality</a></li>
+  <li><a href="#mortality" id="toc-mortality" class="nav-link" data-scroll-target="#mortality">Mortality</a>
+  <ul class="collapse">
+  <li><a href="#eurostat" id="toc-eurostat" class="nav-link" data-scroll-target="#eurostat">EuroStat</a></li>
+  </ul></li>
   <li><a href="#vaccinations" id="toc-vaccinations" class="nav-link" data-scroll-target="#vaccinations">Vaccinations</a>
   <ul class="collapse">
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
@@ -245,29 +246,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/FY006B-Pop-2022.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="population-estimates-2023" class="level3">
-<h3 class="anchored" data-anchor-id="population-estimates-2023">Population Estimates, 2023</h3>
-<p>Run the html script below and download file to <em>./raw-data/PEA01-Pop-Est-2023.csv</em></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/PEA01-Pop-Est-2023.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="population-estimates-2015-2021" class="level3">
-<h3 class="anchored" data-anchor-id="population-estimates-2015-2021">Population Estimates, 2015-2021</h3>
-<p><a href="https://data.cso.ie/table/PEA01">CSO Table PEA01 Population Estimates</a></p>
-<p>To download data file, click link below</p>
-<p><a href="https://www.cso.ie/en/media/csoie/releasespublications/documents/ep/populationandmigrationestimates/2021/P-PME2021TBL1.8.xlsx">Estimated Population classified by Sex and Age Group, 2015 - 2021</a></p>
-<p>and save the file to the <em>raw-data</em> folder. Enter the file name: <em>PEA01-Pop-Est</em><br>
-The file type is xlsx.</p>
-</section>
-<section id="population-estimates-2010-2014" class="level3">
-<h3 class="anchored" data-anchor-id="population-estimates-2010-2014">Population Estimates, 2010-2014</h3>
-<p>Run the html script below and download file to <em>./raw-data/PEA01-Pop-Est-2010-2014.csv</em></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/PEA01-Pop-Est-2010-2014.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="population-estimates" class="level3">
+<h3 class="anchored" data-anchor-id="population-estimates">Population Estimates</h3>
+<p>Annual estimates of the population are contained in <a href="https://data.cso.ie/table/PEA01">CSO Table PEA01 Population Estimates</a></p>
+<p>Select the years 2010, 2012-2015, 2017-2021, and 2023. Also, select for all age groups and both sexes. Download the CSV file to <em>./raw-data/PEA01-Estimates.csv</em></p>
 </section>
 </section>
 <section id="mortality" class="level2">
@@ -275,19 +257,37 @@ The file type is xlsx.</p>
 <p><a href="https://data.cso.ie/table/VSAQ2">CSO - Mortality by Age Group and Quarter Year</a></p>
 <p>Run the R chunk below and select “Download CSV” to the <em>raw-data</em> folder. Enter the file name: <em>VSAQ2-Mort-Age-2010-2023</em> The file type is automatically set to csv.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/VSAQ2-Mort-Age-2010-2023.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">"./scripts/VSAQ2-Mort-Age-2010-2023.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="eurostat" class="level3">
+<h3 class="anchored" data-anchor-id="eurostat">EuroStat</h3>
 <p>Go to <a href="https://ec.europa.eu/eurostat/databrowser/view/demo_magec__custom_9481166/default/table?lang=en" title="custom query to EuroStat">EuroStat demo_magec dataset</a></p>
 <p>Select <code>Download</code> &gt;<br>
 &gt; <code>Data on this page only</code><br>
 &gt; <code>Spreadsheet (.xlsx)</code></p>
 <p>and save file in <code>raw-data</code> folder</p>
-<p><br>
-</p>
+</section>
 </section>
 <section id="vaccinations" class="level2">
 <h2 class="anchored" data-anchor-id="vaccinations">Vaccinations</h2>
+<section id="cso" class="level4">
+<h4 class="anchored" data-anchor-id="cso">CSO</h4>
+<p>The Central Statistics Office covers each 166 electoral areas in Ireland and does not give total over all areas. In addition, vaccinations administered are recorded as a percent of area population. By not giving total numbers vaccinated in an area, it makes it difficult to calculate total overall counts for any given month (between 2021 and 2023).</p>
+<p><a href="https://data.cso.ie/table/CDC47">CSO COVID-19 Vaccination Rates</a></p>
+</section>
+<section id="eurostat-1" class="level4">
+<h4 class="anchored" data-anchor-id="eurostat-1">EuroStat</h4>
+<p>This analysis uses data from the COVID-19 Vaccine Tracker. This covers all weeks from w53,, 2020 up to 05 October, 2023 and includes all age groups. It records the median cumulative uptake (%) of the primary course by age group. The latest data recorded refers to a period until 5 October 2023 and no further updates have been included.</p>
+<p>The main “Data on COVID-19 vaccination in the EU/EEA” data-set only covers doses administered during the most recent weeks.</p>
+<p><a href="https://vaccinetracker.ecdc.europa.eu/public/extensions/COVID-19/vaccine-tracker.html#age-group-tab">European Centre for Disease Prevention and Control COVID-19 Vaccine Tracker</a></p>
+<p>Select Country &gt; Ireland<br>
+Select Indicator &gt; Uptake primary course<br>
+Select Age Groups tab in top menu</p>
+<p>Chart: Cumulative uptake of primary course by age group<br>
+Select Download icon from menu on right of chart</p>
+<p>Save data in <code>raw-data</code> folder</p>
+</section>
 <section id="section" class="level3">
 <h3 class="anchored" data-anchor-id="section"></h3>
 

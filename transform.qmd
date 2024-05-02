@@ -474,10 +474,12 @@ cols <- c("x0_4_years", "x5_9_years", "x10_14_years",
 vax_euro[, (cols) := lapply(.SD, get_num_list), .SDcols = cols]
 
 # Combine 5-9 and 10-14 groups
-vax_euro[, x5_14_years := x5_9_years + x10_14_years][, 
+# Since the values recorded are percentages, take the average
+# percent of the two groups
+vax_euro[, x5_14_years := (x5_9_years + x10_14_years)/2][, 
                     c("x5_9_years", "x10_14_years") := NULL]
 # Combine 15_17, and 18_24 groups
-vax_euro[, x15_24_years := x15_17_years + x18_24_years][, 
+vax_euro[, x15_24_years := (x15_17_years + x18_24_years)/2][, 
                     c("x15_17_years", "x18_24_years") := NULL]
 
 # Substitute 25_49 for CSO groups 25_34 and 35_44
